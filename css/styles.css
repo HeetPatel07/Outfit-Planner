@@ -12,36 +12,101 @@ body {
     line-height: 1.6;
 }
 
-/* Style the header */
+#homePage, #clothesPage, #outfitsPage, #socialsPage {
+    display: none;
+}
+
+/* 
+* -----------------------------
+* Styles for the navbar header
+* -----------------------------
+*/
+
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    background-color: #ffffff;
+    position: fixed;
+    color: #000000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
 }
 
-header h1 {
-    font-size: 2em;
-}
-
-/* Style the navigation menu */
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
+/* Style the logo image with padding */
+header a img {
+    height: 50px;
+    padding: 10px; /* Add padding around the logo */
+    margin-left: 20px;
     margin-right: 20px;
 }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-/* Style the main content area */
+nav li {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+}
+
+/* Style the navigation buttons with padding */
+.nav-button {
+    height: 100px;
+    width: 200px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+}
+
+/* Style the icon and text in navbar */
+.nav-icon {
+    font-size: 24px;
+}
+
+.nav-icon-pic {
+    height: 25px;
+    padding-bottom: 5px;
+}
+
+.nav-text {
+    font-size: 24px;
+    text-align: center;
+}
+
+.profile {
+    height: 50px;
+    padding: 10px; /* Add padding around the logo */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* 
+* -----------------------------
+* Styles for the main content
+* -----------------------------
+*/
 main {
     padding: 20px;
+    margin-top: 100px;
+}
+
+main h1 {
+    text-align: center;
 }
 
 section {
@@ -59,5 +124,3 @@ footer {
     text-align: center;
     padding: 10px;
 }
-
-/* Add additional styles as needed for your specific website design */
