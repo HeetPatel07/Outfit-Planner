@@ -42,6 +42,7 @@ header a img {
     padding: 10px; /* Add padding around the logo */
     margin-left: 20px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 nav ul {
@@ -71,6 +72,7 @@ nav li {
     justify-content: space-between;
     align-items: center;
     padding: 22px;
+    cursor: pointer;
 }
 
 /* Style the icon and text in navbar */

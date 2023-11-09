@@ -22,19 +22,19 @@
             <nav>
                 <ul>
                     <li>
-                        <button class="nav-button" onclick="showPage('clothesPage')">
+                        <button class="nav-button" id="clothesPageButton" onclick="showPage('clothesPage')">
                             <div class="nav-icon"><i class="fas fa-shirt"></i></div>
                             <div class="nav-text">Clothes</div>
                         </button>
                     </li>
                     <li>
-                        <button class="nav-button" onclick="showPage('outfitsPage')">
+                        <button class="nav-button" id="outfitsPageButton" onclick="showPage('outfitsPage')">
                             <img class="nav-icon-pic" src="./images/hanger.png">
                             <div class="nav-text">Outfits</div>
                         </button>
                     </li>
                     <li>
-                        <button class="nav-button" onclick="showPage('socialsPage')">
+                        <button class="nav-button" id="socialsPageButton" onclick="showPage('socialsPage')">
                             <div class="nav-icon"><i class="fas fa-globe"></i></div>
                             <div class="nav-text">Socials</div>
                         </button>
@@ -50,7 +50,10 @@
 
         <!-- Main page components and screens -->>
         <main>
-            <!-- Home Page -->
+            <!---------------------------
+            --- Home Page ---------------
+            ---------------------------->
+            
             <div id="homePage">
                 <h1>Home Page</h1>
 
@@ -65,7 +68,9 @@
                 </section>
             </div>
 
-            <!-- Clothes Page -->
+            <!---------------------------
+            --- Clothes Page ------------
+            ---------------------------->
             <div id="clothesPage">
                 <h1>Clothes Page</h1>
 
@@ -80,7 +85,9 @@
                 </section>
             </div>
 
-            <!-- Outfits Page -->
+            <!---------------------------
+            --- Outfits Page ------------
+            ---------------------------->
             <div id="outfitsPage">
                 <h1>Outfits Page</h1>
 
@@ -95,7 +102,9 @@
                 </section>
             </div>
 
-            <!-- Socials Page -->
+            <!---------------------------
+            --- Socials Page ------------
+            ---------------------------->
             <div id="socialsPage">
                 <h1>Socials Page</h1>
 
@@ -113,7 +122,7 @@
         </main>
         
 
-        <!-- Consistent footer -->>
+        <!-- Consistent footer -->
         <footer>
             <p> COMP 3020 A01 - CPG24</p>
         </footer>
@@ -131,8 +140,21 @@
     
                 // Show the selected div
                 document.getElementById(divId).style.display = 'block';
+
+                updateNavButtons(divId+'Button');
             }
-    
+            
+            // Function to toggle the shading of navigation buttons
+            function updateNavButtons(buttonId) {
+                document.getElementById('clothesPageButton').style.backgroundColor = '#ffffff';
+                document.getElementById('outfitsPageButton').style.backgroundColor = '#ffffff';
+                document.getElementById('socialsPageButton').style.backgroundColor = '#ffffff';
+
+                if(buttonId !== 'homePageButton'){
+                    document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
+                }
+            }
+
             // Initial section to display
             showPage("homePage");
         </script>
