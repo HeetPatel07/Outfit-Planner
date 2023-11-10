@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clothing App</title>
         <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/items-styles.css">
 
         <!-- Include Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -74,15 +75,48 @@
             <div id="clothesPage">
                 <h1>Clothes Page</h1>
 
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
+                <div class="sidebar">
+                    <div class="category">Hats</div>
+                    <div class="category">Tops</div>
+                    <div class="category">Bottoms</div>
+                    <div class="category">Shoes</div>
+                </div>
+
+                <div class="items-section">
+                    <section id="section-items">
+                        <table border="1px">
+                            <tr>
+                                <th></th>
+                                <th>Item 1</th>
+                                <th>Item 2</th>
+                                <th>Item 3</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="arrowButton">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td>Item 4</td>
+                                <td>Item 5</td>
+                                <td>Item 6</td>
+                                <td>
+                                    <button id="arrowButton">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Item 7</td>
+                                <td>Item 8</td>
+                                <td>Item 9</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </section>
+                </div>
             </div>
 
             <!---------------------------
@@ -158,5 +192,6 @@
             // Initial section to display
             showPage("homePage");
         </script>
+        <script src="scripts/items-script.js" />
     </body>
 </html>
