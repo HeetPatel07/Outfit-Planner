@@ -1,162 +1,182 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Clothing App</title>
-        <link rel="stylesheet" href="./css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing App</title>
+    <link rel="stylesheet" href="./css/styles.css">
 
-        <!-- Include Font Awesome for icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    </head>
-    
-    <body>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
 
-        <!-- NavBar and consistent header -->
-        <header class="navbar">
-            <a onclick="showPage('homePage')">
-                <img src="./images/logo.png" href="index.html">
-            </a>
-        
-            <nav>
-                <ul>
-                    <li>
-                        <button class="nav-button" id="clothesPageButton" onclick="showPage('clothesPage')">
-                            <div class="nav-icon"><i class="fas fa-shirt"></i></div>
-                            <div class="nav-text">Clothes</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-button" id="outfitsPageButton" onclick="showPage('outfitsPage')">
-                            <img class="nav-icon-pic" src="./images/hanger.png">
-                            <div class="nav-text">Outfits</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-button" id="socialsPageButton" onclick="showPage('socialsPage')">
-                            <div class="nav-icon"><i class="fas fa-globe"></i></div>
-                            <div class="nav-text">Socials</div>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        
-            <a>
-                <img src="./images/user.png" href="index.html">
-            </a>
-        </header>
-        
+<body>
 
-        <!-- Main page components and screens -->>
-        <main>
-            <!---------------------------
-            --- Home Page ---------------
-            ---------------------------->
-            
-            <div id="homePage">
-                <h1>Home Page</h1>
+<!-- NavBar and consistent header -->
+<header class="navbar">
+    <a onclick="showPage('homePage')">
+        <img src="./images/logo.png" href="index.html">
+    </a>
 
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
+    <nav>
+        <ul>
+            <li>
+                <button class="nav-button" id="clothesPageButton" onclick="showPage('clothesPage')">
+                    <div class="nav-icon"><i class="fas fa-shirt"></i></div>
+                    <div class="nav-text">Clothes</div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" id="outfitsPageButton" onclick="showPage('outfitsPage')">
+                    <img class="nav-icon-pic" src="./images/hanger.png">
+                    <div class="nav-text">Outfits</div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" id="socialsPageButton" onclick="showPage('socialsPage')">
+                    <div class="nav-icon"><i class="fas fa-globe"></i></div>
+                    <div class="nav-text">Socials</div>
+                </button>
+            </li>
+        </ul>
+    </nav>
 
-            <!---------------------------
-            --- Clothes Page ------------
-            ---------------------------->
-            <div id="clothesPage">
-                <h1>Clothes Page</h1>
-
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
-
-            <!---------------------------
-            --- Outfits Page ------------
-            ---------------------------->
-            <div id="outfitsPage">
-                <h1>Outfits Page</h1>
-
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
-
-            <!---------------------------
-            --- Socials Page ------------
-            ---------------------------->
-            <div id="socialsPage">
-                <h1>Socials Page</h1>
-
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
-            
-        </main>
-        
-
-        <!-- Consistent footer -->
-        <footer>
-            <p> COMP 3020 A01 - CPG24</p>
-        </footer>
+    <a>
+        <img src="./images/user.png" href="index.html">
+    </a>
+</header>
 
 
-        <!-- Scripts -->
-        <script>
-            // Function to toggle the visibility of pages
-            function showPage(divId) {
-                // hide all pages
-                document.getElementById('homePage').style.display = 'none';
-                document.getElementById('clothesPage').style.display = 'none';
-                document.getElementById('outfitsPage').style.display = 'none';
-                document.getElementById('socialsPage').style.display = 'none';
-    
-                // Show the selected div
-                document.getElementById(divId).style.display = 'block';
+<!-- Main page components and screens -->>
+<main>
+    <!---------------------------
+    --- Home Page ---------------
+    ---------------------------->
 
-                updateNavButtons(divId+'Button');
-            }
-            
-            // Function to toggle the shading of navigation buttons
-            function updateNavButtons(buttonId) {
-                document.getElementById('clothesPageButton').style.backgroundColor = '#ffffff';
-                document.getElementById('outfitsPageButton').style.backgroundColor = '#ffffff';
-                document.getElementById('socialsPageButton').style.backgroundColor = '#ffffff';
+    <div id="homePage">
+        <h1>Home Page</h1>
 
-                if(buttonId !== 'homePageButton'){
-                    document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
-                }
-            }
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of section 1.</p>
+        </section>
 
-            // Initial section to display
-            showPage("homePage");
-        </script>
-    </body>
+        <section>
+            <h2>Section 2</h2>
+            <p>This is the content of section 2.</p>
+        </section>
+    </div>
+
+    <!---------------------------
+    --- Clothes Page ------------
+    ---------------------------->
+    <div id="clothesPage">
+        <h1>Clothes Page</h1>
+
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of section 1.</p>
+        </section>
+
+        <section>
+            <h2>Section 2</h2>
+            <p>This is the content of section 2.</p>
+        </section>
+    </div>
+
+    <!---------------------------
+    --- Outfits Page ------------
+    ---------------------------->
+    <div id="outfitsPage">
+
+        <h1 id="headedO">Outfits Page</h1>
+
+        <center>
+            <section id="description-box">
+                <h2 id="Description">Outfit 1</h2>
+                <p>Item description</p>
+            </section>
+
+            <section id="content-box">
+            </section>
+
+            <!--the add button-->
+            <button class="OFB outfit-button1"><i class="fa-solid fa-plus"></i>
+            </button>
+
+            <!--the edit button-->
+            <button Class="OFB outfit-button2"><i class="fa-solid fa-pen-to-square"></i>
+            </button>
+
+            <!--the delete button-->
+            <button Class="OFB outfit-button3"><i class="fa-solid fa-trash-can"></i>
+            </button>
+
+            <!--the share button-->
+            <button Class="OFB outfit-button4"><i class="fa-solid fa-share"></i>
+            </button>
+
+        </center>
+
+
+    </div>
+
+    <!---------------------------
+    --- Socials Page ------------
+    ---------------------------->
+    <div id="socialsPage">
+        <h1>Socials Page</h1>
+
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of section 1.</p>
+        </section>
+
+        <section>
+            <h2>Section 2</h2>
+            <p>This is the content of section 2.</p>
+        </section>
+    </div>
+
+</main>
+
+
+<!-- Consistent footer -->
+<footer>
+    <p> COMP 3020 A01 - CPG24</p>
+</footer>
+
+
+<!-- Scripts -->
+<script>
+    // Function to toggle the visibility of pages
+    function showPage(divId) {
+        // hide all pages
+        document.getElementById('homePage').style.display = 'none';
+        document.getElementById('clothesPage').style.display = 'none';
+        document.getElementById('outfitsPage').style.display = 'none';
+        document.getElementById('socialsPage').style.display = 'none';
+
+        // Show the selected div
+        document.getElementById(divId).style.display = 'block';
+
+        updateNavButtons(divId + 'Button');
+    }
+
+    // Function to toggle the shading of navigation buttons
+    function updateNavButtons(buttonId) {
+        document.getElementById('clothesPageButton').style.backgroundColor = '#ffffff';
+        document.getElementById('outfitsPageButton').style.backgroundColor = '#ffffff';
+        document.getElementById('socialsPageButton').style.backgroundColor = '#ffffff';
+
+        if (buttonId !== 'homePageButton') {
+            document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
+        }
+    }
+
+    // Initial section to display
+    showPage("homePage");
+</script>
+</body>
 </html>
