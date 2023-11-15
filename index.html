@@ -43,7 +43,7 @@
             </nav>
         
             <a>
-                <img src="./images/user.png" href="index.html">
+                <img src="./images/user.png" href="index.html" onclick="openModal('profileModal')">
             </a>
         </header>
         
@@ -120,7 +120,28 @@
             </div>
             
         </main>
+
+        <!---------------------------
+        --- Modals ------------------
+        ---------------------------->
+        <!-- This is the overlay that darkens the screen -->
+        <div class="overlay" id="overlay" onclick="closeModal()"></div>
         
+        <!-- clothing Modal -->
+        <div class="clothing-modal" id="clothingModal">
+            <div class="modal-content">
+                <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+                <p>This is the clothing modal content.</p>
+            </div>
+        </div>
+        
+        <!-- profile Modal -->
+        <div class="profile-modal" id="profileModal">
+            <div class="modal-content">
+                <span class="left-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+                <p>This is the profile modal content.</p>
+            </div>
+        </div>
 
         <!-- Consistent footer -->
         <footer>
@@ -130,6 +151,8 @@
 
         <!-- Scripts -->
         <script>
+            currentModal = "";          // Keeps track of current Modal that is open
+
             // Function to toggle the visibility of pages
             function showPage(divId) {
                 // hide all pages
@@ -153,6 +176,20 @@
                 if(buttonId !== 'homePageButton'){
                     document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
                 }
+            }
+
+            // Function to open specified modal
+            function openModal(modalName) {
+                currentModal = modalName;
+                document.getElementById("overlay").style.display = "block";
+                document.getElementById(currentModal).style.display = "block";
+            }
+
+            // Function to close currently opened modal
+            function closeModal() {
+                document.getElementById("overlay").style.display = "none";
+                document.getElementById(currentModal).style.display = "none";
+                currentModal = "";
             }
 
             // Initial section to display

@@ -126,3 +126,68 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+/* 
+* -----------------------------
+* Styles for the modal
+* -----------------------------
+*/
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.modal-content {
+    padding-top: 40px;
+    position: relative;
+}
+
+.right-close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.left-close {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.clothing-modal {
+    display: none;
+    position: fixed;
+    left: 31%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 2;
+}
+
+.profile-modal {
+    display: none;
+    position: fixed;
+    right: -18%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 2;
+}
