@@ -101,6 +101,13 @@
             <section id="content-box">
             </section>
 
+
+            <!--The arrow buttons to enable scrolling-->
+            <!--left button-->
+            <button class="arrow left" onclick="removeFocus(this)"><i class="fa-solid fa-angle-left fa"></i></i></button>
+            <!--right button-->
+            <button class="arrow right" onclick="removeFocus(this)"><i class="fa-solid fa-angle-right fa"></i></button>
+
             <!--the add button-->
             <button class="OFB outfit-button1"><i class="fa-solid fa-plus"></i>
             </button>
@@ -175,8 +182,19 @@
         }
     }
 
-    // Initial section to display
     showPage("homePage");
+
+    // Initial section to display
+
+
+        function removeFocus(button) {
+            setTimeout(() => {
+                button.blur(); // Blur the button to remove focus
+            }, 10); // Adjust the time (in milliseconds) as needed
+        }
+
+
+
 </script>
 </body>
 </html>

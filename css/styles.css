@@ -143,15 +143,8 @@ footer {
     text-align: center;
     padding: 10px;
 }
-/*
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
 
-*/
+
 /**Style for the outfit section**/
 /*bottom buttons*/
 #headedO{
@@ -160,27 +153,69 @@ footer {
     margin:0;
 
 }
+
 #description-box{
     width: 30%;
-    height: 100px;
+    height: 40%;
     border: 2px solid #000;
     box-sizing: border-box;
+    padding: 10px 2px;
 }
 #Description{
     text-decoration: underline;
     font-weight: bold;
     font-size: large;
+    padding: 0px 0px;
 }
 #content-box{
-    width: 500px;
+    width: 40%;
     height: 300px;
     border: 3px solid #000;
     box-sizing: border-box;
+    position: relative; /* Add relative positioning */
 }
 
 
+/*the arrow buttons on the side*/
+.arrow {
+    flex-direction: row;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+
+}
+
+    .arrow.left {
+        position: absolute;
+        left: 24%;
+        top:52% ;/*centrally vertical*/
+        transform: translateY(-50%);
+    }
+        .arrow.left:hover {
+            font-size: 45px;
+        }
+
+
+    .arrow.right {
+        position: absolute;
+        left: 73%;
+        top:52%; /*centrally vertical*/
+        transform: translateY(-50%);
+    }
+        .arrow.right:hover {
+            font-size: 45px;
+        }
+
+.arrow:focus{
+    background-color: #d3d3d3;
+    box-shadow: 0 0 5px 2px #363535;
+}
+
+/*the buttons on the bottom of the page*/
 .OFB{
-    text-align: center;
     padding: 10px 15px;
     cursor: pointer;
     margin: 10px;
@@ -193,37 +228,37 @@ footer {
 }
 
 
-.outfit-button1{
-        order: 1;
-        background-color: rgb(34, 217, 34);
-}
-.outfit-button1:hover{
-    background-color: #1da21d;
-}
+    .outfit-button1{
+            order: 1;
+            background-color: rgb(34, 217, 34);
+    }
+        .outfit-button1:hover{
+            background-color: #1da21d;
+        }
+
+    .outfit-button2{
+        order:2;
+        background-color: #4169E1;
+    }
+        .outfit-button2:hover{
+            background-color: #2a2a91;
+            border:black;
+        }
 
 
-.outfit-button2{
-    order:2;
-    background-color: #4169E1;
-}
-.outfit-button2:hover{
-    background-color: #2a2a91;
-}
+    .outfit-button3{
+        order:3;
+        background-color: #fa4303;
+    }
+        .outfit-button3:hover{
+            background-color: #b20000;
+        }
 
-
-.outfit-button3{
-    order:3;
-    background-color: #fa4303;
-}
-.outfit-button3:hover{
-    background-color: #b20000;
-}
-
-.outfit-button4{
-    order:4;
-    background-color:#87CEFA;
-}
-.outfit-button4:hover{
-    background-color: #4b9393;
-}
+    .outfit-button4{
+        order:4;
+        background-color:#87CEFA;
+    }
+        .outfit-button4:hover{
+            background-color: #4b9393;
+        }
 
