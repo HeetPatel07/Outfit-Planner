@@ -109,7 +109,7 @@
             <button class="arrow right" onclick="removeFocus(this)"><i class="fa-solid fa-angle-right fa"></i></button>
 
             <!--the add button-->
-            <button class="OFB outfit-button1"><i class="fa-solid fa-plus"></i>
+            <button class="OFB outfit-button1"onclick="openModal('Add outfit','Please Select items for the new outfit','Add outfit') "><i class="fa-solid fa-plus"></i>
             </button>
 
             <!--the edit button-->
@@ -117,7 +117,7 @@
             </button>
 
             <!--the delete button-->
-            <button Class="OFB outfit-button3"><i class="fa-solid fa-trash-can"></i>
+            <button Class="OFB outfit-button3" onclick="openModal('Delete Confirmation', 'Are you sure you want to delete this outfit?', 'Delete outfit')"><i class="fa-solid fa-trash-can"></i>
             </button>
 
             <!--the share button-->
@@ -126,25 +126,36 @@
 
         </center>
 
+        <!-- The modal container -->
+        <div id="myModal" class="modal">
+            <!---this for the small changes---->
+            <!-- Modal content -->
+            <div id="modalContent" class="modal-content">
 
+            </div>
+        </div>
+        <!--this is for the largers modal-->
+        <div id="larger-Modal" class="larger-Modal">
+            <div id="larger-Modal-content" class="larger-Modal-content"></div>
+        </div>
     </div>
 
-    <!---------------------------
-    --- Socials Page ------------
-    ---------------------------->
-    <div id="socialsPage">
-        <h1>Socials Page</h1>
+        <!---------------------------
+        --- Socials Page ------------
+        ---------------------------->
+        <div id="socialsPage">
+            <h1>Socials Page</h1>
 
-        <section>
-            <h2>Section 1</h2>
-            <p>This is the content of section 1.</p>
-        </section>
+            <section>
+                <h2>Section 1</h2>
+                <p>This is the content of section 1.</p>
+            </section>
 
-        <section>
-            <h2>Section 2</h2>
-            <p>This is the content of section 2.</p>
-        </section>
-    </div>
+            <section>
+                <h2>Section 2</h2>
+                <p>This is the content of section 2.</p>
+            </section>
+        </div>
 
 </main>
 
@@ -186,13 +197,64 @@
 
     // Initial section to display
 
+    //This is the outfits section
+    function removeFocus(button) {
+        setTimeout(() => {
+            button.blur(); // Blur the button to remove focus
+        }, 10); // Adjust the time (in milliseconds) as needed
+    }
+    function openModal(title, message, action) {
+        // Set the modal content dynamically based on the provided parameters
+        if(action=='Delete outfit') {
+            document.getElementById('modalContent').innerHTML = `
+        <h2>${title}</h2>
+        <p>${message}</p>
+        <button class="modal-button confirm" onclick="confirmAction('${action}')">Yes</button>
+        <button class="modal-button cancel" onclick="closeModal()">Cancel</button>`;
+            // Show the modal
+            document.getElementById('myModal').style.display = 'block';
 
-        function removeFocus(button) {
-            setTimeout(() => {
-                button.blur(); // Blur the button to remove focus
-            }, 10); // Adjust the time (in milliseconds) as needed
+        }
+        else if(action=='Add outfit'){
+            document.getElementById('larger-Modal-content').innerHTML = outfitModal(title,message);
+            document.getElementById('larger-Modal').style.display = 'block';
+
         }
 
+    }
+    function outfitModal(title,message){
+        return `
+        <center>
+        <h2>${title}</h2>
+        <p>${message}</p>
+        </center>
+         <button class="close-button" onclick="closeModal(1)"><i class="fa-solid fa-xmark"></i></button>
+            <button class="large-Modal-items Tops" onclick="">Tops</button>
+            <button class="large-Modal-items Bottoms" onclick="">Bottoms</button>
+            <button class="large-Modal-items Shoes" onclick="">Shoes</button>
+            <button class="large-Modal-items Others" onclick="">Others</button>
+
+            <section class="display choices"></section>
+            `
+
+
+    }
+
+    function closeModal(x) {
+        // Close the modal
+        if(arguments.length==0)
+        document.getElementById('myModal').style.display = 'none';
+        document.getElementById('larger-Modal').style.display = 'none';
+
+    }
+
+    function confirmAction(action) {
+        // Perform the action based on the context
+        if(action=='Delete outfit')
+            alert(`Performing action: ${action}`);
+        // Close the modal after confirming the action
+        closeModal();
+    }
 
 
 </script>
