@@ -146,6 +146,7 @@ footer {
 .modal-content {
     padding-top: 40px;
     position: relative;
+    height: 90%;
 }
 
 .right-close {
@@ -190,4 +191,29 @@ footer {
     background-color: #fff;
     padding: 20px;
     z-index: 2;
+}
+
+.profile-pic {
+    height: 100px;
+    padding: 10px;
+}
+
+.profile-text {
+    padding: 10px;
+    color: #000;
+    font-size: 24px;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    color: #4d4d4d;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.profile-footer {
+    position: absolute;
+    bottom: 0;
 }
