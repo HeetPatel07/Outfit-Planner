@@ -117,8 +117,133 @@
                     <h2>Section 2</h2>
                     <p>This is the content of section 2.</p>
                 </section>
+
+                    <div class="instagram-feed">
+                        <div class="post">
+
+                            <style>
+
+                                .instagram-feed {
+                                    max-width: 600px;
+                                    width: 100%;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+
+                                .post {
+                                    position: relative;
+                                    margin-bottom: 20px;
+                                    background-color: #fff;
+                                    border: 1px solid #e0e0e0;
+                                    border-radius: 5px;
+                                    overflow: hidden;
+                                }
+
+                                .follow-btn {
+                                    position: absolute;
+                                    top: 10px;
+                                    right: 10px; /* Adjusted to top right */
+                                    padding: 5px 10px;
+                                    background-color: #3897f0;
+                                    color: #fff;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                }
+
+                                .post img {
+                                    width: 100%;
+                                    height: auto;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+
+                                .post-caption {
+                                    padding: 10px;
+                                }
+
+                                .post-buttons {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 10px;
+                                    align-items: center;
+                                }
+
+                                .like-btn,
+                                .comment-btn,
+                                .save-btn {
+                                    cursor: pointer;
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                .icon {
+                                    margin-right: 5px;
+                                }
+
+                                .liked {
+                                    color: red;
+                                }
+
+                            </style>
+
+                            <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                            <img src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1">
+                            <div class="post-caption">Outfit 1</div>
+                            <div class="post-buttons">
+                                <div class="like-btn" onclick="toggleLike(this)">
+                                    <span class="icon">&#x2764;</span> Like
+                                </div>
+                                <div class="comment-btn">
+                                    <span class="icon">&#x1F4AC;</span> Comment
+                                </div>
+                                <div class="save-btn">
+                                    <span class="icon">&#128190;</span> Save
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post">
+                            <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                            <img src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907" alt="Outfit 2">
+                            <div class="post-caption">Outfit 2</div>
+                            <div class="post-buttons">
+                                <div class="like-btn" onclick="toggleLike(this)">
+                                    <span class="icon">&#x2764;</span> Like
+                                </div>
+                                <div class="comment-btn">
+                                    <span class="icon">&#x1F4AC;</span> Comment
+                                </div>
+                                <div class="save-btn">
+                                    <span class="icon">&#128190;</span> Save
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more posts as needed -->
+
+                    </div>
+
+
+                <script>
+                    function toggleFollow(button) {
+                        if (button.textContent === 'Follow') {
+                            button.textContent = 'Following';
+                            button.style.backgroundColor = '#57a1ff';
+                        } else {
+                            button.textContent = 'Follow';
+                            button.style.backgroundColor = '#3897f0';
+                        }
+                    }
+
+                    function toggleLike(button) {
+                        button.classList.toggle('liked');
+                    }
+                </script>
+
+
             </div>
-            
+
         </main>
         
 
