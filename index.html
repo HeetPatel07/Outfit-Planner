@@ -13,7 +13,7 @@
     
     <body>
 
-        <!-- NavBar and consistent header -->
+    <!-- NavBar and consistent header -->
         <header class="navbar">
             <a onclick="showPage('homePage')">
                 <img src="./images/logo.png" href="index.html">
@@ -108,20 +108,16 @@
             <div id="socialsPage">
                 <h1>Socials Page</h1>
 
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-
                     <div class="instagram-feed">
                         <div class="post">
 
                             <style>
+
+                                /* 2nd option for navigation to stay cont
+                                header {
+                                    z-index: 1000;
+                                }*/
+
 
                                 .instagram-feed {
                                     max-width: 600px;
@@ -137,12 +133,13 @@
                                     border: 1px solid #e0e0e0;
                                     border-radius: 5px;
                                     overflow: hidden;
+                                    /*z-index: -1; this stops the buttons from working*/
                                 }
 
                                 .follow-btn {
                                     position: absolute;
                                     top: 10px;
-                                    right: 10px; /* Adjusted to top right */
+                                    right: 10px;
                                     padding: 5px 10px;
                                     background-color: #3897f0;
                                     color: #fff;
@@ -169,6 +166,59 @@
                                     align-items: center;
                                 }
 
+                                #postButton {
+                                    position: fixed;
+                                    left: 50px;
+                                    top: 25%;
+                                    transform: translateY(-50%);
+                                    padding: 10px 20px;
+                                    background-color: #3498db;
+                                    color: #fff;
+                                    font-size: 16px;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                }
+
+                                #popup {
+                                    display: none;
+                                    position: fixed;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    padding: 100px;
+                                    background-color: #fff;
+                                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                    z-index: 2;
+                                    text-align: center;
+                                    max-width: 75%;
+
+                                }
+
+                                #closeButton {
+                                    position: absolute;
+                                    top: 10px;
+                                    right: 10px;
+                                    cursor: pointer;
+                                }
+
+                                #postButtonInPopup {
+                                    margin-top: 50px;
+                                    padding: 10px 10px;
+                                    background-color: #3498db;
+                                    color: #fff;
+                                    font-size: 16px;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    display: inline-block;
+                                    position: absolute;
+                                    left: 50%;
+                                    -ms-transform: translate(-50%, -50%);
+                                    transform: translate(-50%, -50%);
+
+                                }
+
                                 .like-btn,
                                 .comment-btn,
                                 .save-btn {
@@ -184,6 +234,7 @@
                                 .liked {
                                     color: red;
                                 }
+
 
                             </style>
 
@@ -220,9 +271,17 @@
                             </div>
                         </div>
 
-                        <!-- Add more posts as needed -->
-
                     </div>
+
+                <button id="postButton" onclick="openPopup()">Post</button>
+
+                <div id="popup">
+                    <span id="closeButton" onclick="closePopup()">X</span>
+                    <img src="https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SX679_.jpg" alt="Outfit 3" style="width: 500px; height: 500px;">
+                    <p></p>
+                    <button id="postButtonInPopup" onclick="postInPopup()">Post</button>
+                </div>
+
 
 
                 <script>
@@ -239,13 +298,24 @@
                     function toggleLike(button) {
                         button.classList.toggle('liked');
                     }
+
+                    function openPopup() {
+                        document.getElementById('popup').style.display = 'block';
+                    }
+
+                    function closePopup() {
+                        document.getElementById('popup').style.display = 'none';
+                    }
+
+                    function postInPopup() {
+                        alert("Outfit has been posted");
+                    }
                 </script>
 
 
             </div>
 
         </main>
-        
 
         <!-- Consistent footer -->
         <footer>
