@@ -88,7 +88,7 @@
                 <table id="search-bar-table">
                     <tr>
                         <th id="add">
-                            <button id="add-button" title="Add new item">
+                            <button id="add-button" title="Add new item" onclick="openModal('itemsCreateModal') " >
                                 <img src="images/add1-svgrepo-com.svg">
                             </button>
                         </th>
@@ -102,20 +102,13 @@
 
                 <!--Table for hats-->
                 <!--Page 1-->
-                <div class="page" style="display: block;">
-                    <div class="table hats" style="display: none;">
-                        <table id="items-table">
+                <div class="table hats" style="display: none;">
+                        <table id="heads-table">
                             <tr>
                                 <th></th>
-                                <th id="items-cells">
-                                    Hat 1
-                                </th>
-                                <th id="items-cells">
-                                    Hat 2
-                                </th>
-                                <th id="items-cells">
-                                    Hat 3
-                                </th>
+                                <th class="items-cells"></th>
+                                <th class="items-cells"></th>
+                                <th class="items-cells"></th>
                                 <th></th>
                             </tr>
                             <tr>
@@ -124,15 +117,9 @@
                                         <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                     </button>
                                 </td>
-                                <td id="items-cells">
-                                    Hat 4
-                                </td>
-                                <td id="items-cells">
-                                    Hat 5
-                                </td>
-                                <td id="items-cells">
-                                    Hat 6
-                                </td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
                                 <td>
                                     <button id="next" title="Next page">
                                         <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
@@ -141,171 +128,57 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td id="items-cells">
-                                    Hat 7
-                                </td>
-                                <td id="items-cells">
-                                    Hat 8
-                                </td>
-                                <td id="items-cells">
-                                    Hat 9
-                                </td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
                                 <td></td>
                             </tr>
                         </table>
                     </div>
-                </div>
-                <!--Page 2-->
-                <div class="page" style="display: none;">
-                    <div class="table hats" style="display: none;">
-                        <table id="items-table">
-                            <tr>
-                                <th></th>
-                                <th id="items-cells">
-                                    Hat 10
-                                </th>
-                                <th id="items-cells">
-                                    Hat 11
-                                </th>
-                                <th id="items-cells">
-                                    Hat 12
-                                </th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
-                                    </button>
-                                </td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
                 <!--Table for tops-->
-                <div class="page" style="display: block;">
-                    <div class="table tops" style="display: block;">
-                        <table id="items-table">
-                            <tr>
-                                <th></th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
-                                    </button>
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td></td>
-                            </tr>
+                <div class="table tops" style="display: block;">
+                        <table id="tops-table">
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <th class="items-cells"></th>
+                                    <th class="items-cells"></th>
+                                    <th class="items-cells"></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button id="prev" title="Previous page">
+                                            <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                        </button>
+                                    </td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td>
+                                        <button id="next" title="Next page">
+                                            <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-                </div>
-                <div class="page" style="display: none;">
-                    <div class="table tops" style="display: block;">
-                        <table id="items-table">
-                            <tr>
-                                <th></th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
-                                    </button>
-                                </td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
                 <!--Table for bottoms-->
                 <div class="table bottoms" style="display: none;">
-                    <table id="items-table">
+                    <table id="bottoms-table">
                         <tr>
                             <th></th>
-                            <th id="items-cells">
-                                Bottom 1
-                            </th>
-                            <th id="items-cells">
-                                Bottom 2
-                            </th>
-                            <th id="items-cells">
-                                Bottom 3
-                            </th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
                             <th></th>
                         </tr>
                         <tr>
@@ -314,15 +187,9 @@
                                     <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                 </button>
                             </td>
-                            <td id="items-cells">
-                                Bottom 4
-                            </td>
-                            <td id="items-cells">
-                                Bottom 5
-                            </td>
-                            <td id="items-cells">
-                                Bottom 6
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td>
                                 <button id="next" title="Next page">
                                     <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
@@ -331,33 +198,21 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td id="items-cells">
-                                Bottom 7
-                            </td>
-                            <td id="items-cells">
-                                Bottom 8
-                            </td>
-                            <td id="items-cells">
-                                Bottom 9
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td></td>
                         </tr>
                     </table>
                 </div>
                 <!--Table for shoes-->
                 <div class="table shoes" style="display: none;">
-                    <table id="items-table">
+                    <table id="shoes-table">
                         <tr>
                             <th></th>
-                            <th id="items-cells">
-                                Shoes 1
-                            </th>
-                            <th id="items-cells">
-                                Shoes 2
-                            </th>
-                            <th id="items-cells">
-                                Shoes 3
-                            </th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
                             <th></th>
                         </tr>
                         <tr>
@@ -366,15 +221,9 @@
                                     <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                 </button>
                             </td>
-                            <td id="items-cells">
-                                Shoes 4
-                            </td>
-                            <td id="items-cells">
-                                Shoes 5
-                            </td>
-                            <td id="items-cells">
-                                Shoes 6
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td>
                                 <button id="next" title="Next page">
                                     <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
@@ -383,15 +232,9 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td id="items-cells">
-                                Shoes 7
-                            </td>
-                            <td id="items-cells">
-                                Shoes 8
-                            </td>
-                            <td id="items-cells">
-                                Shoes 9
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td></td>
                         </tr>
                     </table>
@@ -500,6 +343,31 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
 <!-- Clothing Modal -->
+<div class="items-create-modal" id="itemsCreateModal">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <h2 style="text-align: center">Add Item</h2>
+        <div class="item-create-input">
+            <img src="images/istockphoto-1313311136-612x612.jpg" width="50%" height="50%"
+            style=" display: block;
+                    margin-left: auto;
+                    margin-right: auto;"/>
+            <p style="text-align: center">Name:    <input id="item-create-name" type="text" value="" width="50%"></p>
+            <p style="text-align: center">Brand:   <input id="item-create-brand" type="text" value="" width="50%"></p>
+            <p style="text-align: center">Weather: <select id="item-create-weather" name="weather" width="50%">
+                <option value="Sunny">Sunny</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Windy">Windy</option>
+                <option value="Snowy">Snowy</option>
+            </select></p>
+            <button title="Confirm" onclick="createItem(selectedCategory)"
+                    style=" display: block;
+                    margin-left: auto;
+                    margin-right: auto;"></button>
+        </div>
+    </div>
+</div>
+
 <div class="clothing-modal" id="clothingModal">
     <div class="modal-content">
         <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
@@ -563,8 +431,104 @@
 <!---------------------------
 --- Scripts -----------------
 ---------------------------->
-<script src="scripts/items-script.js"></script>
 <script>
+        let categories = document.querySelectorAll('.category');
+        let tables = document.querySelectorAll('.table');
+        let selectedCategory = "tops";
+
+        // Default selected category is tops([1])
+        categories[1].classList.add('selected');
+
+        categories.forEach(function(category) {
+            category.addEventListener('click', function() {
+                categories.forEach(function(c) {
+                    c.classList.remove('selected');
+                });
+                this.classList.add('selected');
+
+                // Hide all tables
+                tables.forEach(function(table) {
+                    table.style.display = 'none';
+                });
+
+                // Show the table corresponding to the selected category
+                selectedCategory = this.getAttribute('data-category');
+                let selectedTable = document.querySelector('.' + selectedCategory);
+                selectedTable.style.display = 'block';
+                console.log('Category clicked: ' + selectedCategory);
+            });
+        });
+
+    const Weather = {
+        SUNNY: Symbol('SUNNY'),
+        WINDY: Symbol('WINDY'),
+        RAINY: Symbol('RAINY'),
+        SNOWY: Symbol('SNOWY')
+    }
+
+    const Category = {
+        HEADS: Symbol('HEADS'),
+        TOPS: Symbol('TOPS'),
+        BOTTOMS: Symbol('BOTTOMS'),
+        SHOES: Symbol('SHOES')
+    }
+
+    class Item {
+        constructor(name, brand, weather, category) {
+            this.name = name;
+            this.brand = brand;
+            this.weather = weather;
+            this.category = category;
+        }
+    }
+
+    head1 = new Item("Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
+    head2 = new Item("Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
+    head3 = new Item("Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
+    head4 = new Item("Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
+    head5 = new Item("Trucker Cap", "Asos", Weather.SUNNY, Category.HEADS);
+
+    top1 = new Item("Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
+    top2 = new Item("Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
+    top3 = new Item("Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
+    top4 = new Item("Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
+    top5 = new Item("Summer Shirt", "Asos", Weather.SUNNY, Category.TOPS);
+
+    bottom1 = new Item("Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
+    bottom2 = new Item("Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
+    bottom3 = new Item("Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
+    bottom4 = new Item("Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
+    bottom5 = new Item("Track Pants", "Adidas", Weather.SUNNY, Category.BOTTOMS);
+
+    shoes1 = new Item("Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
+    shoes2 = new Item("Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
+    shoes3 = new Item("Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
+    shoes4 = new Item("Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
+    shoes5 = new Item("Chucks High CDG", "Converse", Weather.SUNNY, Category.SHOES);
+
+    const headsList = [];
+    var headsTable = document.querySelector('#heads-table tbody');
+    const topsList = [];
+    var topsTable = document.querySelector('#tops-table tbody');
+    const bottomsList = [];
+    var bottomsTable = document.querySelector('#bottoms-table tbody');
+    const shoesList = [];
+    var shoesTable = document.querySelector('#shoes-table tbody');
+
+    window.onload = function() {
+        headsList.push(head1, head2, head3, head4, head5);
+        addDataToTable(headsTable, headsList);
+
+        topsList.push(top1, top2, top3, top4, top5);
+        addDataToTable(topsTable, topsList);
+
+        bottomsList.push(bottom1, bottom2, bottom3, bottom4, bottom5);
+        addDataToTable(bottomsTable, bottomsList);
+
+        shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5);
+        addDataToTable(shoesTable, shoesList);
+    };
+
     currentModal = "";          // Keeps track of current Modal that is open
     currentCBox = "";          // Keeps track of current Confirmation Box that is open
 
@@ -649,11 +613,98 @@
     // Data Management functions
     // *************************
 
+    /*
+    * ADD DATA TO CORRESPONDING TABLE
+    * Adds data in form of an array with arrays into a table element.
+    */
+    function addDataToTable(table, data) {
+        const columns = 3; // number of columns to fill
+
+        data.forEach((item, i) => {
+            // Calculate row and column indices
+            const rowIndex = Math.floor(i / columns);
+            const colIndex = (i % columns) + 1;
+
+            if (table.rows[rowIndex]) {
+                let cell = table.rows[rowIndex].cells[colIndex];
+
+                if (!cell) {
+                    cell = table.rows[rowIndex].insertCell(colIndex);
+                }
+
+                if (item.name) {
+                    if (typeof item.name === 'symbol') {
+                        cell.innerHTML = String(item.name);
+                    } else {
+                        cell.innerHTML = item.name;
+                    }
+                }
+            }
+        });
+    }
+
+    //-------------------------------------------
+    //Items functions
+
+    function createItem(category) {
+        var itemName = document.querySelector('#item-create-name');
+        var itemBrand = document.querySelector('#item-create-brand');
+        var itemWeather = document.querySelector('#item-create-weather');
+        var itemCategory;
+        console.log(itemName.value);
+        console.log(itemBrand.value);
+        console.log(itemWeather.value);
+        console.log(category);
+
+        switch(itemWeather.value) {
+            case "Sunny": itemWeather = Weather.SUNNY;
+            case "Rainy": itemWeather = Weather.RAINY;
+            case "Windy": itemWeather = Weather.WINDY;
+            case "Snowy": itemWeather = Weather.SNOWY;
+        }
+
+        switch(category) {
+            case "hats": itemCategory = Category.HEADS; break;
+            case "tops": itemCategory = Category.TOPS; break;
+            case "bottoms": itemCategory = Category.BOTTOMS; break;
+            case "shoes": itemCategory = Category.SHOES; break;
+        }
+
+        var newItem = new Item(itemName.value, itemBrand.value, itemWeather, itemCategory);
+
+        switch(category) {
+            case "hats":
+                headsList.push(newItem);
+                addDataToTable(headsTable, headsList);
+                break;
+            case "tops":
+                topsList.push(newItem);
+                addDataToTable(topsTable, topsList);
+                break;
+            case "bottoms":
+                bottomsList.push(newItem);
+                addDataToTable(bottomsTable, bottomsList);
+                break;
+            case "shoes":
+                shoesList.push(newItem);
+                addDataToTable(shoesTable, shoesList);
+                break;
+        }
+
+        closeModal();
+    }
+
+    //-------------------------------------------
+    //Outfit functions
+
     // Delete Outfit
     function deleteOutfit() {
         alert('Performing action: Delete Outfit');
         closeCBox();
     }
+
+    //-------------------------------------------
+    //Social functions
 
     // Post Outfit
     function postOutfit() {
