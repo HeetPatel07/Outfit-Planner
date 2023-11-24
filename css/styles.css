@@ -120,9 +120,11 @@ section {
     align-content: center;
 }
 
-
-
-/* Style the footer */
+/* 
+* -----------------------------
+* Styles for the Footer
+* -----------------------------
+*/
 
 html, body {
     height: 100%;
@@ -144,12 +146,17 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    z-index: 2;
+    z-index: 0;
     position: relative;
 }
 
 
-/**Style for the outfit section**/
+/* 
+* -----------------------------
+* Styles for the Outfit Section
+* -----------------------------
+*/
+
 /*bottom buttons*/
 #headedO{
     font-size:20px;
@@ -264,137 +271,12 @@ footer {
             background-color: #4b9393;
         }
 
-
-/****************The pop ups************************/
-
-/*-------------------------------------------------------*/
-/********************Small modal**************************/
-/*-------------------------------------------------------*/
-
-/* Style for the modal container */
-.modal{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-}
-
-/* Style for the modal content */
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #000000;
-    text-align: center;
-}
-
-.modal-button {
-   margin: 5px;
-    padding: 20px 20px; /* Adjusted padding for larger buttons */
-    font-size: 16px;
-    cursor: pointer;
-    width: 45%; /* Set the width to fill half of their side */
-    box-sizing: border-box; /* Include padding in the button's total width */
-    border-radius: 4px;
-    background-color: #fff;
-    color: #000;
-}
-.confirm{
-    color:white;
-    background-color: #f6531a;
-
-}
-/*
-.confirm:hover{
-    background: radial-gradient(circle , #fff, #f8b1b1);
-}
-
-.cancel:hover{
-    background: radial-gradient(circle , #fff, #b1e3f8);
-}
-*/
 .modal-button:hover{
     box-shadow: 0 0 5px 2px #363535;
     text-decoration: underline;
 }
 
-/*-------------------------------------------------------*/
-/*******************Larger modal**************************/
-/*-------------------------------------------------------*/
-/* Style for the larger modal container */
-.larger-Modal{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* Take up half of the page from the left */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-}
-
-/* Style for the larger modal content */
-.larger-Modal-content {
-    position: absolute;
-    top: 20%;
-    left: 0;
-    width: 50%;
-    height: 70%;
-    border: 2px solid #000000;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #fff; /* White background */
-
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-/* Style for the close button */
-.close-button{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius:100px;
-    background-color: #ff5454;
-    color:white;
-
-}
-/* Style for the buttons in the larger modal */
-
-.large-Modal-items{
-    flex-direction:row;
-    position: absolute;
-    align-items:end;
-    font-size:25px;
-    margin:10px;
-    padding: 1.5%;
-    width: 120px;
-    background-color: #ffffff;
-    cursor: pointer;
-}
-
-.Tops{
-   top:30%;
-}
-.Bottoms{
-    top: 40%;
-}
-.Shoes{
-    top:50%;
-}
-.Others{
-    top:60%;
-}
-.large-Modal-items:hover{
+.clothing-modal-buttons:hover{
     background: linear-gradient(to right,#fff, #b1e3f8);
     width:140px;
     text-decoration:underline;
@@ -411,10 +293,10 @@ footer {
 
 /* 
 * -----------------------------
-* Styles for the modal
+* Styles for the modals
 * -----------------------------
 */
-.overlay {
+.modal-overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -422,7 +304,7 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    z-index: 10;
 }
 
 .modal-content {
@@ -459,7 +341,36 @@ footer {
     height: 80%;
     background-color: #fff;
     padding: 20px;
-    z-index: 2;
+    z-index: 11;
+
+    border-radius: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.clothing-modal-buttons{
+    flex-direction:row;
+    position: absolute;
+    align-items:end;
+    font-size:25px;
+    margin:10px;
+    padding: 1.5%;
+    width: 120px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.Tops{
+   top:30%;
+}
+.Bottoms{
+    top: 40%;
+}
+.Shoes{
+    top:50%;
+}
+.Others{
+    top:60%;
 }
 
 .profile-modal {
@@ -472,7 +383,7 @@ footer {
     height: 80%;
     background-color: #fff;
     padding: 20px;
-    z-index: 2;
+    z-index: 11;
 }
 
 .profile-pic {
@@ -500,5 +411,66 @@ footer {
     bottom: 0;
 }
 
+/*
+* -----------------------------
+* Styles for the confirmation boxes
+* -----------------------------
+*/
+.cbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 12;
+}
+
+.cbox-modal {
+    display: none;
+    position: fixed;
+    left: 31%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 13;
+
+    border-radius: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.cbox-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.cbox-button {
+    margin: 5px;
+     padding: 20px 20px; /* Adjusted padding for larger buttons */
+     font-size: 16px;
+     cursor: pointer;
+     width: 45%; /* Set the width to fill half of their side */
+     box-sizing: border-box; /* Include padding in the button's total width */
+     border-radius: 4px;
+     background-color: #fff;
+     color: #000;
+ }
+ .confirm{
+     color:white;
+     background-color: #f6531a;
+ 
+ }
 
 
