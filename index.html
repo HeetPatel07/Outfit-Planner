@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clothing App</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clothing App</title>
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/items-styles.css">
 
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -72,17 +73,331 @@
     --- Clothes Page ------------
     ---------------------------->
     <div id="clothesPage">
-        <h1>Clothes Page</h1>
+        <h1 id="items-title">Clothes Page</h1>
 
-        <section>
-            <h2>Section 1</h2>
-            <p>This is the content of section 1.</p>
-        </section>
+        <div class="sidebar">
+            <div class="category" data-category="hats">Hats</div>
+            <div class="category selected" data-category="tops">Tops</div>
+            <div class="category" data-category="bottoms">Bottoms</div>
+            <div class="category" data-category="shoes">Shoes</div>
+        </div>
 
-        <section>
-            <h2>Section 2</h2>
-            <p>This is the content of section 2.</p>
-        </section>
+        <div class="items-section">
+            <section id="section-items">
+
+                <table id="search-bar-table">
+                    <tr>
+                        <th id="add">
+                            <button id="add-button" title="Add new item">
+                                <img src="images/add1-svgrepo-com.svg">
+                            </button>
+                        </th>
+                        <th>
+                            <form>
+                                <input type="text" id="search" name="search" placeholder="Search">
+                            </form>
+                        </th>
+                    </tr>
+                </table>
+
+                <!--Table for hats-->
+                <!--Page 1-->
+                <div class="page" style="display: block;">
+                    <div class="table hats" style="display: none;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    Hat 1
+                                </th>
+                                <th id="items-cells">
+                                    Hat 2
+                                </th>
+                                <th id="items-cells">
+                                    Hat 3
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells">
+                                    Hat 4
+                                </td>
+                                <td id="items-cells">
+                                    Hat 5
+                                </td>
+                                <td id="items-cells">
+                                    Hat 6
+                                </td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells">
+                                    Hat 7
+                                </td>
+                                <td id="items-cells">
+                                    Hat 8
+                                </td>
+                                <td id="items-cells">
+                                    Hat 9
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--Page 2-->
+                <div class="page" style="display: none;">
+                    <div class="table hats" style="display: none;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    Hat 10
+                                </th>
+                                <th id="items-cells">
+                                    Hat 11
+                                </th>
+                                <th id="items-cells">
+                                    Hat 12
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--Table for tops-->
+                <div class="page" style="display: block;">
+                    <div class="table tops" style="display: block;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="page" style="display: none;">
+                    <div class="table tops" style="display: block;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--Table for bottoms-->
+                <div class="table bottoms" style="display: none;">
+                    <table id="items-table">
+                        <tr>
+                            <th></th>
+                            <th id="items-cells">
+                                Bottom 1
+                            </th>
+                            <th id="items-cells">
+                                Bottom 2
+                            </th>
+                            <th id="items-cells">
+                                Bottom 3
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="prev" title="Previous page">
+                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                </button>
+                            </td>
+                            <td id="items-cells">
+                                Bottom 4
+                            </td>
+                            <td id="items-cells">
+                                Bottom 5
+                            </td>
+                            <td id="items-cells">
+                                Bottom 6
+                            </td>
+                            <td>
+                                <button id="next" title="Next page">
+                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="items-cells">
+                                Bottom 7
+                            </td>
+                            <td id="items-cells">
+                                Bottom 8
+                            </td>
+                            <td id="items-cells">
+                                Bottom 9
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <!--Table for shoes-->
+                <div class="table shoes" style="display: none;">
+                    <table id="items-table">
+                        <tr>
+                            <th></th>
+                            <th id="items-cells">
+                                Shoes 1
+                            </th>
+                            <th id="items-cells">
+                                Shoes 2
+                            </th>
+                            <th id="items-cells">
+                                Shoes 3
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="prev" title="Previous page">
+                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                </button>
+                            </td>
+                            <td id="items-cells">
+                                Shoes 4
+                            </td>
+                            <td id="items-cells">
+                                Shoes 5
+                            </td>
+                            <td id="items-cells">
+                                Shoes 6
+                            </td>
+                            <td>
+                                <button id="next" title="Next page">
+                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="items-cells">
+                                Shoes 7
+                            </td>
+                            <td id="items-cells">
+                                Shoes 8
+                            </td>
+                            <td id="items-cells">
+                                Shoes 9
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </div>
     </div>
 
     <!---------------------------
@@ -140,22 +455,22 @@
         </div>
     </div>
 
-        <!---------------------------
-        --- Socials Page ------------
-        ---------------------------->
-        <div id="socialsPage">
-            <h1>Socials Page</h1>
+    <!---------------------------
+    --- Socials Page ------------
+    ---------------------------->
+    <div id="socialsPage">
+        <h1>Socials Page</h1>
 
-            <section>
-                <h2>Section 1</h2>
-                <p>This is the content of section 1.</p>
-            </section>
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of section 1.</p>
+        </section>
 
-            <section>
-                <h2>Section 2</h2>
-                <p>This is the content of section 2.</p>
-            </section>
-        </div>
+        <section>
+            <h2>Section 2</h2>
+            <p>This is the content of section 2.</p>
+        </section>
+    </div>
 
 </main>
 
@@ -167,6 +482,7 @@
 
 
 <!-- Scripts -->
+<script src="scripts/items-script.js"></script>
 <script>
     // Function to toggle the visibility of pages
     function showPage(divId) {
@@ -193,9 +509,8 @@
         }
     }
 
-    showPage("homePage");
-
     // Initial section to display
+    showPage("homePage");
 
     //This is the outfits section
     function removeFocus(button) {
@@ -255,8 +570,6 @@
         // Close the modal after confirming the action
         closeModal();
     }
-
-
 </script>
 </body>
 </html>

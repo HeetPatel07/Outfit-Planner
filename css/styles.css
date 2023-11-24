@@ -120,6 +120,8 @@ section {
     align-content: center;
 }
 
+
+
 /* Style the footer */
 
 html, body {
@@ -142,6 +144,8 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
+    z-index: 2;
+    position: relative;
 }
 
 
@@ -398,7 +402,7 @@ footer {
 }
 
 .display.choices{
-   align-item: center;
+    align-items: center;
     top:30%;
     left:100px;
     width:50%;
