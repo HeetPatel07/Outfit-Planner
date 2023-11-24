@@ -34,6 +34,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
+    z-index: 9;
 }
 
 /* Style the logo image with padding */
@@ -120,9 +121,11 @@ section {
     align-content: center;
 }
 
-
-
-/* Style the footer */
+/* 
+* -----------------------------
+* Styles for the Footer
+* -----------------------------
+*/
 
 html, body {
     height: 100%;
@@ -144,12 +147,17 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    z-index: 2;
+    z-index: 0;
     position: relative;
 }
 
 
-/**Style for the outfit section**/
+/* 
+* -----------------------------
+* Styles for the Outfit Section
+* -----------------------------
+*/
+
 /*bottom buttons*/
 #headedO{
     font-size:20px;
@@ -264,113 +272,208 @@ footer {
             background-color: #4b9393;
         }
 
+.modal-button:hover{
+    box-shadow: 0 0 5px 2px #363535;
+    text-decoration: underline;
+}
 
-/****************The pop ups************************/
+.clothing-modal-buttons:hover{
+    background: linear-gradient(to right,#fff, #b1e3f8);
+    width:140px;
+    text-decoration:underline;
+    color: #5555f5;
+}
 
-/*-------------------------------------------------------*/
-/********************Small modal**************************/
-/*-------------------------------------------------------*/
+.display.choices{
+    align-items: center;
+    top:30%;
+    left:100px;
+    width:50%;
+    height:50%;
+}
 
-/* Style for the modal container */
-.modal{
+
+/* 
+* -----------------------------
+* Styles for the Social Section
+* -----------------------------
+*/
+#search-bar {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+#searchButton{
+    padding: 8px 12px;
+    background-color: #3897f0;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+}
+
+.instagram-feed {
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post {
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%
+}
+
+.post-img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+.follow-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #3897f0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post-caption {
+    padding: 10px;
+}
+
+.post-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+#postButton {
+    position: fixed;
+    left: 50px;
+    top: 25%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#postButtonInPopup {
+    margin-top: 50px;
+    padding: 10px 10px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+
+.like-btn,
+.comment-btn,
+.save-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.liked {
+    color: red;
+}
+
+/* 
+* -----------------------------
+* Styles for the modals
+* -----------------------------
+*/
+/* Modal Gray Background */
+.modal-overlay {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
 }
 
-/* Style for the modal content */
+/* General Modal Properties */
 .modal-content {
+    padding-top: 40px;
+    position: relative;
+    height: 90%;
+}
+
+.right-close {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #000000;
-    text-align: center;
-}
-
-.modal-button {
-   margin: 5px;
-    padding: 20px 20px; /* Adjusted padding for larger buttons */
-    font-size: 16px;
-    cursor: pointer;
-    width: 45%; /* Set the width to fill half of their side */
-    box-sizing: border-box; /* Include padding in the button's total width */
-    border-radius: 4px;
-    background-color: #fff;
+    top: 0px;
+    right: 10px;
+    font-size: 20px;
     color: #000;
-}
-.confirm{
-    color:white;
-    background-color: #f6531a;
-
-}
-/*
-.confirm:hover{
-    background: radial-gradient(circle , #fff, #f8b1b1);
+    cursor: pointer;
 }
 
-.cancel:hover{
-    background: radial-gradient(circle , #fff, #b1e3f8);
-}
-*/
-.modal-button:hover{
-    box-shadow: 0 0 5px 2px #363535;
-    text-decoration: underline;
+.left-close {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
 }
 
-/*-------------------------------------------------------*/
-/*******************Larger modal**************************/
-/*-------------------------------------------------------*/
-/* Style for the larger modal container */
-.larger-Modal{
+/* Clothing Modal */
+.clothing-modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* Take up half of the page from the left */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    left: 31%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 11;
+
+    border-radius: 10px;
+    border: solid #000000;
+    border-width: medium;
 }
 
-/* Style for the larger modal content */
-.larger-Modal-content {
-    position: absolute;
-    top: 20%;
-    left: 0;
-    width: 50%;
-    height: 70%;
-    border: 2px solid #000000;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #fff; /* White background */
-
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-/* Style for the close button */
-.close-button{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius:100px;
-    background-color: #ff5454;
-    color:white;
-
-}
-/* Style for the buttons in the larger modal */
-
-.large-Modal-items{
+.clothing-modal-buttons{
     flex-direction:row;
     position: absolute;
     align-items:end;
@@ -394,21 +497,135 @@ footer {
 .Others{
     top:60%;
 }
-.large-Modal-items:hover{
-    background: linear-gradient(to right,#fff, #b1e3f8);
-    width:140px;
-    text-decoration:underline;
-    color: #5555f5;
+
+/* Profile Modal */
+.profile-modal {
+    display: none;
+    position: fixed;
+    right: -18%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 11;
+
+    border-radius: 10px;
+    border: solid #000000;
+    border-width: medium;
 }
 
-.display.choices{
-    align-items: center;
-    top:30%;
-    left:100px;
-    width:50%;
-    height:50%;
+.profile-pic {
+    height: 100px;
+    padding: 10px;
 }
 
+.profile-text {
+    padding: 10px;
+    color: #000;
+    font-size: 24px;
+}
 
+.profile-button {
+    background: none;
+    border: none;
+    color: #4d4d4d;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.profile-footer {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Post Modal */
+.post-modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 80%;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 13;
+
+    border-radius: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.post-modal-img {
+    width: 60%;
+    height: 80%;
+    border: solid #000000;
+    border-width: small;
+}
+
+/*
+* -----------------------------
+* Styles for the confirmation boxes
+* -----------------------------
+*/
+/* CBox Gray Background */
+.cbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 12;
+}
+
+/* General CBox Properties */
+.cbox-modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 20%;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 13;
+
+    border-radius: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.cbox-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.cbox-button {
+    margin: 5px;
+    padding: 20px 20px; /* Adjusted padding for larger buttons */
+    font-size: 16px;
+    cursor: pointer;
+    width: 45%; /* Set the width to fill half of their side */
+    box-sizing: border-box; /* Include padding in the button's total width */
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+ }
+    .confirm{
+        color:white;
+        background-color: #f6531a;
+    }
 
 
