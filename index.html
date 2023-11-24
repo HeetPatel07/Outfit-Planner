@@ -108,6 +108,13 @@
             <div id="socialsPage">
                 <h1>Socials Page</h1>
 
+                <div class="search-bar" align="right">
+                    <div class="searchButton">
+                        <input type="text" id="search-bar" placeholder="Search...">
+                        <button id="searchButton">Search</button>
+                    </div>
+                </div>
+
                     <div class="instagram-feed">
                         <div class="post">
 
@@ -115,6 +122,21 @@
 
                                 header {
                                     z-index: 1000;
+                                }
+
+                                #search-bar {
+                                    padding: 8px;
+                                    border: 1px solid #ccc;
+                                    border-radius: 4px 0 0 4px;
+                                }
+
+                                #searchButton{
+                                    padding: 8px 12px;
+                                    background-color: #3897f0;
+                                    color: #fff;
+                                    cursor: pointer;
+                                    border: 1px solid #ccc;
+                                    border-radius: 0 4px 4px 0;
                                 }
 
 
@@ -133,6 +155,8 @@
                                     border-radius: 5px;
                                     overflow: hidden;
                                 }
+
+
 
                                 .follow-btn {
                                     position: absolute;
@@ -252,6 +276,7 @@
                             </div>
                         </div>
 
+
                         <div class="post">
                             <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
                             <img src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907" alt="Outfit 2">
@@ -271,6 +296,7 @@
 
                     </div>
 
+
                 <button id="postButton" onclick="openPopup()">Post</button>
 
                 <div id="popup">
@@ -279,7 +305,6 @@
                     <p></p>
                     <button id="postButtonInPopup" onclick="postInPopup()">Post</button>
                 </div>
-
 
 
                 <script>
