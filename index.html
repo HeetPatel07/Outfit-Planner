@@ -452,225 +452,43 @@
             </div>
         </div>
 
-            <div class="instagram-feed">
-                <div class="post">
-
-                    <style>
-
-                        header {
-                            z-index: 1000;
-                        }
-
-                        #search-bar {
-                            padding: 8px;
-                            border: 1px solid #ccc;
-                            border-radius: 4px 0 0 4px;
-                        }
-
-                        #searchButton{
-                            padding: 8px 12px;
-                            background-color: #3897f0;
-                            color: #fff;
-                            cursor: pointer;
-                            border: 1px solid #ccc;
-                            border-radius: 0 4px 4px 0;
-                        }
-
-
-                        .instagram-feed {
-                            max-width: 600px;
-                            width: 100%;
-                            margin-left: auto;
-                            margin-right: auto;
-                        }
-
-                        .post {
-                            position: relative;
-                            margin-bottom: 20px;
-                            background-color: #fff;
-                            border: 1px solid #e0e0e0;
-                            border-radius: 5px;
-                            overflow: hidden;
-                        }
-
-
-
-                        .follow-btn {
-                            position: absolute;
-                            top: 10px;
-                            right: 10px;
-                            padding: 5px 10px;
-                            background-color: #3897f0;
-                            color: #fff;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;
-                        }
-
-                        .post img {
-                            width: 100%;
-                            height: auto;
-                            display: block;
-                            margin: 0 auto;
-                        }
-
-                        .post-caption {
-                            padding: 10px;
-                        }
-
-                        .post-buttons {
-                            display: flex;
-                            justify-content: space-between;
-                            padding: 10px;
-                            align-items: center;
-                        }
-
-                        #postButton {
-                            position: fixed;
-                            left: 50px;
-                            top: 25%;
-                            transform: translateY(-50%);
-                            padding: 10px 20px;
-                            background-color: #3498db;
-                            color: #fff;
-                            font-size: 16px;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;
-                        }
-
-                        #popup {
-                            display: none;
-                            position: fixed;
-                            left: 50%;
-                            top: 50%;
-                            transform: translate(-50%, -50%);
-                            padding: 100px;
-                            background-color: #fff;
-                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                            z-index: 2;
-                            text-align: center;
-                            max-width: 75%;
-
-                        }
-
-                        #closeButton {
-                            position: absolute;
-                            top: 10px;
-                            right: 10px;
-                            cursor: pointer;
-                        }
-
-                        #postButtonInPopup {
-                            margin-top: 50px;
-                            padding: 10px 10px;
-                            background-color: #3498db;
-                            color: #fff;
-                            font-size: 16px;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;
-                            display: inline-block;
-                            position: absolute;
-                            left: 50%;
-                            -ms-transform: translate(-50%, -50%);
-                            transform: translate(-50%, -50%);
-
-                        }
-
-                        .like-btn,
-                        .comment-btn,
-                        .save-btn {
-                            cursor: pointer;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .icon {
-                            margin-right: 5px;
-                        }
-
-                        .liked {
-                            color: red;
-                        }
-
-
-                    </style>
-
-                    <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
-                    <img src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1">
-                    <div class="post-caption">Outfit 1</div>
-                    <div class="post-buttons">
-                        <div class="like-btn" onclick="toggleLike(this)">
-                            <span class="icon">&#x2764;</span> Like
-                        </div>
-                        <div class="comment-btn">
-                            <span class="icon">&#x1F4AC;</span> Comment
-                        </div>
-                        <div class="save-btn">
-                            <span class="icon">&#128190;</span> Save
-                        </div>
+        <div class="instagram-feed">
+            <div class="post">
+                <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                <div><img class="post-img" src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1"></div>
+                <div class="post-caption">Outfit 1</div>
+                <div class="post-buttons">
+                    <div class="like-btn" onclick="toggleLike(this)">
+                        <span class="icon">&#x2764;</span> Like
+                    </div>
+                    <div class="comment-btn">
+                        <span class="icon">&#x1F4AC;</span> Comment
+                    </div>
+                    <div class="save-btn">
+                        <span class="icon">&#128190;</span> Save
                     </div>
                 </div>
-
-
-                <div class="post">
-                    <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
-                    <img src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907" alt="Outfit 2">
-                    <div class="post-caption">Outfit 2</div>
-                    <div class="post-buttons">
-                        <div class="like-btn" onclick="toggleLike(this)">
-                            <span class="icon">&#x2764;</span> Like
-                        </div>
-                        <div class="comment-btn">
-                            <span class="icon">&#x1F4AC;</span> Comment
-                        </div>
-                        <div class="save-btn">
-                            <span class="icon">&#128190;</span> Save
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-
-        <button id="postButton" onclick="openPopup()">Post</button>
-
-        <div id="popup">
-            <span id="closeButton" onclick="closePopup()">X</span>
-            <img src="https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SX679_.jpg" alt="Outfit 3" style="width: 500px; height: 500px;">
-            <p></p>
-            <button id="postButtonInPopup" onclick="postInPopup()">Post</button>
+            <div class="post">
+                <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                <img class="post-img" src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907" alt="Outfit 2">
+                <div class="post-caption">Outfit 2</div>
+                <div class="post-buttons">
+                    <div class="like-btn" onclick="toggleLike(this)">
+                        <span class="icon">&#x2764;</span> Like
+                    </div>
+                    <div class="comment-btn">
+                        <span class="icon">&#x1F4AC;</span> Comment
+                    </div>
+                    <div class="save-btn">
+                        <span class="icon">&#128190;</span> Save
+                    </div>
+                </div>
+            </div>
         </div>
 
-
-        <script>
-            function toggleFollow(button) {
-                if (button.textContent === 'Follow') {
-                    button.textContent = 'Following';
-                    button.style.backgroundColor = '#57a1ff';
-                } else {
-                    button.textContent = 'Follow';
-                    button.style.backgroundColor = '#3897f0';
-                }
-            }
-
-            function toggleLike(button) {
-                button.classList.toggle('liked');
-            }
-
-            function openPopup() {
-                document.getElementById('popup').style.display = 'block';
-            }
-
-            function closePopup() {
-                document.getElementById('popup').style.display = 'none';
-            }
-            function postInPopup() {
-                alert("Outfit has been posted");
-            }
-        </script>
-
+        <button id="postButton" onclick="openModal('postModal')">Post</button>
     </div>
 
 </main>
@@ -681,7 +499,7 @@
 <!-- This is the modal overlay that darkens the screen -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
-<!-- clothing Modal -->
+<!-- Clothing Modal -->
 <div class="clothing-modal" id="clothingModal">
     <div class="modal-content">
         <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
@@ -694,12 +512,10 @@
         <button class="clothing-modal-buttons Bottoms" onclick="">Bottoms</button>
         <button class="clothing-modal-buttons Shoes" onclick="">Shoes</button>
         <button class="clothing-modal-buttons Others" onclick="">Others</button>
-    
-        <section class="display choices"></section>
     </div>
 </div>
 
-<!-- profile Modal -->
+<!-- Profile Modal -->
 <div class="profile-modal" id="profileModal">
     <div class="modal-content">
         <span class="left-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
@@ -711,6 +527,15 @@
             <div><button class="profile-button">Edit Profile</button></div>
             <div><button class="profile-button">Settings</button></div>
         </div>
+    </div>
+</div>
+
+<!-- Post Modal -->
+<div class="post-modal" id="postModal">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <img class="post-modal-img" src="https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SX679_.jpg" alt="Outfit 3">
+        <div><button id="postButtonInPopup" onclick="postOutfit()">Post</button></div>
     </div>
 </div>
 
@@ -735,7 +560,9 @@
 </footer>
 
 
-<!-- Scripts -->
+<!---------------------------
+--- Scripts -----------------
+---------------------------->
 <script src="scripts/items-script.js"></script>
 <script>
     currentModal = "";          // Keeps track of current Modal that is open
@@ -804,12 +631,34 @@
         }, 10); // Adjust the time (in milliseconds) as needed
     }
 
+    function toggleFollow(button) {
+        if (button.textContent === 'Follow') {
+            button.textContent = 'Following';
+            button.style.backgroundColor = '#57a1ff';
+        } else {
+            button.textContent = 'Follow';
+            button.style.backgroundColor = '#3897f0';
+        }
+    }
+
+    function toggleLike(button) {
+        button.classList.toggle('liked');
+    }
+
+    // *************************
     // Data Management functions
+    // *************************
 
     // Delete Outfit
     function deleteOutfit() {
-        alert(`Performing action: Delete Outfit`);
+        alert('Performing action: Delete Outfit');
         closeCBox();
+    }
+
+    // Post Outfit
+    function postOutfit() {
+        alert('Performing action: Posting Outfit');
+        closeModal();
     }
 </script>
 </body>
