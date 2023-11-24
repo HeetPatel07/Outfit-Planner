@@ -6,373 +6,786 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clothing App</title>
         <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/items-styles.css">
 
-        <!-- Include Font Awesome for icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    </head>
-    
-    <body>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
 
-    <!-- NavBar and consistent header -->
-        <header class="navbar">
-            <a onclick="showPage('homePage')">
-                <img src="./images/logo.png" href="index.html">
-            </a>
-        
-            <nav>
-                <ul>
-                    <li>
-                        <button class="nav-button" id="clothesPageButton" onclick="showPage('clothesPage')">
-                            <div class="nav-icon"><i class="fas fa-shirt"></i></div>
-                            <div class="nav-text">Clothes</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-button" id="outfitsPageButton" onclick="showPage('outfitsPage')">
-                            <img class="nav-icon-pic" src="./images/hanger.png">
-                            <div class="nav-text">Outfits</div>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="nav-button" id="socialsPageButton" onclick="showPage('socialsPage')">
-                            <div class="nav-icon"><i class="fas fa-globe"></i></div>
-                            <div class="nav-text">Socials</div>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        
-            <a>
-                <img src="./images/user.png" href="index.html">
-            </a>
-        </header>
-        
+<body>
 
-        <!-- Main page components and screens -->>
-        <main>
-            <!---------------------------
-            --- Home Page ---------------
-            ---------------------------->
-            
-            <div id="homePage">
-                <h1>Home Page</h1>
+<!-- NavBar and consistent header -->
+<header class="navbar">
+    <a onclick="showPage('homePage')">
+        <img src="./images/logo.png" href="index.html">
+    </a>
 
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
+    <nav>
+        <ul>
+            <li>
+                <button class="nav-button" id="clothesPageButton" onclick="showPage('clothesPage')">
+                    <div class="nav-icon"><i class="fas fa-shirt"></i></div>
+                    <div class="nav-text">Clothes</div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" id="outfitsPageButton" onclick="showPage('outfitsPage')">
+                    <img class="nav-icon-pic" src="./images/hanger.png">
+                    <div class="nav-text">Outfits</div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" id="socialsPageButton" onclick="showPage('socialsPage')">
+                    <div class="nav-icon"><i class="fas fa-globe"></i></div>
+                    <div class="nav-text">Socials</div>
+                </button>
+            </li>
+        </ul>
+    </nav>
 
-            <!---------------------------
-            --- Clothes Page ------------
-            ---------------------------->
-            <div id="clothesPage">
-                <h1>Clothes Page</h1>
+    <a>
+        <img src="./images/user.png" href="index.html">
+    </a>
+</header>
 
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
 
-            <!---------------------------
-            --- Outfits Page ------------
-            ---------------------------->
-            <div id="outfitsPage">
-                <h1>Outfits Page</h1>
+<!-- Main page components and screens -->>
+<main>
+    <!---------------------------
+    --- Home Page ---------------
+    ---------------------------->
 
-                <section>
-                    <h2>Section 1</h2>
-                    <p>This is the content of section 1.</p>
-                </section>
-                
-                <section>
-                    <h2>Section 2</h2>
-                    <p>This is the content of section 2.</p>
-                </section>
-            </div>
+    <div id="homePage">
+        <h1>Home Page</h1>
 
-            <!---------------------------
-            --- Socials Page ------------
-            ---------------------------->
-            <div id="socialsPage">
-                <h1>Socials Page</h1>
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of section 1.</p>
+        </section>
 
-                <div class="search-bar" align="right">
-                    <div class="searchButton">
-                        <input type="text" id="search-bar" placeholder="Search...">
-                        <button id="searchButton">Search</button>
+        <section>
+            <h2>Section 2</h2>
+            <p>This is the content of section 2.</p>
+        </section>
+    </div>
+
+    <!---------------------------
+    --- Clothes Page ------------
+    ---------------------------->
+    <div id="clothesPage">
+        <h1 id="items-title">Clothes Page</h1>
+
+        <div class="sidebar">
+            <div class="category" data-category="hats">Hats</div>
+            <div class="category selected" data-category="tops">Tops</div>
+            <div class="category" data-category="bottoms">Bottoms</div>
+            <div class="category" data-category="shoes">Shoes</div>
+        </div>
+
+        <div class="items-section">
+            <section id="section-items">
+
+                <table id="search-bar-table">
+                    <tr>
+                        <th id="add">
+                            <button id="add-button" title="Add new item">
+                                <img src="images/add1-svgrepo-com.svg">
+                            </button>
+                        </th>
+                        <th>
+                            <form>
+                                <input type="text" id="search" name="search" placeholder="Search">
+                            </form>
+                        </th>
+                    </tr>
+                </table>
+
+                <!--Table for hats-->
+                <!--Page 1-->
+                <div class="page" style="display: block;">
+                    <div class="table hats" style="display: none;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    Hat 1
+                                </th>
+                                <th id="items-cells">
+                                    Hat 2
+                                </th>
+                                <th id="items-cells">
+                                    Hat 3
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells">
+                                    Hat 4
+                                </td>
+                                <td id="items-cells">
+                                    Hat 5
+                                </td>
+                                <td id="items-cells">
+                                    Hat 6
+                                </td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells">
+                                    Hat 7
+                                </td>
+                                <td id="items-cells">
+                                    Hat 8
+                                </td>
+                                <td id="items-cells">
+                                    Hat 9
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-
-                    <div class="instagram-feed">
-                        <div class="post">
-
-                            <style>
-
-                                header {
-                                    z-index: 1000;
-                                }
-
-                                #search-bar {
-                                    padding: 8px;
-                                    border: 1px solid #ccc;
-                                    border-radius: 4px 0 0 4px;
-                                }
-
-                                #searchButton{
-                                    padding: 8px 12px;
-                                    background-color: #3897f0;
-                                    color: #fff;
-                                    cursor: pointer;
-                                    border: 1px solid #ccc;
-                                    border-radius: 0 4px 4px 0;
-                                }
-
-
-                                .instagram-feed {
-                                    max-width: 600px;
-                                    width: 100%;
-                                    margin-left: auto;
-                                    margin-right: auto;
-                                }
-
-                                .post {
-                                    position: relative;
-                                    margin-bottom: 20px;
-                                    background-color: #fff;
-                                    border: 1px solid #e0e0e0;
-                                    border-radius: 5px;
-                                    overflow: hidden;
-                                }
-
-
-
-                                .follow-btn {
-                                    position: absolute;
-                                    top: 10px;
-                                    right: 10px;
-                                    padding: 5px 10px;
-                                    background-color: #3897f0;
-                                    color: #fff;
-                                    border: none;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                }
-
-                                .post img {
-                                    width: 100%;
-                                    height: auto;
-                                    display: block;
-                                    margin: 0 auto;
-                                }
-
-                                .post-caption {
-                                    padding: 10px;
-                                }
-
-                                .post-buttons {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 10px;
-                                    align-items: center;
-                                }
-
-                                #postButton {
-                                    position: fixed;
-                                    left: 50px;
-                                    top: 25%;
-                                    transform: translateY(-50%);
-                                    padding: 10px 20px;
-                                    background-color: #3498db;
-                                    color: #fff;
-                                    font-size: 16px;
-                                    border: none;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                }
-
-                                #popup {
-                                    display: none;
-                                    position: fixed;
-                                    left: 50%;
-                                    top: 50%;
-                                    transform: translate(-50%, -50%);
-                                    padding: 100px;
-                                    background-color: #fff;
-                                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                                    z-index: 2;
-                                    text-align: center;
-                                    max-width: 75%;
-
-                                }
-
-                                #closeButton {
-                                    position: absolute;
-                                    top: 10px;
-                                    right: 10px;
-                                    cursor: pointer;
-                                }
-
-                                #postButtonInPopup {
-                                    margin-top: 50px;
-                                    padding: 10px 10px;
-                                    background-color: #3498db;
-                                    color: #fff;
-                                    font-size: 16px;
-                                    border: none;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    display: inline-block;
-                                    position: absolute;
-                                    left: 50%;
-                                    -ms-transform: translate(-50%, -50%);
-                                    transform: translate(-50%, -50%);
-
-                                }
-
-                                .like-btn,
-                                .comment-btn,
-                                .save-btn {
-                                    cursor: pointer;
-                                    display: flex;
-                                    align-items: center;
-                                }
-
-                                .icon {
-                                    margin-right: 5px;
-                                }
-
-                                .liked {
-                                    color: red;
-                                }
-
-
-                            </style>
-
-                            <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
-                            <img src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1">
-                            <div class="post-caption">Outfit 1</div>
-                            <div class="post-buttons">
-                                <div class="like-btn" onclick="toggleLike(this)">
-                                    <span class="icon">&#x2764;</span> Like
-                                </div>
-                                <div class="comment-btn">
-                                    <span class="icon">&#x1F4AC;</span> Comment
-                                </div>
-                                <div class="save-btn">
-                                    <span class="icon">&#128190;</span> Save
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="post">
-                            <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
-                            <img src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907" alt="Outfit 2">
-                            <div class="post-caption">Outfit 2</div>
-                            <div class="post-buttons">
-                                <div class="like-btn" onclick="toggleLike(this)">
-                                    <span class="icon">&#x2764;</span> Like
-                                </div>
-                                <div class="comment-btn">
-                                    <span class="icon">&#x1F4AC;</span> Comment
-                                </div>
-                                <div class="save-btn">
-                                    <span class="icon">&#128190;</span> Save
-                                </div>
-                            </div>
-                        </div>
-
+                <!--Page 2-->
+                <div class="page" style="display: none;">
+                    <div class="table hats" style="display: none;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    Hat 10
+                                </th>
+                                <th id="items-cells">
+                                    Hat 11
+                                </th>
+                                <th id="items-cells">
+                                    Hat 12
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td></td>
+                            </tr>
+                        </table>
                     </div>
-
-
-                <button id="postButton" onclick="openPopup()">Post</button>
-
-                <div id="popup">
-                    <span id="closeButton" onclick="closePopup()">X</span>
-                    <img src="https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SX679_.jpg" alt="Outfit 3" style="width: 500px; height: 500px;">
-                    <p></p>
-                    <button id="postButtonInPopup" onclick="postInPopup()">Post</button>
                 </div>
+                <!--Table for tops-->
+                <div class="page" style="display: block;">
+                    <div class="table tops" style="display: block;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="page" style="display: none;">
+                    <div class="table tops" style="display: block;">
+                        <table id="items-table">
+                            <tr>
+                                <th></th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th id="items-cells">
+                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="prev" title="Previous page">
+                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    </button>
+                                </td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td>
+                                    <button id="next" title="Next page">
+                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td id="items-cells"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--Table for bottoms-->
+                <div class="table bottoms" style="display: none;">
+                    <table id="items-table">
+                        <tr>
+                            <th></th>
+                            <th id="items-cells">
+                                Bottom 1
+                            </th>
+                            <th id="items-cells">
+                                Bottom 2
+                            </th>
+                            <th id="items-cells">
+                                Bottom 3
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="prev" title="Previous page">
+                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                </button>
+                            </td>
+                            <td id="items-cells">
+                                Bottom 4
+                            </td>
+                            <td id="items-cells">
+                                Bottom 5
+                            </td>
+                            <td id="items-cells">
+                                Bottom 6
+                            </td>
+                            <td>
+                                <button id="next" title="Next page">
+                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="items-cells">
+                                Bottom 7
+                            </td>
+                            <td id="items-cells">
+                                Bottom 8
+                            </td>
+                            <td id="items-cells">
+                                Bottom 9
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <!--Table for shoes-->
+                <div class="table shoes" style="display: none;">
+                    <table id="items-table">
+                        <tr>
+                            <th></th>
+                            <th id="items-cells">
+                                Shoes 1
+                            </th>
+                            <th id="items-cells">
+                                Shoes 2
+                            </th>
+                            <th id="items-cells">
+                                Shoes 3
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="prev" title="Previous page">
+                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                </button>
+                            </td>
+                            <td id="items-cells">
+                                Shoes 4
+                            </td>
+                            <td id="items-cells">
+                                Shoes 5
+                            </td>
+                            <td id="items-cells">
+                                Shoes 6
+                            </td>
+                            <td>
+                                <button id="next" title="Next page">
+                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="items-cells">
+                                Shoes 7
+                            </td>
+                            <td id="items-cells">
+                                Shoes 8
+                            </td>
+                            <td id="items-cells">
+                                Shoes 9
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!---------------------------
+    --- Outfits Page ------------
+    ---------------------------->
+    <div id="outfitsPage">
+
+        <h1 id="headedO">Outfits Page</h1>
+
+        <center>
+            <section id="description-box">
+                <h2 id="Description">Outfit 1</h2>
+                <p>Item description</p>
+            </section>
+
+            <section id="content-box">
+            </section>
 
 
-                <script>
-                    function toggleFollow(button) {
-                        if (button.textContent === 'Follow') {
-                            button.textContent = 'Following';
-                            button.style.backgroundColor = '#57a1ff';
-                        } else {
-                            button.textContent = 'Follow';
-                            button.style.backgroundColor = '#3897f0';
+            <!--The arrow buttons to enable scrolling-->
+            <!--left button-->
+            <button class="arrow left" onclick="removeFocus(this)"><i class="fa-solid fa-angle-left fa"></i></i></button>
+            <!--right button-->
+            <button class="arrow right" onclick="removeFocus(this)"><i class="fa-solid fa-angle-right fa"></i></button>
+
+            <!--the add button-->
+            <button class="OFB outfit-button1"onclick="openModal('Add outfit','Please Select items for the new outfit','Add outfit') "><i class="fa-solid fa-plus"></i>
+            </button>
+
+            <!--the edit button-->
+            <button Class="OFB outfit-button2"><i class="fa-solid fa-pen-to-square"></i>
+            </button>
+
+            <!--the delete button-->
+            <button Class="OFB outfit-button3" onclick="openModal('Delete Confirmation', 'Are you sure you want to delete this outfit?', 'Delete outfit')"><i class="fa-solid fa-trash-can"></i>
+            </button>
+
+            <!--the share button-->
+            <button Class="OFB outfit-button4"><i class="fa-solid fa-share"></i>
+            </button>
+
+        </center>
+
+        <!-- The modal container -->
+        <div id="myModal" class="modal">
+            <!---this for the small changes---->
+            <!-- Modal content -->
+            <div id="modalContent" class="modal-content">
+
+            </div>
+        </div>
+        <!--this is for the largers modal-->
+        <div id="larger-Modal" class="larger-Modal">
+            <div id="larger-Modal-content" class="larger-Modal-content"></div>
+        </div>
+    </div>
+
+    <!---------------------------
+    --- Socials Page ------------
+    ---------------------------->
+    <div id="socialsPage">
+        <h1>Socials Page</h1>
+
+        <div class="search-bar" align="right">
+            <div class="searchButton">
+                <input type="text" id="search-bar" placeholder="Search...">
+                <button id="searchButton">Search</button>
+            </div>
+        </div>
+
+            <div class="instagram-feed">
+                <div class="post">
+
+                    <style>
+
+                        header {
+                            z-index: 1000;
                         }
-                    }
 
-                    function toggleLike(button) {
-                        button.classList.toggle('liked');
-                    }
+                        #search-bar {
+                            padding: 8px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px 0 0 4px;
+                        }
 
-                    function openPopup() {
-                        document.getElementById('popup').style.display = 'block';
-                    }
+                        #searchButton{
+                            padding: 8px 12px;
+                            background-color: #3897f0;
+                            color: #fff;
+                            cursor: pointer;
+                            border: 1px solid #ccc;
+                            border-radius: 0 4px 4px 0;
+                        }
 
-                    function closePopup() {
-                        document.getElementById('popup').style.display = 'none';
-                    }
-                    function postInPopup() {
-                        alert("Outfit has been posted");
-                    }
-                </script>
+
+                        .instagram-feed {
+                            max-width: 600px;
+                            width: 100%;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        .post {
+                            position: relative;
+                            margin-bottom: 20px;
+                            background-color: #fff;
+                            border: 1px solid #e0e0e0;
+                            border-radius: 5px;
+                            overflow: hidden;
+                        }
+
+
+
+                        .follow-btn {
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            padding: 5px 10px;
+                            background-color: #3897f0;
+                            color: #fff;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+
+                        .post img {
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                            margin: 0 auto;
+                        }
+
+                        .post-caption {
+                            padding: 10px;
+                        }
+
+                        .post-buttons {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px;
+                            align-items: center;
+                        }
+
+                        #postButton {
+                            position: fixed;
+                            left: 50px;
+                            top: 25%;
+                            transform: translateY(-50%);
+                            padding: 10px 20px;
+                            background-color: #3498db;
+                            color: #fff;
+                            font-size: 16px;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+
+                        #popup {
+                            display: none;
+                            position: fixed;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            padding: 100px;
+                            background-color: #fff;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            z-index: 2;
+                            text-align: center;
+                            max-width: 75%;
+
+                        }
+
+                        #closeButton {
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            cursor: pointer;
+                        }
+
+                        #postButtonInPopup {
+                            margin-top: 50px;
+                            padding: 10px 10px;
+                            background-color: #3498db;
+                            color: #fff;
+                            font-size: 16px;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            display: inline-block;
+                            position: absolute;
+                            left: 50%;
+                            -ms-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+
+                        }
+
+                        .like-btn,
+                        .comment-btn,
+                        .save-btn {
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .icon {
+                            margin-right: 5px;
+                        }
+
+                        .liked {
+                            color: red;
+                        }
+
+
+                    </style>
+
+                    <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                    <img src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1">
+                    <div class="post-caption">Outfit 1</div>
+                    <div class="post-buttons">
+                        <div class="like-btn" onclick="toggleLike(this)">
+                            <span class="icon">&#x2764;</span> Like
+                        </div>
+                        <div class="comment-btn">
+                            <span class="icon">&#x1F4AC;</span> Comment
+                        </div>
+                        <div class="save-btn">
+                            <span class="icon">&#128190;</span> Save
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="post">
+                    <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                    <img src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907" alt="Outfit 2">
+                    <div class="post-caption">Outfit 2</div>
+                    <div class="post-buttons">
+                        <div class="like-btn" onclick="toggleLike(this)">
+                            <span class="icon">&#x2764;</span> Like
+                        </div>
+                        <div class="comment-btn">
+                            <span class="icon">&#x1F4AC;</span> Comment
+                        </div>
+                        <div class="save-btn">
+                            <span class="icon">&#128190;</span> Save
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
-        </main>
 
-        <!-- Consistent footer -->
-        <footer>
-            <p> COMP 3020 A01 - CPG24</p>
-        </footer>
+        <button id="postButton" onclick="openPopup()">Post</button>
+
+        <div id="popup">
+            <span id="closeButton" onclick="closePopup()">X</span>
+            <img src="https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SX679_.jpg" alt="Outfit 3" style="width: 500px; height: 500px;">
+            <p></p>
+            <button id="postButtonInPopup" onclick="postInPopup()">Post</button>
+        </div>
 
 
-        <!-- Scripts -->
         <script>
-            // Function to toggle the visibility of pages
-            function showPage(divId) {
-                // hide all pages
-                document.getElementById('homePage').style.display = 'none';
-                document.getElementById('clothesPage').style.display = 'none';
-                document.getElementById('outfitsPage').style.display = 'none';
-                document.getElementById('socialsPage').style.display = 'none';
-    
-                // Show the selected div
-                document.getElementById(divId).style.display = 'block';
-
-                updateNavButtons(divId+'Button');
-            }
-            
-            // Function to toggle the shading of navigation buttons
-            function updateNavButtons(buttonId) {
-                document.getElementById('clothesPageButton').style.backgroundColor = '#ffffff';
-                document.getElementById('outfitsPageButton').style.backgroundColor = '#ffffff';
-                document.getElementById('socialsPageButton').style.backgroundColor = '#ffffff';
-
-                if(buttonId !== 'homePageButton'){
-                    document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
+            function toggleFollow(button) {
+                if (button.textContent === 'Follow') {
+                    button.textContent = 'Following';
+                    button.style.backgroundColor = '#57a1ff';
+                } else {
+                    button.textContent = 'Follow';
+                    button.style.backgroundColor = '#3897f0';
                 }
             }
 
-            // Initial section to display
-            showPage("homePage");
+            function toggleLike(button) {
+                button.classList.toggle('liked');
+            }
+
+            function openPopup() {
+                document.getElementById('popup').style.display = 'block';
+            }
+
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
+            function postInPopup() {
+                alert("Outfit has been posted");
+            }
         </script>
-    </body>
+
+    </div>
+
+</main>
+
+<!-- Consistent footer -->
+<footer>
+    <p> COMP 3020 A01 - CPG24</p>
+</footer>
+
+
+<!-- Scripts -->
+<script src="scripts/items-script.js"></script>
+<script>
+    // Function to toggle the visibility of pages
+    function showPage(divId) {
+        // hide all pages
+        document.getElementById('homePage').style.display = 'none';
+        document.getElementById('clothesPage').style.display = 'none';
+        document.getElementById('outfitsPage').style.display = 'none';
+        document.getElementById('socialsPage').style.display = 'none';
+
+        // Show the selected div
+        document.getElementById(divId).style.display = 'block';
+
+        updateNavButtons(divId + 'Button');
+    }
+
+    // Function to toggle the shading of navigation buttons
+    function updateNavButtons(buttonId) {
+        document.getElementById('clothesPageButton').style.backgroundColor = '#ffffff';
+        document.getElementById('outfitsPageButton').style.backgroundColor = '#ffffff';
+        document.getElementById('socialsPageButton').style.backgroundColor = '#ffffff';
+
+        if (buttonId !== 'homePageButton') {
+            document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
+        }
+    }
+
+    // Initial section to display
+    showPage("homePage");
+
+    //This is the outfits section
+    function removeFocus(button) {
+        setTimeout(() => {
+            button.blur(); // Blur the button to remove focus
+        }, 10); // Adjust the time (in milliseconds) as needed
+    }
+    function openModal(title, message, action) {
+        // Set the modal content dynamically based on the provided parameters
+        if(action=='Delete outfit') {
+            document.getElementById('modalContent').innerHTML = `
+        <h2>${title}</h2>
+        <p>${message}</p>
+        <button class="modal-button confirm" onclick="confirmAction('${action}')">Yes</button>
+        <button class="modal-button cancel" onclick="closeModal()">Cancel</button>`;
+            // Show the modal
+            document.getElementById('myModal').style.display = 'block';
+
+        }
+        else if(action=='Add outfit'){
+            document.getElementById('larger-Modal-content').innerHTML = outfitModal(title,message);
+            document.getElementById('larger-Modal').style.display = 'block';
+
+        }
+
+    }
+    function outfitModal(title,message){
+        return `
+        <center>
+        <h2>${title}</h2>
+        <p>${message}</p>
+        </center>
+         <button class="close-button" onclick="closeModal(1)"><i class="fa-solid fa-xmark"></i></button>
+            <button class="large-Modal-items Tops" onclick="">Tops</button>
+            <button class="large-Modal-items Bottoms" onclick="">Bottoms</button>
+            <button class="large-Modal-items Shoes" onclick="">Shoes</button>
+            <button class="large-Modal-items Others" onclick="">Others</button>
+
+            <section class="display choices"></section>
+            `
+
+
+    }
+
+    function closeModal(x) {
+        // Close the modal
+        if(arguments.length==0)
+        document.getElementById('myModal').style.display = 'none';
+        document.getElementById('larger-Modal').style.display = 'none';
+
+    }
+
+    function confirmAction(action) {
+        // Perform the action based on the context
+        if(action=='Delete outfit')
+            alert(`Performing action: ${action}`);
+        // Close the modal after confirming the action
+        closeModal();
+    }
+</script>
+</body>
 </html>

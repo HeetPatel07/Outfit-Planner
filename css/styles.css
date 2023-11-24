@@ -117,12 +117,298 @@ section {
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 20px;
+    align-content: center;
 }
 
+
+
 /* Style the footer */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px;
+    z-index: 2;
+    position: relative;
 }
+
+
+/**Style for the outfit section**/
+/*bottom buttons*/
+#headedO{
+    font-size:20px;
+    padding: 0px 0px;
+    margin:0;
+
+}
+
+#description-box{
+    width: 30%;
+    height: 40%;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    padding: 10px 2px;
+}
+#Description{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: large;
+    padding: 0px 0px;
+}
+#content-box{
+    width: 40%;
+    height: 300px;
+    border: 3px solid #000;
+    box-sizing: border-box;
+    position: relative; /* Add relative positioning */
+}
+
+
+/*the arrow buttons on the side*/
+.arrow {
+    flex-direction: row;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+
+}
+
+    .arrow.left {
+        position: absolute;
+        left: 24%;
+        top:52% ;/*centrally vertical*/
+        transform: translateY(-50%);
+    }
+        .arrow.left:hover {
+            font-size: 45px;
+        }
+
+
+    .arrow.right {
+        position: absolute;
+        left: 73%;
+        top:52%; /*centrally vertical*/
+        transform: translateY(-50%);
+    }
+        .arrow.right:hover {
+            font-size: 45px;
+        }
+
+
+
+/*the buttons on the bottom of the page*/
+.OFB{
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    color:white;
+    border: none;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+}
+
+
+    .outfit-button1{
+            order: 1;
+            background-color: rgb(34, 217, 34);
+    }
+        .outfit-button1:hover{
+            background-color: #1da21d;
+        }
+
+
+    .outfit-button2{
+        order:2;
+        background-color: #4169E1;
+    }
+        .outfit-button2:hover{
+            background-color: #2a2a91;
+            border:black;
+        }
+
+    .outfit-button3{
+        order:3;
+        background-color: #fa4303;
+    }
+        .outfit-button3:hover{
+            background-color: #b20000;
+        }
+
+
+    .outfit-button4{
+        order:4;
+        background-color:#87CEFA;
+    }
+        .outfit-button4:hover{
+            background-color: #4b9393;
+        }
+
+
+/****************The pop ups************************/
+
+/*-------------------------------------------------------*/
+/********************Small modal**************************/
+/*-------------------------------------------------------*/
+
+/* Style for the modal container */
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+/* Style for the modal content */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.modal-button {
+   margin: 5px;
+    padding: 20px 20px; /* Adjusted padding for larger buttons */
+    font-size: 16px;
+    cursor: pointer;
+    width: 45%; /* Set the width to fill half of their side */
+    box-sizing: border-box; /* Include padding in the button's total width */
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+}
+.confirm{
+    color:white;
+    background-color: #f6531a;
+
+}
+/*
+.confirm:hover{
+    background: radial-gradient(circle , #fff, #f8b1b1);
+}
+
+.cancel:hover{
+    background: radial-gradient(circle , #fff, #b1e3f8);
+}
+*/
+.modal-button:hover{
+    box-shadow: 0 0 5px 2px #363535;
+    text-decoration: underline;
+}
+
+/*-------------------------------------------------------*/
+/*******************Larger modal**************************/
+/*-------------------------------------------------------*/
+/* Style for the larger modal container */
+.larger-Modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Take up half of the page from the left */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+/* Style for the larger modal content */
+.larger-Modal-content {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 50%;
+    height: 70%;
+    border: 2px solid #000000;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #fff; /* White background */
+
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for the close button */
+.close-button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius:100px;
+    background-color: #ff5454;
+    color:white;
+
+}
+/* Style for the buttons in the larger modal */
+
+.large-Modal-items{
+    flex-direction:row;
+    position: absolute;
+    align-items:end;
+    font-size:25px;
+    margin:10px;
+    padding: 1.5%;
+    width: 120px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.Tops{
+   top:30%;
+}
+.Bottoms{
+    top: 40%;
+}
+.Shoes{
+    top:50%;
+}
+.Others{
+    top:60%;
+}
+.large-Modal-items:hover{
+    background: linear-gradient(to right,#fff, #b1e3f8);
+    width:140px;
+    text-decoration:underline;
+    color: #5555f5;
+}
+
+.display.choices{
+    align-items: center;
+    top:30%;
+    left:100px;
+    width:50%;
+    height:50%;
+}
+
+
+
+
