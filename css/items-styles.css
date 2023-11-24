@@ -1,0 +1,118 @@
+.sidebar {
+    margin-top: 100px;
+    width: 200px;
+    height: 400px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #f4f4f4;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f4f4f4;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 10px;
+    margin-left: 0px;
+}
+
+.category:hover {
+    background: #ccc;
+}
+
+.category.selected {
+    background: #bbb;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.items-section {
+    margin-left: 230px; /* width of the sidebar (200px) plus its padding (30px) */
+    padding-right: 50px;
+}
+
+
+#search-bar-table {
+    margin-right: auto;
+    margin-left: 31%;
+    border: 1px solid lightgray;
+}
+
+#search-bar-table td, #search-bar-table th {
+    width: 150px;
+    height: 50px;
+}
+
+#items-table {
+    margin-right: auto;
+    margin-left: 14%;
+}
+
+#items-table td  {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#items-table th {
+    width: 75px;
+    height: 150px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#items-cells {
+    border: 1px solid lightgray;
+}
+
+#arrows td, #arrows th {
+    border: none;
+}
+
+#arrow-button, #add-button {
+    border:0;
+    background:transparent;
+}
+
+#arrow-button:hover, #add-button:hover {
+    background-color: lightgray;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#search {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+input[type="submit"] {
+    height: 30px;
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#items-title {
+    margin-left: 11%;
+}
