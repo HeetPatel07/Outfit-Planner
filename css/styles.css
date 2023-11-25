@@ -456,7 +456,7 @@ footer {
 }
 
 /* Clothing Modal */
-.clothing-modal, .items-create-modal {
+.clothing-modal, .items-create-modal, .items-edit-modal {
     display: none;
     position: fixed;
     left: 31%;
