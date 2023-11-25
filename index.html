@@ -103,7 +103,7 @@
                 <!--Table for hats-->
                 <!--Page 1-->
                 <div class="table hats" style="display: none;">
-                        <table id="heads-table">
+                        <table id="hats-table">
                             <tr>
                                 <th></th>
                                 <th class="items-cells"></th>
@@ -113,7 +113,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button id="prev" title="Previous page">
+                                    <button id="hats-prev" title="Previous page">
                                         <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                     </button>
                                 </td>
@@ -121,7 +121,7 @@
                                 <td class="items-cells"></td>
                                 <td class="items-cells"></td>
                                 <td>
-                                    <button id="next" title="Next page">
+                                    <button id="hats-next" title="Next page">
                                         <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
                                     </button>
                                 </td>
@@ -148,7 +148,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button id="prev" title="Previous page">
+                                        <button id="tops-prev" title="Previous page">
                                             <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                         </button>
                                     </td>
@@ -156,7 +156,7 @@
                                     <td class="items-cells"></td>
                                     <td class="items-cells"></td>
                                     <td>
-                                        <button id="next" title="Next page">
+                                        <button id="tops-next" title="Next page">
                                             <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
                                         </button>
                                     </td>
@@ -183,7 +183,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <button id="prev" title="Previous page">
+                                <button id="bottoms-prev" title="Previous page">
                                     <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                 </button>
                             </td>
@@ -191,7 +191,7 @@
                             <td class="items-cells"></td>
                             <td class="items-cells"></td>
                             <td>
-                                <button id="next" title="Next page">
+                                <button id="bottoms-next" title="Next page">
                                     <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
                                 </button>
                             </td>
@@ -217,7 +217,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <button id="prev" title="Previous page">
+                                <button id="shoes-prev" title="Previous page">
                                     <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
                                 </button>
                             </td>
@@ -225,7 +225,7 @@
                             <td class="items-cells"></td>
                             <td class="items-cells"></td>
                             <td>
-                                <button id="next" title="Next page">
+                                <button id="shoes-next" title="Next page">
                                     <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
                                 </button>
                             </td>
@@ -506,8 +506,8 @@
     shoes4 = new Item("Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
     shoes5 = new Item("Chucks High CDG", "Converse", Weather.SUNNY, Category.SHOES);
 
-    const headsList = [];
-    var headsTable = document.querySelector('#heads-table tbody');
+    const hatsList = [];
+    var hatsTable = document.querySelector('#hats-table tbody');
     const topsList = [];
     var topsTable = document.querySelector('#tops-table tbody');
     const bottomsList = [];
@@ -516,8 +516,8 @@
     var shoesTable = document.querySelector('#shoes-table tbody');
 
     window.onload = function() {
-        headsList.push(head1, head2, head3, head4, head5);
-        addDataToTable(headsTable, headsList);
+        hatsList.push(head1, head2, head3, head4, head5);
+        addDataToTable(hatsTable, hatsList);
 
         topsList.push(top1, top2, top3, top4, top5);
         addDataToTable(topsTable, topsList);
@@ -529,8 +529,75 @@
         addDataToTable(shoesTable, shoesList);
     };
 
+    let pageNumber = Math.floor(calculatePageNum(selectedCategory));
+    let currentPage = 1;
+    toggleAllButtons();
     currentModal = "";          // Keeps track of current Modal that is open
     currentCBox = "";          // Keeps track of current Confirmation Box that is open
+
+    function calculatePageNum(category) {
+
+        let categoryList;
+
+        switch(category) {
+            case "hats": categoryList = hatsList; break;
+            case "tops": categoryList = topsList; break;
+            case "bottoms": categoryList = bottomsList; break;
+            case "shoes": categoryList = shoesList; break;
+        }
+        console.log(category);
+
+        return (categoryList.length / 10) + 1;
+    }
+
+    function toggleAllButtons() {
+        document.querySelector('#hats-prev').disabled = toggleButtonDisable('prev');
+        document.querySelector('#hats-next').disabled = toggleButtonDisable('next');
+        document.querySelector('#tops-prev').disabled = toggleButtonDisable('prev');
+        document.querySelector('#tops-next').disabled = toggleButtonDisable('next');
+        document.querySelector('#bottoms-prev').disabled = toggleButtonDisable('prev');
+        document.querySelector('#bottoms-next').disabled = toggleButtonDisable('next');
+        document.querySelector('#shoes-prev').disabled = toggleButtonDisable('prev');
+        document.querySelector('#shoes-next').disabled = toggleButtonDisable('next');
+    }
+
+    function toggleButtonsByCategory(category) {
+        switch (category) {
+            case "hats":
+                document.querySelector('#hats-prev').disabled = toggleButtonDisable('prev');
+                document.querySelector('#hats-next').disabled = toggleButtonDisable('next');
+                break;
+            case "tops":
+                document.querySelector('#tops-prev').disabled = toggleButtonDisable('prev');
+                document.querySelector('#tops-next').disabled = toggleButtonDisable('next');
+                break;
+            case "bottoms":
+                document.querySelector('#bottoms-prev').disabled = toggleButtonDisable('prev');
+                document.querySelector('#bottoms-next').disabled = toggleButtonDisable('next');
+                break;
+            case "shoes":
+                document.querySelector('#shoes-prev').disabled = toggleButtonDisable('prev');
+                document.querySelector('#shoes-next').disabled = toggleButtonDisable('next');
+                break;
+        }
+    }
+
+    function toggleButtonDisable(button) {
+
+        if(button === 'prev') {
+            if(currentPage == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if(pageNumber <= currentPage) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 
     // Function to toggle the visibility of pages
     function showPage(divId) {
@@ -674,8 +741,8 @@
 
         switch(category) {
             case "hats":
-                headsList.push(newItem);
-                addDataToTable(headsTable, headsList);
+                hatsList.push(newItem);
+                addDataToTable(hatsTable, hatsList);
                 break;
             case "tops":
                 topsList.push(newItem);
@@ -690,6 +757,10 @@
                 addDataToTable(shoesTable, shoesList);
                 break;
         }
+
+        pageNumber = Math.floor(calculatePageNum(category));
+        toggleButtonsByCategory(category);
+        console.log(pageNumber);
 
         closeModal();
     }

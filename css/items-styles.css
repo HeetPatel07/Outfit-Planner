@@ -55,19 +55,19 @@
     height: 50px;
 }
 
-#heads-table, #tops-table, #bottoms-table, #shoes-table {
+#hats-table, #tops-table, #bottoms-table, #shoes-table {
     margin-right: auto;
     margin-left: auto;
 }
 
-#heads-table td, #tops-table td, #bottoms-table td, #shoes-table td {
+#hats-table td, #tops-table td, #bottoms-table td, #shoes-table td {
     width: 150px;
     height: 150px;
     text-align: center;
     vertical-align: middle;
 }
 
-#heads-table th, #tops-table th, #bottoms-table th, #shoes-table th {
+#hats-table th, #tops-table th, #bottoms-table th, #shoes-table th {
     width: 75px;
     height: 150px;
     text-align: center;
