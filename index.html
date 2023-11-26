@@ -88,14 +88,14 @@
                 <table id="search-bar-table">
                     <tr>
                         <th id="add">
-                            <button id="add-button" title="Add new item" onclick="openModal('itemsCreateModal') " >
-                                <img src="images/add1-svgrepo-com.svg">
+                            <button id="add-button" class="buttons item-add-button" title="Add new item" onclick="openModal('itemsCreateModal') " >
+                                <i class="fa-solid fa-plus"></i>
                             </button>
                         </th>
                         <th>
                             <form id="search-form">
                                 <input type="text" id="item-search" name="search" placeholder="Search">
-                                <input type="submit" value="Search">
+                                <input id="item-search-btn" type="submit" value="Search">
                             </form>
                         </th>
                     </tr>
@@ -967,10 +967,6 @@
                     }
                 }
             }
-            if(data.length == 1) {
-                currentPage--;
-                addDataToTable(table, data, currentPage, false);
-            }
         }
 
     //-------------------------------------------
@@ -1083,6 +1079,7 @@
                 topsList.splice(index, 1);
                 pagedTops = chunkArray(topsList, 9);
                 refreshTableData(topsTable, pagedTops);
+                addDataToTable(topsTable, pagedTops, currentPage);
                 break;
             case Category.BOTTOMS:
                 var index = bottomsList.indexOf(item);

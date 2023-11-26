@@ -82,12 +82,12 @@
     border: none;
 }
 
-#arrow-button, #add-button {
+#arrow-button {
     border:0;
     background:transparent;
 }
 
-#arrow-button:hover, #add-button:hover {
+#arrow-button:hover {
     background-color: lightgray;
 }
 
@@ -97,11 +97,22 @@ form {
     padding: 10px;
 }
 
-#search {
+#item-search {
     width: 200px;
     height: 30px;
+    padding: 8px;
     border: 1px solid #ccc;
-    padding: 5px;
+    border-radius: 4px 0 0 4px;
+}
+
+#item-search-btn {
+    height: 30px;
+    padding: 8px 12px;
+    background-color: #3897f0;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
 }
 
 input[type="submit"] {
@@ -130,7 +141,7 @@ input[type="submit"] {
 
 }
 
-.item-arrow.left {
+.item-arrow.left, .item-arrow.right {
     position: absolute;
     left: auto;
     right: auto;
@@ -138,18 +149,30 @@ input[type="submit"] {
     transform: translateY(-50%);
 }
 
-.item-arrow.left:hover:enabled {
+.item-arrow.left:hover:enabled, .item-arrow.right:hover:enabled {
     font-size: 45px;
 }
 
-
-.item-arrow.right {
-    position: absolute;
-    left: auto;
-    top: auto; /*centrally vertical*/
-    transform: translateY(-50%);
+.item-arrow.left:disabled, .item-arrow.right:disabled {
+    background-color: lightgray;
 }
 
-.item-arrow.right:hover:enabled {
-    font-size: 45px;
+.buttons {
+    padding: 10px 12px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+}
+
+.buttons.item-add-button {
+    background-color: #3897f0;
+}
+
+.buttons.item-add-button:hover {
+    background-color: #3857f0;
 }
