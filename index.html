@@ -93,8 +93,9 @@
                             </button>
                         </th>
                         <th>
-                            <form>
-                                <input type="text" id="search" name="search" placeholder="Search">
+                            <form id="search-form">
+                                <input type="text" id="item-search" name="search" placeholder="Search">
+                                <input type="submit" value="Search">
                             </form>
                         </th>
                     </tr>
@@ -113,16 +114,16 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button id="hats-prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    <button id="hats-prev" class="item-arrow left" title="Previous page">
+                                        <i class="fa-solid fa-angle-left fa"></i>
                                     </button>
                                 </td>
                                 <td class="items-cells"></td>
                                 <td class="items-cells"></td>
                                 <td class="items-cells"></td>
                                 <td>
-                                    <button id="hats-next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    <button id="hats-next" class="item-arrow right" title="Next page">
+                                        <i class="fa-solid fa-angle-right fa"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -148,16 +149,16 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button id="tops-prev" title="Previous page">
-                                            <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                        <button id="tops-prev" class="item-arrow left" title="Previous page">
+                                            <i class="fa-solid fa-angle-left fa"></i>
                                         </button>
                                     </td>
                                     <td class="items-cells"></td>
                                     <td class="items-cells"></td>
                                     <td class="items-cells"></td>
                                     <td>
-                                        <button id="tops-next" title="Next page">
-                                            <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                        <button id="tops-next" class="item-arrow right" title="Next page">
+                                            <i class="fa-solid fa-angle-right fa"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -183,16 +184,16 @@
                         </tr>
                         <tr>
                             <td>
-                                <button id="bottoms-prev" title="Previous page">
-                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                <button id="bottoms-prev" class="item-arrow left" title="Previous page">
+                                    <i class="fa-solid fa-angle-left fa"></i>
                                 </button>
                             </td>
                             <td class="items-cells"></td>
                             <td class="items-cells"></td>
                             <td class="items-cells"></td>
                             <td>
-                                <button id="bottoms-next" title="Next page">
-                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                <button id="bottoms-next" class="item-arrow right" title="Next page">
+                                    <i class="fa-solid fa-angle-right fa"></i>
                                 </button>
                             </td>
                         </tr>
@@ -217,16 +218,16 @@
                         </tr>
                         <tr>
                             <td>
-                                <button id="shoes-prev" title="Previous page">
-                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                <button id="shoes-prev" class="item-arrow left" title="Previous page">
+                                    <i class="fa-solid fa-angle-left fa"></i>
                                 </button>
                             </td>
                             <td class="items-cells"></td>
                             <td class="items-cells"></td>
                             <td class="items-cells"></td>
                             <td>
-                                <button id="shoes-next" title="Next page">
-                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                <button id="shoes-next" class="item-arrow right" title="Next page">
+                                    <i class="fa-solid fa-angle-right fa"></i>
                                 </button>
                             </td>
                         </tr>
@@ -345,7 +346,7 @@
 <!-- Clothing Modal -->
 <div class="items-create-modal" id="itemsCreateModal">
     <div class="modal-content">
-        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelCreateItemCBox')">&times;</span>
         <h2 style="text-align: center">Add Item</h2>
         <div class="item-create-input">
             <img src="images/istockphoto-1313311136-612x612.jpg" width="50%" height="50%"
@@ -372,7 +373,7 @@
 
 <div class="items-edit-modal" id="itemsEditModal">
     <div class="modal-content">
-        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelEditItemCBox')">&times;</span>
         <h2 style="text-align: center">Edit Item</h2>
         <div class="item-create-input">
             <img src="images/istockphoto-1313311136-612x612.jpg" width="50%" height="50%"
@@ -469,6 +470,24 @@
     </div>
 </div>
 
+<div class="cbox-modal" id="cancelCreateItemCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Cancel Confirmation</h2>
+        <p>Are you sure you want to cancel the creation process?</p>
+        <button class="cbox-button confirm" onclick="cancelOperation()">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
+
+<div class="cbox-modal" id="cancelEditItemCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Cancel Confirmation</h2>
+        <p>Are you sure you want to cancel the editing process?</p>
+        <button class="cbox-button confirm" onclick="cancelOperation()">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
+
 <!-- Consistent footer -->
 <footer>
     <p> COMP 3020 A01 - CPG24</p>
@@ -488,6 +507,7 @@
         currentCBox = "";          // Keeps track of current Confirmation Box that is open
         let pagedData;
         let selectedTable;
+        let selectedList;
         loadButtons();
 
         // Default selected category is tops([1])
@@ -590,24 +610,25 @@
     hatsList.push(head1, head2, head3, head4, head5,
         head6, head7, head8, head9);
     let pagedHats = chunkArray(hatsList, 9);
-    addDataToTable(hatsTable, pagedHats, 0);
+    addDataToTable(hatsTable, pagedHats, 0, false);
 
     topsList.push(top1, top2, top3, top4, top5,
         top6, top7, top8, top9);
     let pagedTops = chunkArray(topsList, 9);
-    addDataToTable(topsTable, pagedTops, 0);
+    addDataToTable(topsTable, pagedTops, 0, false);
 
     bottomsList.push(bottom1, bottom2, bottom3, bottom4, bottom5,
         bottom6, bottom7, bottom8, bottom9);
     let pagedBottoms = chunkArray(bottomsList, 9);
-    addDataToTable(bottomsTable, pagedBottoms, 0);
+    addDataToTable(bottomsTable, pagedBottoms, 0, false);
 
     shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5,
         shoes6, shoes7, shoes8, shoes9);
     let pagedShoes = chunkArray(shoesList, 9);
-    addDataToTable(shoesTable, pagedShoes, 0);
+    addDataToTable(shoesTable, pagedShoes, 0, false);
 
     togglePaginationBtnsDisabled();
+    paginationNumbering();
 
     function chunkArray(array, chunkSize) {
         var result = [];
@@ -622,7 +643,7 @@
             if (currentPage < pagedData.length - 1) {
                 currentPage++;
                 refreshTableData(selectedTable, pagedData);
-                addDataToTable(selectedTable, pagedData, currentPage);
+                addDataToTable(selectedTable, pagedData, currentPage, false);
                 togglePaginationBtnsDisabled();
             }
         };
@@ -631,10 +652,49 @@
             if (currentPage > 0) {
                 currentPage--;
                 refreshTableData(selectedTable, pagedData);
-                addDataToTable(selectedTable, pagedData, currentPage);
+                addDataToTable(selectedTable, pagedData, currentPage, false);
                 togglePaginationBtnsDisabled();
             }
         };
+    }
+
+    var searchField = document.getElementById("item-search");
+    var form = document.getElementById('search-form');
+
+    // Prevent form from submitting
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        performSearch();
+    }
+
+    function performSearch() {
+
+        // get the input field value (lowercased for case-insensitive search)
+        var searchValue = searchField.value;
+        console.log('Search Value: ', searchValue);
+
+        console.log(selectedList);
+
+        // filter your objects
+        var filteredObjects = selectedList.filter(function(obj) {
+            console.log('Checking: ', obj);
+            console.log('Is instance of Item:', obj instanceof Item);
+            // check if name and brand attributes exist before calling toLowerCase
+            var name = obj.name;
+            var brand = obj.brand;
+
+            console.log('Name: ', name);
+            console.log('Brand: ', brand);
+
+            return name.includes(searchValue) || brand.includes(searchValue);
+        });
+
+        console.log("Filtered Objects:", filteredObjects);
+
+        // now the "filteredObjects" array contains only those objects that match the search;
+        // you should now update your table using this array.
+        addDataToTable(selectedTable, filteredObjects, 0, true);
+        refreshTableData(selectedTable, filteredObjects);
     }
 
     function togglePaginationBtnsDisabled() {
@@ -656,20 +716,44 @@
             case 'hats':
                 pagedData = pagedHats;
                 selectedTable = hatsTable;
+                selectedList = hatsList;
                 break;
             case 'tops':
                 pagedData = pagedTops;
                 selectedTable = topsTable;
+                selectedList = topsList;
                 break;
             case 'bottoms':
                 pagedData = pagedBottoms;
                 selectedTable = bottomsTable;
+                selectedList = bottomsList;
                 break;
             case 'shoes':
                 pagedData = pagedShoes;
                 selectedTable = shoesTable;
+                selectedList = shoesList;
                 break;
         }
+    }
+
+    function paginationNumbering() {
+
+        console.log("Pagination Numbering");
+        const paginationDiv = document.createElement('div');
+        paginationDiv.className = 'pagination-numbers';
+        paginationDiv.style.display = 'none';
+
+        for(let i = 0; i < calculatePageNum(selectedCategory); i++) {
+            console.log("i: " + i);
+            const paginationLink = document.createElement('button');
+            paginationLink.innerText = i + 1;
+            paginationLink.onclick = function () {
+                currentPage = i;
+            }
+            paginationDiv.appendChild(paginationLink);
+        }
+
+        topsTable.appendChild(paginationDiv);
     }
 
     function calculatePageNum(category) {
@@ -725,6 +809,11 @@
         if (buttonId !== 'homePageButton') {
             document.getElementById(buttonId).style.backgroundColor = '#bbbbbb';
         }
+    }
+
+    function cancelOperation() {
+        closeCBox();
+        closeModal();
     }
 
     function openItemEditModal(item) {
@@ -794,10 +883,15 @@
     * ADD DATA TO CORRESPONDING TABLE
     * Adds data in form of an array with arrays into a table element.
     */
-        function addDataToTable(table, data, pageNumber) {
+        function addDataToTable(table, data, pageNumber, filtered) {
             const columns = 3; // number of columns to fill
 
-            let pageItems = data[pageNumber];
+            let pageItems;
+            if(!filtered) {
+                pageItems = data[pageNumber];
+            } else {
+                pageItems = data;
+            }
             pageItems.forEach((item, i) => {
                 // Calculate row and column indices
                 const rowIndex = Math.floor(i / columns);
@@ -875,7 +969,7 @@
             }
             if(data.length == 1) {
                 currentPage--;
-                addDataToTable(table, data, currentPage);
+                addDataToTable(table, data, currentPage, false);
             }
         }
 
@@ -908,22 +1002,22 @@
             case "hats":
                 hatsList.push(newItem);
                 pagedHats = chunkArray(hatsList, 9);
-                addDataToTable(hatsTable, pagedHats, calculatePageNum(category) - 1);
+                addDataToTable(hatsTable, pagedHats, calculatePageNum(category) - 1, false);
                 break;
             case "tops":
                 topsList.push(newItem);
                 pagedTops = chunkArray(topsList, 9);
-                addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1);
+                addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false);
                 break;
             case "bottoms":
                 bottomsList.push(newItem);
                 pagedBottoms = chunkArray(bottomsList, 9);
-                addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1);
+                addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false);
                 break;
             case "shoes":
-                pagedShoes = chunkArray(shoesList, 9);
                 shoesList.push(newItem);
-                addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1);
+                pagedShoes = chunkArray(shoesList, 9);
+                addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false);
                 break;
         }
 
@@ -949,25 +1043,25 @@
                 var index = hatsList.indexOf(item);
                 hatsList[index] = newItem;
                 pagedHats = chunkArray(hatsList, 9);
-                addDataToTable(hatsTable, pagedHats, calculatePageNum('hats') - 1);
+                addDataToTable(hatsTable, pagedHats, calculatePageNum('hats') - 1, false);
                 break;
             case Category.TOPS:
                 var index = topsList.indexOf(item);
                 topsList[index] = newItem;
                 pagedTops = chunkArray(topsList, 9);
-                addDataToTable(topsTable, pagedTops, calculatePageNum('tops') - 1);
+                addDataToTable(topsTable, pagedTops, calculatePageNum('tops') - 1, false);
                 break;
             case Category.BOTTOMS:
                 var index = bottomsList.indexOf(item);
                 bottomsList[index] = newItem;
                 pagedBottoms = chunkArray(bottomsList, 9);
-                addDataToTable(bottomsTable, pagedBottoms, calculatePageNum('bottoms') - 1);
+                addDataToTable(bottomsTable, pagedBottoms, calculatePageNum('bottoms') - 1, false);
                 break;
             case Category.SHOES:
                 var index = shoesList.indexOf(item);
                 shoesList[index] = newItem;
                 pagedShoes = chunkArray(shoesList, 9);
-                addDataToTable(shoesTable, pagedShoes, calculatePageNum('shoes') - 1);
+                addDataToTable(shoesTable, pagedShoes, calculatePageNum('shoes') - 1, false);
                 break;
         }
 

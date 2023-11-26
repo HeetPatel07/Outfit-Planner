@@ -116,3 +116,40 @@ input[type="submit"] {
 #items-title {
     margin-left: auto;
 }
+
+
+/*the arrow buttons on the side*/
+.item-arrow {
+    flex-direction: row;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+
+}
+
+.item-arrow.left {
+    position: absolute;
+    left: auto;
+    right: auto;
+    top: auto ;/*centrally vertical*/
+    transform: translateY(-50%);
+}
+
+.item-arrow.left:hover:enabled {
+    font-size: 45px;
+}
+
+
+.item-arrow.right {
+    position: absolute;
+    left: auto;
+    top: auto; /*centrally vertical*/
+    transform: translateY(-50%);
+}
+
+.item-arrow.right:hover:enabled {
+    font-size: 45px;
+}
