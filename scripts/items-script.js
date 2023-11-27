@@ -139,22 +139,30 @@ function chunkArray(array, chunkSize) {
 
 function loadButtons() {
     document.getElementById(selectedCategory + '-next').onclick = function() {
-        if (currentPage < pagedData.length - 1) {
-            currentPage++;
-            refreshTableData(selectedTable, pagedData);
-            addDataToTable(selectedTable, pagedData, currentPage, false);
-            togglePaginationBtnsDisabled();
-        }
+        nextPage();
     };
 
     document.getElementById(selectedCategory + '-prev').onclick = function() {
-        if (currentPage > 0) {
-            currentPage--;
-            refreshTableData(selectedTable, pagedData);
-            addDataToTable(selectedTable, pagedData, currentPage, false);
-            togglePaginationBtnsDisabled();
-        }
+        prevPage();
     };
+}
+
+function nextPage() {
+    if (currentPage < pagedData.length - 1) {
+        currentPage++;
+        refreshTableData(selectedTable, pagedData);
+        addDataToTable(selectedTable, pagedData, currentPage, false);
+        togglePaginationBtnsDisabled();
+    }
+}
+
+function prevPage() {
+    if (currentPage > 0) {
+        currentPage--;
+        refreshTableData(selectedTable, pagedData);
+        addDataToTable(selectedTable, pagedData, currentPage, false);
+        togglePaginationBtnsDisabled();
+    }
 }
 
 var searchField = document.getElementById("item-search");
@@ -400,21 +408,29 @@ function createItem(category) {
         case "hats":
             hatsList.push(newItem);
             pagedHats = chunkArray(hatsList, 9);
+            pagedData = pagedHats;
+            if((hatsList.length % 9) === 1) nextPage();
             addDataToTable(hatsTable, pagedHats, calculatePageNum(category) - 1, false);
             break;
         case "tops":
             topsList.push(newItem);
             pagedTops = chunkArray(topsList, 9);
+            pagedData = pagedTops;
+            if((topsList.length % 9) === 1) nextPage();
             addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false);
             break;
         case "bottoms":
             bottomsList.push(newItem);
             pagedBottoms = chunkArray(bottomsList, 9);
+            pagedData = pagedBottoms;
+            if((bottomsList.length % 9) === 1) nextPage();
             addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false);
             break;
         case "shoes":
             shoesList.push(newItem);
             pagedShoes = chunkArray(shoesList, 9);
+            pagedData = pagedShoes;
+            if((shoesList.length % 9) === 1) nextPage();
             addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false);
             break;
     }
@@ -474,25 +490,49 @@ function deleteItem(item) {
             var index = hatsList.indexOf(item);
             hatsList.splice(index, 1);
             pagedHats = chunkArray(hatsList, 9);
-            refreshTableData(hatsTable, pagedHats);
+            pagedData = pagedHats;
+            if(currentPage > 0 && (hatsList.length % 9) === 0) {
+                prevPage();
+            } else {
+                refreshTableData(hatsTable, pagedHats);
+                addDataToTable(hatsTable, pagedHats, currentPage, false);
+            }
             break;
         case Category.TOPS:
             var index = topsList.indexOf(item);
             topsList.splice(index, 1);
             pagedTops = chunkArray(topsList, 9);
-            refreshTableData(topsTable, pagedTops);
+            pagedData = pagedTops;
+            if(currentPage > 0 && (topsList.length % 9) === 0) {
+                prevPage();
+            } else {
+                refreshTableData(topsTable, pagedTops);
+                addDataToTable(topsTable, pagedTops, currentPage, false);
+            }
             break;
         case Category.BOTTOMS:
             var index = bottomsList.indexOf(item);
             bottomsList.splice(index, 1);
             pagedBottoms = chunkArray(bottomsList, 9);
-            refreshTableData(bottomsTable, pagedBottoms);
+            pagedData = pagedBottoms;
+            if(currentPage > 0 && (bottomsList.length % 9) === 0) {
+                prevPage();
+            } else {
+                refreshTableData(bottomsTable, pagedBottoms);
+                addDataToTable(bottomsTable, pagedBottoms, currentPage, false);
+            }
             break;
         case Category.SHOES:
             var index = shoesList.indexOf(item);
             shoesList.splice(index, 1);
             pagedShoes = chunkArray(shoesList, 9);
-            refreshTableData(shoesTable, pagedShoes);
+            pagedData = pagedShoes;
+            if(currentPage > 0 && (shoesList.length % 9) === 0) {
+                prevPage();
+            } else {
+                refreshTableData(shoesTable, pagedShoes);
+                addDataToTable(shoesTable, pagedShoes, currentPage, false);
+            }
             break;
     }
     closeCBox();
