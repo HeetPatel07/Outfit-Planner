@@ -150,7 +150,7 @@ function loadButtons() {
 function nextPage() {
     if (currentPage < pagedData.length - 1) {
         currentPage++;
-        refreshTableData(selectedTable, pagedData);
+        clearTable(selectedTable);
         addDataToTable(selectedTable, pagedData, currentPage, false);
         togglePaginationBtnsDisabled();
     }
@@ -159,7 +159,7 @@ function nextPage() {
 function prevPage() {
     if (currentPage > 0) {
         currentPage--;
-        refreshTableData(selectedTable, pagedData);
+        clearTable(selectedTable);
         addDataToTable(selectedTable, pagedData, currentPage, false);
         togglePaginationBtnsDisabled();
     }
@@ -200,8 +200,8 @@ function performSearch() {
 
     // now the "filteredObjects" array contains only those objects that match the search;
     // you should now update your table using this array.
+    clearTable(selectedTable);
     addDataToTable(selectedTable, filteredObjects, 0, true);
-    refreshTableData(selectedTable, filteredObjects);
 }
 
 function togglePaginationBtnsDisabled() {
@@ -359,6 +359,16 @@ function addDataToTable(table, data, pageNumber, filtered) {
     });
 }
 
+function clearTable(table) {
+    for (let i = 0, row; row = table.rows[i]; i++) {
+        for(let j = 1, cell; cell = row.cells[j]; j++) {
+            if(j <= 3) {
+                cell.innerHTML = "";
+            }
+        }
+    }
+}
+
 function refreshTableData(table, data) {
 
     // create a Map for quick lookup
@@ -494,7 +504,7 @@ function deleteItem(item) {
             if(currentPage > 0 && (hatsList.length % 9) === 0) {
                 prevPage();
             } else {
-                refreshTableData(hatsTable, pagedHats);
+                clearTable(hatsTable);
                 addDataToTable(hatsTable, pagedHats, currentPage, false);
             }
             break;
@@ -506,7 +516,7 @@ function deleteItem(item) {
             if(currentPage > 0 && (topsList.length % 9) === 0) {
                 prevPage();
             } else {
-                refreshTableData(topsTable, pagedTops);
+                clearTable(topsTable);
                 addDataToTable(topsTable, pagedTops, currentPage, false);
             }
             break;
@@ -518,7 +528,7 @@ function deleteItem(item) {
             if(currentPage > 0 && (bottomsList.length % 9) === 0) {
                 prevPage();
             } else {
-                refreshTableData(bottomsTable, pagedBottoms);
+                clearTable(bottomsTable);
                 addDataToTable(bottomsTable, pagedBottoms, currentPage, false);
             }
             break;
@@ -530,7 +540,7 @@ function deleteItem(item) {
             if(currentPage > 0 && (shoesList.length % 9) === 0) {
                 prevPage();
             } else {
-                refreshTableData(shoesTable, pagedShoes);
+                clearTable(shoesTable);
                 addDataToTable(shoesTable, pagedShoes, currentPage, false);
             }
             break;
