@@ -78,6 +78,7 @@ categories.forEach(function(category) {
         selectedCategory = this.getAttribute('data-category');
         let selectedTable = document.querySelector('.' + selectedCategory);
         selectedTable.style.display = 'block';
+        currentPage = 0;
 
         loadButtons();
         togglePaginationBtnsDisabled();
@@ -189,26 +190,26 @@ function chunkArray(array, chunkSize) {
 
 function loadButtons() {
     document.getElementById(selectedCategory + '-next').onclick = function() {
-        nextPage();
+        nextPage(1);
     };
 
     document.getElementById(selectedCategory + '-prev').onclick = function() {
-        prevPage();
+        prevPage(1);
     };
 }
 
-function nextPage() {
+function nextPage(pageNum) {
     if (currentPage < pagedData.length - 1) {
-        currentPage++;
+        currentPage += pageNum;
         clearTable(selectedTable);
         addDataToTable(selectedTable, pagedData, currentPage, false);
         togglePaginationBtnsDisabled();
     }
 }
 
-function prevPage() {
+function prevPage(pageNum) {
     if (currentPage > 0) {
-        currentPage--;
+        currentPage -= pageNum;
         clearTable(selectedTable);
         addDataToTable(selectedTable, pagedData, currentPage, false);
         togglePaginationBtnsDisabled();
@@ -313,6 +314,19 @@ function calculatePageNum(category) {
 }
 
 function selectItem(cell) {
+    var buttonDivs = document.querySelectorAll('.edit-delete-item-btns');
+
+    // If no divs with class "edit-delete-item-btns" found, log an error message and exit the function
+    if (buttonDivs.length === 0) {
+        console.error('No divs with class "edit-delete-item-btns" found');
+        return;
+    }
+
+    // Hide all .edit-delete-item-btns divs
+    buttonDivs.forEach(function(buttonDiv) {
+        buttonDiv.style.display = 'none';
+    });
+
     var buttonDiv = cell.querySelector('.edit-delete-item-btns');
 
     // If buttonDiv doesn't exist, log an error message and exit the function
@@ -490,28 +504,33 @@ function createItem(category) {
             hatsList.push(newItem);
             pagedHats = chunkArray(hatsList, 9);
             pagedData = pagedHats;
-            if((hatsList.length % 9) === 1) nextPage();
+            if((hatsList.length % 9) === 1) {
+                nextPage(1);
+            }
             addDataToTable(hatsTable, pagedHats, calculatePageNum(category) - 1, false);
             break;
         case "tops":
             topsList.push(newItem);
             pagedTops = chunkArray(topsList, 9);
             pagedData = pagedTops;
-            if((topsList.length % 9) === 1) nextPage();
+            console.log("Paged Data Length: ", pagedData.length);
+            console.log("Current Page: ", currentPage);
+            console.log("Tops List Length % 9: ", topsList.length % 9);
+            if((topsList.length % 9) === 1) nextPage(1);
             addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false);
             break;
         case "bottoms":
             bottomsList.push(newItem);
             pagedBottoms = chunkArray(bottomsList, 9);
             pagedData = pagedBottoms;
-            if((bottomsList.length % 9) === 1) nextPage();
+            if((bottomsList.length % 9) === 1) nextPage(1);
             addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false);
             break;
         case "shoes":
             shoesList.push(newItem);
             pagedShoes = chunkArray(shoesList, 9);
             pagedData = pagedShoes;
-            if((shoesList.length % 9) === 1) nextPage();
+            if((shoesList.length % 9) === 1) nextPage(1);
             addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false);
             break;
     }
@@ -573,7 +592,7 @@ function deleteItem(item) {
             pagedHats = chunkArray(hatsList, 9);
             pagedData = pagedHats;
             if(currentPage > 0 && (hatsList.length % 9) === 0) {
-                prevPage();
+                prevPage(1);
             } else {
                 clearTable(hatsTable);
                 addDataToTable(hatsTable, pagedHats, currentPage, false);
@@ -585,7 +604,7 @@ function deleteItem(item) {
             pagedTops = chunkArray(topsList, 9);
             pagedData = pagedTops;
             if(currentPage > 0 && (topsList.length % 9) === 0) {
-                prevPage();
+                prevPage(1);
             } else {
                 clearTable(topsTable);
                 addDataToTable(topsTable, pagedTops, currentPage, false);
@@ -597,7 +616,7 @@ function deleteItem(item) {
             pagedBottoms = chunkArray(bottomsList, 9);
             pagedData = pagedBottoms;
             if(currentPage > 0 && (bottomsList.length % 9) === 0) {
-                prevPage();
+                prevPage(1);
             } else {
                 clearTable(bottomsTable);
                 addDataToTable(bottomsTable, pagedBottoms, currentPage, false);
@@ -609,7 +628,7 @@ function deleteItem(item) {
             pagedShoes = chunkArray(shoesList, 9);
             pagedData = pagedShoes;
             if(currentPage > 0 && (shoesList.length % 9) === 0) {
-                prevPage();
+                prevPage(1);
             } else {
                 clearTable(shoesTable);
                 addDataToTable(shoesTable, pagedShoes, currentPage, false);

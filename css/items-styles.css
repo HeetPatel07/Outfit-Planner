@@ -177,3 +177,46 @@ input[type="submit"] {
 .buttons.item-add-button:hover {
     background-color: #3857f0;
 }
+
+@keyframes slideInLeft {
+    0% {
+        transform: translate(-150%, -50%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(-150%, -50%);
+    }
+}
+
+.items-create-modal, .items-edit-modal {
+    display: none;
+    position: fixed;
+    left: 31%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    width: 60%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 11;
+
+    border-radius: 10px;
+    border: solid #000000;
+    border-width: medium;
+}
+
+.items-create-modal.show, .items-edit-modal.show {
+    animation: 1s ease-out 0s 1 slideInLeft forwards;
+}
+
+.items-create-modal.hide, .items-edit-modal.hide {
+    animation: 1s ease-out 0s 1 slideOutLeft forwards;
+}

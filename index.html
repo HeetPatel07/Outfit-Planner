@@ -527,14 +527,20 @@
     function openModal(modalName) {
         currentModal = modalName;
         document.getElementById("modalOverlay").style.display = "block";
+        document.getElementById(currentModal).classList.remove('hide');
+        document.getElementById(currentModal).classList.add('show');
         document.getElementById(currentModal).style.display = "block";
     }
 
     // Function to close currently opened modal
     function closeModal() {
-        document.getElementById("modalOverlay").style.display = "none";
-        document.getElementById(currentModal).style.display = "none";
-        currentModal = "";
+        document.getElementById(currentModal).classList.remove('show');
+        document.getElementById(currentModal).classList.add('hide');
+        setTimeout(function() {
+            document.getElementById("modalOverlay").style.display = "none";
+            document.getElementById(currentModal).style.display = "none";
+            currentModal = "";
+        }, 1000); // matches the animation duration
     }
 
     // Function to open specified confirmation box
