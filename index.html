@@ -88,7 +88,7 @@
                 <table id="search-bar-table">
                     <tr>
                         <th id="add">
-                            <button id="add-button" class="buttons item-add-button" title="Add new item" onclick="openModal('itemsCreateModal') " >
+                            <button id="add-button" class="buttons item-add-button" title="Add new item" onclick="openItemCreateModal()" >
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                         </th>
@@ -349,7 +349,7 @@
         <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelCreateItemCBox')">&times;</span>
         <h2 style="text-align: center">Add Item</h2>
         <div class="item-create-input">
-            <img src="images/istockphoto-1313311136-612x612.jpg" width="50%" height="50%"
+            <img id="item-create-image" src="" onclick="iterateThroughImages('item-create-image')" width="50%" height="50%"
             style=" display: block;
                     margin-left: auto;
                     margin-right: auto;"/>
@@ -376,7 +376,7 @@
         <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelEditItemCBox')">&times;</span>
         <h2 style="text-align: center">Edit Item</h2>
         <div class="item-create-input">
-            <img src="images/istockphoto-1313311136-612x612.jpg" width="50%" height="50%"
+            <img id="item-edit-image" src="" onclick="iterateThroughImages('item-edit-image')" width="50%" height="50%"
                  style=" display: block;
                     margin-left: auto;
                     margin-right: auto;"/>

@@ -10,6 +10,55 @@ let selectedTable;
 let selectedList;
 loadButtons();
 
+let hatsImages = [
+    // Beanie
+    "https://www.pngall.com/wp-content/uploads/12/Beanie-PNG-HD-Image.png",
+    // Cap Brown
+    "https://static.vecteezy.com/system/resources/previews/011/356/628/original/black-baseball-cap-png.png",
+    // Cap Yellow
+    "https://www.freeiconspng.com/uploads/baseball-yellow-cap-hat-png-15.png",
+    // Cap White
+    "https://pngimg.com/d/cap_PNG5675.png"
+]
+let topsImages = [
+    // Winter Jacket
+    "https://freepngimg.com/save/37126-jacket-transparent-image/496x549",
+    // Hiking Jacket
+    "https://purepng.com/public/uploads/large/purepng.com-xtreme-jacketgarmentupper-bodyjacketlighterxtreme-142152636207609t4e.png",
+    // Long Sleeve
+    "https://png.pngtree.com/png-clipart/20220803/ourmid/pngtree-free-long-sleeve-t-shirt-mockup--psd-png-image_6096671.png",
+    // T-Shirt
+    "https://www.freepnglogos.com/uploads/t-shirt-png/t-shirt-png-download-white-shirt-png-image-png-image-pngimg-7.png",
+    // Summer Shirt
+    "https://www.pngkey.com/png/full/315-3153633_faherty-brand-hawaiian-shirt-coco-republic-polo-shirt.png"
+]
+let bottomsImages = [
+    // Cargo Pants
+    "https://freepngimg.com/thumb/cargo_pant/5-2-cargo-pant-png-thumb.png",
+    // Jeans
+    "https://pngimg.com/d/jeans_PNG5755.png",
+    // Ski Pants
+    "https://freepngimg.com/save/11031-cargo-pant-picture/1300x1733",
+    // Hiking Pants
+    "https://freepngimg.com/save/11033-cargo-pant-png/800x1200",
+    // Track Pants
+    "https://banner2.cleanpng.com/20180410/hpw/kisspng-tracksuit-hoodie-adidas-sweatpants-pant-5acc53234eb664.4359810215233400673224.jpg"
+]
+let shoesImages = [
+    // AF1
+    "https://www.pngarts.com/files/8/Nike-Air-Force-One-PNG-Image.png",
+    // Dunk Low
+    "https://www.soleretriever.com/_next/image?url=https%3A%2F%2Fmedia.soleretriever.com%2F65626725-83cd-4890-b653-099fd83638bb.png&w=1200&q=75",
+    // Js 1 Low
+    "https://www.pngkey.com/png/full/900-9002054_air-jordan-1-low.png",
+    // Js 8
+    "https://jordansdaily.com/wp-content/uploads/2017/04/air-jordan-8-hare-2003-1.png",
+    // Chucks
+    "https://pngimg.com/d/converse_PNG14.png"
+]
+let selectedImages = topsImages;
+let imageIndex = 0;
+
 // Default selected category is tops([1])
 categories[1].classList.add('selected');
 
@@ -29,8 +78,8 @@ categories.forEach(function(category) {
         selectedCategory = this.getAttribute('data-category');
         let selectedTable = document.querySelector('.' + selectedCategory);
         selectedTable.style.display = 'block';
-        loadButtons();
 
+        loadButtons();
         togglePaginationBtnsDisabled();
     });
 });
@@ -50,7 +99,8 @@ const Category = {
 }
 
 class Item {
-    constructor(name, brand, weather, category) {
+    constructor(image, name, brand, weather, category) {
+        this.image = image;
         this.name = name;
         this.brand = brand;
         this.weather = weather;
@@ -58,45 +108,45 @@ class Item {
     }
 }
 
-head1 = new Item("Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
-head2 = new Item("Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
-head3 = new Item("Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
-head4 = new Item("Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
-head5 = new Item("Trucker Cap", "Asos", Weather.SUNNY, Category.HEADS);
-head6 = new Item("Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
-head7 = new Item("Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
-head8 = new Item("Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
-head9 = new Item("Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
+head1 = new Item(hatsImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
+head2 = new Item(hatsImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
+head3 = new Item(hatsImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
+head4 = new Item(hatsImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
+head5 = new Item(hatsImages[3], "Trucker Cap", "Asos", Weather.SUNNY, Category.HEADS);
+head6 = new Item(hatsImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
+head7 = new Item(hatsImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
+head8 = new Item(hatsImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
+head9 = new Item(hatsImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
 
-top1 = new Item("Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
-top2 = new Item("Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
-top3 = new Item("Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
-top4 = new Item("Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
-top5 = new Item("Summer Shirt", "Asos", Weather.SUNNY, Category.TOPS);
-top6 = new Item("Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
-top7 = new Item("Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
-top8 = new Item("Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
-top9 = new Item("Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
+top1 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
+top2 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
+top3 = new Item(topsImages[3], "Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
+top4 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
+top5 = new Item(topsImages[4], "Summer Shirt", "Asos", Weather.SUNNY, Category.TOPS);
+top6 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
+top7 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
+top8 = new Item(topsImages[3], "Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
+top9 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
 
-bottom1 = new Item("Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
-bottom2 = new Item("Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
-bottom3 = new Item("Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
-bottom4 = new Item("Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
-bottom5 = new Item("Track Pants", "Adidas", Weather.SUNNY, Category.BOTTOMS);
-bottom6 = new Item("Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
-bottom7 = new Item("Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
-bottom8 = new Item("Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
-bottom9 = new Item("Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
+bottom1 = new Item(bottomsImages[2], "Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
+bottom2 = new Item(bottomsImages[1], "Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
+bottom3 = new Item(bottomsImages[0], "Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
+bottom4 = new Item(bottomsImages[3], "Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
+bottom5 = new Item(bottomsImages[4], "Track Pants", "Adidas", Weather.SUNNY, Category.BOTTOMS);
+bottom6 = new Item(bottomsImages[2], "Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
+bottom7 = new Item(bottomsImages[1], "Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
+bottom8 = new Item(bottomsImages[0], "Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
+bottom9 = new Item(bottomsImages[3], "Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
 
-shoes1 = new Item("Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
-shoes2 = new Item("Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
-shoes3 = new Item("Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
-shoes4 = new Item("Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
-shoes5 = new Item("Chucks High CDG", "Converse", Weather.SUNNY, Category.SHOES);
-shoes6 = new Item("Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
-shoes7 = new Item("Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
-shoes8 = new Item("Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
-shoes9 = new Item("Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
+shoes1 = new Item(shoesImages[0], "Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
+shoes2 = new Item(shoesImages[1], "Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
+shoes3 = new Item(shoesImages[2], "Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
+shoes4 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
+shoes5 = new Item(shoesImages[4], "Chucks High CDG", "Converse", Weather.SUNNY, Category.SHOES);
+shoes6 = new Item(shoesImages[0], "Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
+shoes7 = new Item(shoesImages[1], "Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
+shoes8 = new Item(shoesImages[2], "Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
+shoes9 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
 
 let hatsList = [];
 var hatsTable = document.querySelector('#hats-table tbody');
@@ -219,26 +269,31 @@ function togglePaginationBtnsDisabled() {
 }
 
 function setPaginationVariables() {
+    imageIndex = 0;
     switch (selectedCategory) {
         case 'hats':
             pagedData = pagedHats;
             selectedTable = hatsTable;
             selectedList = hatsList;
+            selectedImages = hatsImages;
             break;
         case 'tops':
             pagedData = pagedTops;
             selectedTable = topsTable;
             selectedList = topsList;
+            selectedImages = topsImages;
             break;
         case 'bottoms':
             pagedData = pagedBottoms;
             selectedTable = bottomsTable;
             selectedList = bottomsList;
+            selectedImages = bottomsImages;
             break;
         case 'shoes':
             pagedData = pagedShoes;
             selectedTable = shoesTable;
             selectedList = shoesList;
+            selectedImages = shoesImages;
             break;
     }
 }
@@ -278,8 +333,23 @@ function cancelOperation() {
     closeModal();
 }
 
+function openItemCreateModal() {
+    openModal('itemsCreateModal');
+    document.getElementById('item-create-image').src = selectedImages[imageIndex];
+}
+
+function iterateThroughImages(imageElement) {
+    if(imageIndex < selectedImages.length - 1) {
+        imageIndex++;
+    } else {
+        imageIndex = 0;
+    }
+    document.getElementById(imageElement).src = selectedImages[imageIndex]
+}
+
 function openItemEditModal(item) {
     openModal('itemsEditModal');
+    document.getElementById('item-edit-image').src = String(item.image);
     document.getElementById('item-edit-name').value = String(item.name);
     document.getElementById('item-edit-brand').value = String(item.brand);
     document.getElementById('item-edit-weather').value = String(item.weather);
@@ -347,6 +417,7 @@ function addDataToTable(table, data, pageNumber, filtered) {
                 } else {
                     cell.innerHTML = item.name;
                 }
+                cell.innerHTML = `<img src="${item.image}" width='150px' height='150px'>`
 
                 cell.appendChild(buttonDiv);
 
@@ -412,7 +483,7 @@ function createItem(category) {
         case "shoes": itemCategory = Category.SHOES; break;
     }
 
-    var newItem = new Item(itemName.value, itemBrand.value, itemWeather, itemCategory);
+    var newItem = new Item(selectedImages[imageIndex], itemName.value, itemBrand.value, itemWeather, itemCategory);
 
     switch(category) {
         case "hats":
@@ -460,7 +531,7 @@ function editItem(item) {
         case "Snowy": itemWeather = Weather.SNOWY; break;
     }
 
-    let newItem = new Item(itemName.value, itemBrand.value, itemWeather.value, item.category);
+    let newItem = new Item(selectedImages[imageIndex], itemName.value, itemBrand.value, itemWeather.value, item.category);
 
     switch(item.category) {
         case Category.HEADS:
