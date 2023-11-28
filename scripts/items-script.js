@@ -1,4 +1,5 @@
 let categories = document.querySelectorAll('.category');
+let categories1 = document.querySelectorAll('.category1');
 let tables = document.querySelectorAll('.table');
 let selectedCategory = "tops";
 let selectedItem;
@@ -64,6 +65,30 @@ let imageIndex = 0;
 categories[1].classList.add('selected');
 
 categories.forEach(function(category) {
+    category.addEventListener('click', function() {
+        categories.forEach(function(c) {
+            c.classList.remove('selected');
+        });
+        this.classList.add('selected');
+
+        // Hide all tables
+        tables.forEach(function(table) {
+            table.style.display = 'none';
+        });
+
+        // Show the table corresponding to the selected category
+        selectedCategory = this.getAttribute('data-category');
+        let selectedTable = document.querySelector('.' + selectedCategory);
+        selectedTable.style.display = 'block';
+        currentPage = 0;
+
+        loadButtons();
+        togglePaginationBtnsDisabled();
+    });
+});
+
+
+categories1.forEach(function(category) {
     category.addEventListener('click', function() {
         categories.forEach(function(c) {
             c.classList.remove('selected');

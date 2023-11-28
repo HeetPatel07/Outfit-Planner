@@ -272,32 +272,34 @@ footer {
             background-color: #4b9393;
         }
 
-.modal-button:hover{
-    box-shadow: 0 0 5px 2px #363535;
-    text-decoration: underline;
+        .close-button{
+            color:white;
+            background-color: red;
+            border-radius: 10px;
+            top:5%;
+            left:95%;
+            font-size:20px;
+            position:fixed;
+        }
+
+
+#search-form1{
+    top:15%;
+    position:fixed;
+    left:35%;
 }
 
-.display.choices{
-    align-items: center;
-    top:30%;
-    left:100px;
-    width:50%;
-    height:50%;
+.active-items{
+    top:80%;
+    left: 5%;
+    position: fixed;
 }
 
 
-.modal-category {
-    font-size: 14px; /* Adjust the font size to your preference */
-    padding: 8px; /* Adjust the padding as needed */
-    margin: 4px 0; /* Adjust the margin as needed */
-    cursor:pointer;
-}
-.modal-category:before{
-
-}
 
 
-/* 
+
+/*
 * -----------------------------
 * Styles for the Social Section
 * -----------------------------

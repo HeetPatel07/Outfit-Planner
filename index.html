@@ -395,20 +395,54 @@
     </div>
 </div>
 
+
+
 <div class="clothing-modal" id="clothingModal">
     <div class="modal-content">
         <center>
         <h2>Add Outfit</h2>
-        <p>Please select items for the new outfit.</p>
         </center>
+
+        <table>
+            <tr>
         <button class="close-button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </tr>
+        </table>
+
         <div class="sidebar">
-            <div class="modal-category" data-category="hats">Hats</div>
-            <div class="modal-category " data-category="tops">Tops</div>
-            <div class="modal-category" data-category="bottoms">Bottoms</div>
-            <div class="modal-category" data-category="shoes">Shoes</div>
+            <div class="category" data-category="hats">Hats</div>
+            <div class="category selected" data-category="tops">Tops</div>
+            <div class="category" data-category="bottoms">Bottoms</div>
+            <div class="category" data-category="shoes">Shoes</div>
         </div>
+
+        <div class="items-section">
+           <th>
+               <form id="search-form1">
+                    <input type="text" id="item-search" name="search" placeholder="Search">
+                    <input id="item-search-btn" type="submit" value="Search">
+               </form>
+             <div class="search-string"></div>
+           </th>
+        </div>
+
+        <div class="active-items">
+            <tr>
+                <td id="active-box">
+this is the actively changing display
+                </td>
+                <td>
+                    this is the check button
+                </td>
+
+            </tr>
+
+
+        </div>
+
+
     </div>
+
 </div>
 
 <!-- Profile Modal -->
