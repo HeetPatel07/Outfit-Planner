@@ -248,7 +248,13 @@ function performSearch() {
         return name.includes(searchValue) || brand.includes(searchValue);
     });
     let resultStringClass = document.querySelector('.search-string');
-    let resultString = document.createElement('p');
+    let resultString;
+    if(document.querySelector('.search-output') == null) {
+        resultString = document.createElement('p');
+    } else {
+        resultString = document.querySelector('.search-output');
+    }
+    resultString.className = "search-output";
     if(searchValue !== "") {
         resultString.innerText = "Showing " + filteredObjects.length + " results for " + searchValue + ":";
     } else {
