@@ -142,7 +142,7 @@ input[type="submit"] {
 }
 
 .item-arrow.left, .item-arrow.right {
-    position: absolute;
+    position: relative;
     left: auto;
     right: auto;
     top: auto ;/*centrally vertical*/
@@ -219,4 +219,13 @@ input[type="submit"] {
 
 .items-create-modal.hide, .items-edit-modal.hide {
     animation: 1s ease-out 0s 1 slideOutLeft forwards;
+}
+
+.item-edit-btn, .item-delete-btn {
+    width: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid lightgray;
 }

@@ -8,6 +8,7 @@ currentCBox = "";          // Keeps track of current Confirmation Box that is op
 let pagedData;
 let selectedTable;
 let selectedList;
+let currentCell = null;
 loadButtons();
 
 let hatsImages = [
@@ -314,32 +315,21 @@ function calculatePageNum(category) {
 }
 
 function selectItem(cell) {
-    var buttonDivs = document.querySelectorAll('.edit-delete-item-btns');
-
-    // If no divs with class "edit-delete-item-btns" found, log an error message and exit the function
-    if (buttonDivs.length === 0) {
-        console.error('No divs with class "edit-delete-item-btns" found');
+    // If the clicked cell is already the selected cell, deselect it
+    if (cell === currentCell) {
+        cell.querySelector('.edit-delete-item-btns').style.display = 'none';
+        currentCell = null;
         return;
     }
 
-    // Hide all .edit-delete-item-btns divs
-    buttonDivs.forEach(function(buttonDiv) {
-        buttonDiv.style.display = 'none';
-    });
-
-    var buttonDiv = cell.querySelector('.edit-delete-item-btns');
-
-    // If buttonDiv doesn't exist, log an error message and exit the function
-    if (!buttonDiv) {
-        console.error('No div with class "edit-delete-item-btns" found within the cell');
-        return;
+    // If there's a selected cell, hide its buttons
+    if (currentCell) {
+        currentCell.querySelector('.edit-delete-item-btns').style.display = 'none';
     }
 
-    if(buttonDiv.style.display === 'none' || buttonDiv.style.display === '' ) {
-        buttonDiv.style.display = 'block';
-    } else {
-        buttonDiv.style.display = 'none';
-    }
+    // Select the clicked cell and show its buttons
+    cell.querySelector('.edit-delete-item-btns').style.display = 'block';
+    currentCell = cell;
 }
 
 function cancelOperation() {
@@ -407,7 +397,9 @@ function addDataToTable(table, data, pageNumber, filtered) {
 
                 // Create Edit and Delete Buttons
                 const editButton = document.createElement('button');
-                editButton.innerText = 'Edit';
+                //editButton.innerText = 'Edit';
+                editButton.className = 'item-edit-btn';
+                editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
                 editButton.onclick = function(e) {
                     e.stopPropagation();  // prevent triggering cell's onclick event
                     openItemEditModal(item);  // call your edit function
@@ -415,7 +407,9 @@ function addDataToTable(table, data, pageNumber, filtered) {
                 };
 
                 const deleteButton = document.createElement('button');
-                deleteButton.innerText = 'Delete';
+                //deleteButton.innerText = 'Delete';
+                deleteButton.className = 'item-delete-btn';
+                deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
                 deleteButton.onclick = function(e) {
                     e.stopPropagation();
                     openCBox('deleteItemCBox');
