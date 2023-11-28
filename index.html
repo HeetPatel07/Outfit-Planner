@@ -73,7 +73,6 @@
     --- Clothes Page ------------
     ---------------------------->
     <div id="clothesPage">
-        <h1 id="items-title">Clothes Page</h1>
 
         <div class="sidebar">
             <div class="category" data-category="hats">Hats</div>
@@ -88,310 +87,155 @@
                 <table id="search-bar-table">
                     <tr>
                         <th id="add">
-                            <button id="add-button" title="Add new item">
-                                <img src="images/add1-svgrepo-com.svg">
+                            <button id="add-button" class="buttons item-add-button" title="Add new item" onclick="openItemCreateModal()" >
+                                <i class="fa-solid fa-plus"></i>
                             </button>
                         </th>
                         <th>
-                            <form>
-                                <input type="text" id="search" name="search" placeholder="Search">
+                            <form id="search-form">
+                                <input type="text" id="item-search" name="search" placeholder="Search">
+                                <input id="item-search-btn" type="submit" value="Search">
                             </form>
+                            <div class="search-string"></div>
                         </th>
                     </tr>
                 </table>
 
                 <!--Table for hats-->
                 <!--Page 1-->
-                <div class="page" style="display: block;">
-                    <div class="table hats" style="display: none;">
-                        <table id="items-table">
+                <div class="table hats" style="display: none;">
+                        <table id="hats-table">
                             <tr>
                                 <th></th>
-                                <th id="items-cells">
-                                    Hat 1
-                                </th>
-                                <th id="items-cells">
-                                    Hat 2
-                                </th>
-                                <th id="items-cells">
-                                    Hat 3
-                                </th>
+                                <th class="items-cells"></th>
+                                <th class="items-cells"></th>
+                                <th class="items-cells"></th>
                                 <th></th>
                             </tr>
                             <tr>
                                 <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                    <button id="hats-prev" class="item-arrow left" title="Previous page">
+                                        <i class="fa-solid fa-angle-left fa"></i>
                                     </button>
                                 </td>
-                                <td id="items-cells">
-                                    Hat 4
-                                </td>
-                                <td id="items-cells">
-                                    Hat 5
-                                </td>
-                                <td id="items-cells">
-                                    Hat 6
-                                </td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
                                 <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                    <button id="hats-next" class="item-arrow right" title="Next page">
+                                        <i class="fa-solid fa-angle-right fa"></i>
                                     </button>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td id="items-cells">
-                                    Hat 7
-                                </td>
-                                <td id="items-cells">
-                                    Hat 8
-                                </td>
-                                <td id="items-cells">
-                                    Hat 9
-                                </td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
+                                <td class="items-cells"></td>
                                 <td></td>
                             </tr>
                         </table>
                     </div>
-                </div>
-                <!--Page 2-->
-                <div class="page" style="display: none;">
-                    <div class="table hats" style="display: none;">
-                        <table id="items-table">
-                            <tr>
-                                <th></th>
-                                <th id="items-cells">
-                                    Hat 10
-                                </th>
-                                <th id="items-cells">
-                                    Hat 11
-                                </th>
-                                <th id="items-cells">
-                                    Hat 12
-                                </th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
-                                    </button>
-                                </td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
                 <!--Table for tops-->
-                <div class="page" style="display: block;">
-                    <div class="table tops" style="display: block;">
-                        <table id="items-table">
-                            <tr>
-                                <th></th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
-                                    </button>
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </td>
-                                <td></td>
-                            </tr>
+                <div class="table tops" style="display: block;">
+                        <table id="tops-table">
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <th class="items-cells"></th>
+                                    <th class="items-cells"></th>
+                                    <th class="items-cells"></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button id="tops-prev" class="item-arrow left" title="Previous page">
+                                            <i class="fa-solid fa-angle-left fa"></i>
+                                        </button>
+                                    </td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td>
+                                        <button id="tops-next" class="item-arrow right" title="Next page">
+                                            <i class="fa-solid fa-angle-right fa"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td class="items-cells"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-                </div>
-                <div class="page" style="display: none;">
-                    <div class="table tops" style="display: block;">
-                        <table id="items-table">
-                            <tr>
-                                <th></th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th id="items-cells">
-                                    <img src="images/istockphoto-1313311136-612x612.jpg" width="150" height="150">
-                                </th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="prev" title="Previous page">
-                                        <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
-                                    </button>
-                                </td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td>
-                                    <button id="next" title="Next page">
-                                        <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td id="items-cells"></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
                 <!--Table for bottoms-->
                 <div class="table bottoms" style="display: none;">
-                    <table id="items-table">
+                    <table id="bottoms-table">
                         <tr>
                             <th></th>
-                            <th id="items-cells">
-                                Bottom 1
-                            </th>
-                            <th id="items-cells">
-                                Bottom 2
-                            </th>
-                            <th id="items-cells">
-                                Bottom 3
-                            </th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
                             <th></th>
                         </tr>
                         <tr>
                             <td>
-                                <button id="prev" title="Previous page">
-                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                <button id="bottoms-prev" class="item-arrow left" title="Previous page">
+                                    <i class="fa-solid fa-angle-left fa"></i>
                                 </button>
                             </td>
-                            <td id="items-cells">
-                                Bottom 4
-                            </td>
-                            <td id="items-cells">
-                                Bottom 5
-                            </td>
-                            <td id="items-cells">
-                                Bottom 6
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td>
-                                <button id="next" title="Next page">
-                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                <button id="bottoms-next" class="item-arrow right" title="Next page">
+                                    <i class="fa-solid fa-angle-right fa"></i>
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td id="items-cells">
-                                Bottom 7
-                            </td>
-                            <td id="items-cells">
-                                Bottom 8
-                            </td>
-                            <td id="items-cells">
-                                Bottom 9
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td></td>
                         </tr>
                     </table>
                 </div>
                 <!--Table for shoes-->
                 <div class="table shoes" style="display: none;">
-                    <table id="items-table">
+                    <table id="shoes-table">
                         <tr>
                             <th></th>
-                            <th id="items-cells">
-                                Shoes 1
-                            </th>
-                            <th id="items-cells">
-                                Shoes 2
-                            </th>
-                            <th id="items-cells">
-                                Shoes 3
-                            </th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
                             <th></th>
                         </tr>
                         <tr>
                             <td>
-                                <button id="prev" title="Previous page">
-                                    <img src="images/reshot-icon-arrow-chevron-left-975UQXVKZF.svg">
+                                <button id="shoes-prev" class="item-arrow left" title="Previous page">
+                                    <i class="fa-solid fa-angle-left fa"></i>
                                 </button>
                             </td>
-                            <td id="items-cells">
-                                Shoes 4
-                            </td>
-                            <td id="items-cells">
-                                Shoes 5
-                            </td>
-                            <td id="items-cells">
-                                Shoes 6
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td>
-                                <button id="next" title="Next page">
-                                    <img src="images/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg">
+                                <button id="shoes-next" class="item-arrow right" title="Next page">
+                                    <i class="fa-solid fa-angle-right fa"></i>
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td id="items-cells">
-                                Shoes 7
-                            </td>
-                            <td id="items-cells">
-                                Shoes 8
-                            </td>
-                            <td id="items-cells">
-                                Shoes 9
-                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
                             <td></td>
                         </tr>
                     </table>
@@ -404,8 +248,6 @@
     --- Outfits Page ------------
     ---------------------------->
     <div id="outfitsPage">
-
-        <h1 id="headedO">Outfits Page</h1>
 
         <center>
             <section id="description-box">
@@ -443,7 +285,6 @@
     --- Socials Page ------------
     ---------------------------->
     <div id="socialsPage">
-        <h1>Socials Page</h1>
 
         <div class="search-bar" align="right">
             <div class="searchButton">
@@ -500,6 +341,60 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
 <!-- Clothing Modal -->
+<div class="items-create-modal" id="itemsCreateModal">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelCreateItemCBox')">&times;</span>
+        <h2 style="text-align: center">Add Item</h2>
+        <div class="item-create-input">
+            <img id="item-create-image" src="" onclick="iterateThroughImages('item-create-image')" width="25%" height="25%"
+            title="Click to change pictures" style=" display: block;
+                    margin-left: auto;
+                    margin-right: auto;"/>
+            <p style="text-align: center">Name:    <input id="item-create-name" type="text" value="" width="50%"></p>
+            <p style="text-align: center">Brand:   <input id="item-create-brand" type="text" value="" width="50%"></p>
+            <p style="text-align: center">Weather: <select id="item-create-weather" name="weather" width="50%">
+                <option value="Sunny">Sunny</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Windy">Windy</option>
+                <option value="Snowy">Snowy</option>
+            </select></p>
+            <button class="confirm-create-item"onclick="createItem(selectedCategory)"
+                    style="display: block;
+                    margin-left: auto;
+                    margin-right: auto;">
+                Confirm
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="items-edit-modal" id="itemsEditModal">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelEditItemCBox')">&times;</span>
+        <h2 style="text-align: center">Edit Item</h2>
+        <div class="item-create-input">
+            <img id="item-edit-image" src="" onclick="iterateThroughImages('item-edit-image')" width="25%" height="25%"
+                 style=" display: block;
+                    margin-left: auto;
+                    margin-right: auto;"/>
+            <p style="text-align: center">Name:    <input id="item-edit-name" type="text" width="50%"></p>
+            <p style="text-align: center">Brand:   <input id="item-edit-brand" type="text" width="50%"></p>
+            <p style="text-align: center">Weather: <select id="item-edit-weather" name="weather" width="50%">
+                <option value="Sunny">Sunny</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Windy">Windy</option>
+                <option value="Snowy">Snowy</option>
+            </select></p>
+            <button class="confirm-edit-item" onclick="openCBox('editItemCBox')"
+                    style="display: block;
+                    margin-left: auto;
+                    margin-right: auto;">
+                Confirm
+            </button>
+        </div>
+    </div>
+</div>
+
 <div class="clothing-modal" id="clothingModal">
     <div class="modal-content">
         <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
@@ -554,20 +449,47 @@
     </div>
 </div>
 
-<!-- Consistent footer -->
-<footer>
-    <p> COMP 3020 A01 - CPG24</p>
-</footer>
+<div class="cbox-modal" id="editItemCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Edit Confirmation</h2>
+        <p>Are you sure you want to edit this item?</p>
+        <button class="cbox-button confirm" onclick="editItem(selectedItem)">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
+
+<div class="cbox-modal" id="deleteItemCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Delete Confirmation</h2>
+        <p>Are you sure you want to delete this item?</p>
+        <button class="cbox-button confirm" onclick="deleteItem(selectedItem)">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
+
+<div class="cbox-modal" id="cancelCreateItemCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Cancel Confirmation</h2>
+        <p>Are you sure you want to cancel the creation process?</p>
+        <button class="cbox-button confirm" onclick="cancelOperation()">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
+
+<div class="cbox-modal" id="cancelEditItemCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Cancel Confirmation</h2>
+        <p>Are you sure you want to cancel the editing process?</p>
+        <button class="cbox-button confirm" onclick="cancelOperation()">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
 
 
 <!---------------------------
 --- Scripts -----------------
 ---------------------------->
-<script src="scripts/items-script.js"></script>
 <script>
-    currentModal = "";          // Keeps track of current Modal that is open
-    currentCBox = "";          // Keeps track of current Confirmation Box that is open
-
     // Function to toggle the visibility of pages
     function showPage(divId) {
         // hide all pages
@@ -597,14 +519,20 @@
     function openModal(modalName) {
         currentModal = modalName;
         document.getElementById("modalOverlay").style.display = "block";
+        document.getElementById(currentModal).classList.remove('hide');
+        document.getElementById(currentModal).classList.add('show');
         document.getElementById(currentModal).style.display = "block";
     }
 
     // Function to close currently opened modal
     function closeModal() {
-        document.getElementById("modalOverlay").style.display = "none";
-        document.getElementById(currentModal).style.display = "none";
-        currentModal = "";
+        document.getElementById(currentModal).classList.remove('show');
+        document.getElementById(currentModal).classList.add('hide');
+        setTimeout(function() {
+            document.getElementById("modalOverlay").style.display = "none";
+            document.getElementById(currentModal).style.display = "none";
+            currentModal = "";
+        }, 1000); // matches the animation duration
     }
 
     // Function to open specified confirmation box
@@ -649,11 +577,17 @@
     // Data Management functions
     // *************************
 
+    //-------------------------------------------
+    //Outfit functions
+
     // Delete Outfit
     function deleteOutfit() {
         alert('Performing action: Delete Outfit');
         closeCBox();
     }
+
+    //-------------------------------------------
+    //Social functions
 
     // Post Outfit
     function postOutfit() {
@@ -661,5 +595,6 @@
         closeModal();
     }
 </script>
+<script src="scripts/items-script.js"></script>
 </body>
 </html>
