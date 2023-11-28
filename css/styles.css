@@ -277,19 +277,23 @@ footer {
     text-decoration: underline;
 }
 
-.clothing-modal-buttons:hover{
-    background: linear-gradient(to right,#fff, #b1e3f8);
-    width:140px;
-    text-decoration:underline;
-    color: #5555f5;
-}
-
 .display.choices{
     align-items: center;
     top:30%;
     left:100px;
     width:50%;
     height:50%;
+}
+
+
+.modal-category {
+    font-size: 14px; /* Adjust the font size to your preference */
+    padding: 8px; /* Adjust the padding as needed */
+    margin: 4px 0; /* Adjust the margin as needed */
+    cursor:pointer;
+}
+.modal-category:before{
+
 }
 
 
@@ -495,18 +499,6 @@ footer {
     cursor: pointer;
 }
 
-.Tops{
-   top:30%;
-}
-.Bottoms{
-    top: 40%;
-}
-.Shoes{
-    top:50%;
-}
-.Others{
-    top:60%;
-}
 
 /* Profile Modal */
 .profile-modal {

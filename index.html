@@ -397,16 +397,17 @@
 
 <div class="clothing-modal" id="clothingModal">
     <div class="modal-content">
-        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
         <center>
         <h2>Add Outfit</h2>
         <p>Please select items for the new outfit.</p>
         </center>
-        <!--<button class="close-button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>-->
-        <button class="clothing-modal-buttons Tops" onclick="">Tops</button>
-        <button class="clothing-modal-buttons Bottoms" onclick="">Bottoms</button>
-        <button class="clothing-modal-buttons Shoes" onclick="">Shoes</button>
-        <button class="clothing-modal-buttons Others" onclick="">Others</button>
+        <button class="close-button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="sidebar">
+            <div class="modal-category" data-category="hats">Hats</div>
+            <div class="modal-category " data-category="tops">Tops</div>
+            <div class="modal-category" data-category="bottoms">Bottoms</div>
+            <div class="modal-category" data-category="shoes">Shoes</div>
+        </div>
     </div>
 </div>
 
