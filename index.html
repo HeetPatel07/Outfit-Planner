@@ -73,7 +73,6 @@
     --- Clothes Page ------------
     ---------------------------->
     <div id="clothesPage">
-        <h1 id="items-title">Clothes Page</h1>
 
         <div class="sidebar">
             <div class="category" data-category="hats">Hats</div>
@@ -97,6 +96,7 @@
                                 <input type="text" id="item-search" name="search" placeholder="Search">
                                 <input id="item-search-btn" type="submit" value="Search">
                             </form>
+                            <div class="search-string"></div>
                         </th>
                     </tr>
                 </table>
@@ -249,8 +249,6 @@
     ---------------------------->
     <div id="outfitsPage">
 
-        <h1 id="headedO">Outfits Page</h1>
-
         <center>
             <section id="description-box">
                 <h2 id="Description">Outfit 1</h2>
@@ -287,7 +285,6 @@
     --- Socials Page ------------
     ---------------------------->
     <div id="socialsPage">
-        <h1>Socials Page</h1>
 
         <div class="search-bar" align="right">
             <div class="searchButton">
@@ -349,8 +346,8 @@
         <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelCreateItemCBox')">&times;</span>
         <h2 style="text-align: center">Add Item</h2>
         <div class="item-create-input">
-            <img id="item-create-image" src="" onclick="iterateThroughImages('item-create-image')" width="50%" height="50%"
-            style=" display: block;
+            <img id="item-create-image" src="" onclick="iterateThroughImages('item-create-image')" width="25%" height="25%"
+            title="Click to change pictures" style=" display: block;
                     margin-left: auto;
                     margin-right: auto;"/>
             <p style="text-align: center">Name:    <input id="item-create-name" type="text" value="" width="50%"></p>
@@ -376,7 +373,7 @@
         <span class="right-close" id="closeModalBtn" onclick="openCBox('cancelEditItemCBox')">&times;</span>
         <h2 style="text-align: center">Edit Item</h2>
         <div class="item-create-input">
-            <img id="item-edit-image" src="" onclick="iterateThroughImages('item-edit-image')" width="50%" height="50%"
+            <img id="item-edit-image" src="" onclick="iterateThroughImages('item-edit-image')" width="25%" height="25%"
                  style=" display: block;
                     margin-left: auto;
                     margin-right: auto;"/>
@@ -488,11 +485,6 @@
     </div>
 </div>
 
-<!-- Consistent footer -->
-<footer>
-    <p> COMP 3020 A01 - CPG24</p>
-</footer>
-
 
 <!---------------------------
 --- Scripts -----------------
@@ -603,6 +595,6 @@
         closeModal();
     }
 </script>
-<script src="scripts/items-script.js" />
+<script src="scripts/items-script.js"></script>
 </body>
 </html>

@@ -247,6 +247,14 @@ function performSearch() {
 
         return name.includes(searchValue) || brand.includes(searchValue);
     });
+    let resultStringClass = document.querySelector('.search-string');
+    let resultString = document.createElement('p');
+    if(searchValue !== "") {
+        resultString.innerText = "Showing " + filteredObjects.length + " results for " + searchValue + ":";
+    } else {
+        resultString.innerText = "";
+    }
+    resultStringClass.appendChild(resultString);
 
     console.log("Filtered Objects:", filteredObjects);
 
@@ -318,6 +326,7 @@ function selectItem(cell) {
     // If the clicked cell is already the selected cell, deselect it
     if (cell === currentCell) {
         cell.querySelector('.edit-delete-item-btns').style.display = 'none';
+        cell.classList.remove('selected');
         currentCell = null;
         return;
     }
@@ -325,10 +334,12 @@ function selectItem(cell) {
     // If there's a selected cell, hide its buttons
     if (currentCell) {
         currentCell.querySelector('.edit-delete-item-btns').style.display = 'none';
+        currentCell.classList.remove('selected');
     }
 
     // Select the clicked cell and show its buttons
     cell.querySelector('.edit-delete-item-btns').style.display = 'block';
+    cell.classList.add('selected');
     currentCell = cell;
 }
 

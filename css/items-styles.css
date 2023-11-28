@@ -77,6 +77,11 @@
 
 .items-cells {
     border: 1px solid lightgray;
+    transition: transform 0.3s ease;
+}
+
+.items-cells.selected {
+    transform: scale(1.1);
 }
 
 #arrows td, #arrows th {
