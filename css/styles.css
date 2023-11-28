@@ -294,9 +294,33 @@ footer {
     left: 5%;
     position: fixed;
 }
+#save-changes{
+    background-color: #8ade0a;
+    color:white;
+    top:80%;
+    left:95%;
+    font-size:20px;
+    position:fixed;
+    border-width:1px;
+    border-radius:10px;
+}
 
+#active-box {
+    border: 1px solid #000;
+    margin: 10px;
+    width:90%;
+    height:18%;
+    top:78%;
+    left:2%;
+    position: fixed;
 
-
+}
+#active-items td{
+    border: 1px solid #000;
+ margin:10px;
+    left:5%;
+    text-align: center;
+}
 
 
 /*
