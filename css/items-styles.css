@@ -56,19 +56,19 @@
     height: 50px;
 }
 
-#hats-table, #tops-table, #bottoms-table, #shoes-table {
+#others-table, #tops-table, #bottoms-table, #shoes-table {
     margin-right: auto;
     margin-left: auto;
 }
 
-#hats-table td, #tops-table td, #bottoms-table td, #shoes-table td {
+#others-table td, #tops-table td, #bottoms-table td, #shoes-table td {
     width: 150px;
     height: 150px;
     text-align: center;
     vertical-align: middle;
 }
 
-#hats-table th, #tops-table th, #bottoms-table th, #shoes-table th {
+#others-table th, #tops-table th, #bottoms-table th, #shoes-table th {
     width: 75px;
     height: 150px;
     text-align: center;
@@ -140,7 +140,6 @@ input[type="submit"] {
     flex-direction: row;
     font-size: 40px;
     border-radius: 10px;
-    color: #333333;
     box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
     transition: all ease-in-out 0.2s;
 
