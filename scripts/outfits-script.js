@@ -1,4 +1,5 @@
 let categories = document.querySelectorAll('.category');
+let categories1 = document.querySelectorAll('.category1');
 let tables = document.querySelectorAll('.table');
 let selectedCategory = "tops";
 let selectedItem;
@@ -11,7 +12,7 @@ let selectedList;
 let currentCell = null;
 loadButtons();
 
-let othersImages = [
+let hatsImages = [
     // Beanie
     "https://www.pngall.com/wp-content/uploads/12/Beanie-PNG-HD-Image.png",
     // Cap Brown
@@ -61,7 +62,7 @@ let selectedImages = topsImages;
 let imageIndex = 0;
 
 // Default selected category is tops([1])
-categories[0].classList.add('selected');
+categories[1].classList.add('selected');
 
 categories.forEach(function(category) {
     category.addEventListener('click', function() {
@@ -86,98 +87,39 @@ categories.forEach(function(category) {
     });
 });
 
-const Weather = {
-    SUNNY: Symbol('SUNNY'),
-    WINDY: Symbol('WINDY'),
-    RAINY: Symbol('RAINY'),
-    SNOWY: Symbol('SNOWY')
-}
 
-const Category = {
-    OTHERS: Symbol('OTHERS'),
-    TOPS: Symbol('TOPS'),
-    BOTTOMS: Symbol('BOTTOMS'),
-    SHOES: Symbol('SHOES')
-}
+categories1.forEach(function(category) {
+    category.addEventListener('click', function() {
+        categories.forEach(function(c) {
+            c.classList.remove('selected');
+        });
+        this.classList.add('selected');
 
-class Item {
-    constructor(image, name, brand, weather, category) {
-        this.image = image;
+        // Hide all tables
+        tables.forEach(function(table) {
+            table.style.display = 'none';
+        });
+
+        // Show the table corresponding to the selected category
+        selectedCategory = this.getAttribute('data-category');
+        let selectedTable = document.querySelector('.' + selectedCategory);
+        selectedTable.style.display = 'block';
+        currentPage = 0;
+
+        loadButtons();
+        togglePaginationBtnsDisabled();
+    });
+});
+
+class Outfit {
+    constructor(name, description, items) {
         this.name = name;
-        this.brand = brand;
-        this.weather = weather;
-        this.category = category;
+        this.description = description;
+        this.items = items;
     }
 }
 
-head1 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
-head2 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
-head3 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
-head4 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
-head5 = new Item(othersImages[3], "Trucker Cap", "Asos", Weather.SUNNY, Category.OTHERS);
-head6 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
-head7 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
-head8 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
-head9 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
-
-top1 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
-top2 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
-top3 = new Item(topsImages[3], "Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
-top4 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
-top5 = new Item(topsImages[4], "Summer Shirt", "Asos", Weather.SUNNY, Category.TOPS);
-top6 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
-top7 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
-top8 = new Item(topsImages[3], "Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
-top9 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
-
-bottom1 = new Item(bottomsImages[2], "Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
-bottom2 = new Item(bottomsImages[1], "Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
-bottom3 = new Item(bottomsImages[0], "Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
-bottom4 = new Item(bottomsImages[3], "Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
-bottom5 = new Item(bottomsImages[4], "Track Pants", "Adidas", Weather.SUNNY, Category.BOTTOMS);
-bottom6 = new Item(bottomsImages[2], "Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
-bottom7 = new Item(bottomsImages[1], "Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
-bottom8 = new Item(bottomsImages[0], "Cargo Pants", "H&M", Weather.SUNNY, Category.BOTTOMS);
-bottom9 = new Item(bottomsImages[3], "Hiking Pants", "North Face", Weather.WINDY, Category.BOTTOMS);
-
-shoes1 = new Item(shoesImages[0], "Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
-shoes2 = new Item(shoesImages[1], "Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
-shoes3 = new Item(shoesImages[2], "Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
-shoes4 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
-shoes5 = new Item(shoesImages[4], "Chucks High CDG", "Converse", Weather.SUNNY, Category.SHOES);
-shoes6 = new Item(shoesImages[0], "Air Force 1", "Nike", Weather.SUNNY, Category.SHOES);
-shoes7 = new Item(shoesImages[1], "Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
-shoes8 = new Item(shoesImages[2], "Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
-shoes9 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
-
-let othersList = [];
-var othersTable = document.querySelector('#others-table tbody');
-let topsList = [];
-var topsTable = document.querySelector('#tops-table tbody');
-let bottomsList = [];
-var bottomsTable = document.querySelector('#bottoms-table tbody');
-let shoesList = [];
-var shoesTable = document.querySelector('#shoes-table tbody');
-
-othersList.push(head1, head2, head3, head4, head5,
-    head6, head7, head8, head9);
-let pagedothers = chunkArray(othersList, 9);
-addDataToTable(othersTable, pagedothers, 0, false);
-
-topsList.push(top1, top2, top3, top4, top5,
-    top6, top7, top8, top9);
-let pagedTops = chunkArray(topsList, 9);
-addDataToTable(topsTable, pagedTops, 0, false);
-
-bottomsList.push(bottom1, bottom2, bottom3, bottom4, bottom5,
-    bottom6, bottom7, bottom8, bottom9);
-let pagedBottoms = chunkArray(bottomsList, 9);
-addDataToTable(bottomsTable, pagedBottoms, 0, false);
-
-shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5,
-    shoes6, shoes7, shoes8, shoes9);
-let pagedShoes = chunkArray(shoesList, 9);
-addDataToTable(shoesTable, pagedShoes, 0, false);
+outfit1 = new Outfit("Outfit 1", "This is outfit 1", [])
 
 togglePaginationBtnsDisabled();
 
@@ -248,13 +190,7 @@ function performSearch() {
         return name.includes(searchValue) || brand.includes(searchValue);
     });
     let resultStringClass = document.querySelector('.search-string');
-    let resultString;
-    if(document.querySelector('.search-output') == null) {
-        resultString = document.createElement('p');
-    } else {
-        resultString = document.querySelector('.search-output');
-    }
-    resultString.className = "search-output";
+    let resultString = document.createElement('p');
     if(searchValue !== "") {
         resultString.innerText = "Showing " + filteredObjects.length + " results for " + searchValue + ":";
     } else {
@@ -287,11 +223,11 @@ function togglePaginationBtnsDisabled() {
 function setPaginationVariables() {
     imageIndex = 0;
     switch (selectedCategory) {
-        case 'others':
-            pagedData = pagedothers;
-            selectedTable = othersTable;
-            selectedList = othersList;
-            selectedImages = othersImages;
+        case 'hats':
+            pagedData = pagedHats;
+            selectedTable = hatsTable;
+            selectedList = hatsList;
+            selectedImages = hatsImages;
             break;
         case 'tops':
             pagedData = pagedTops;
@@ -319,7 +255,7 @@ function calculatePageNum(category) {
     let categoryList;
 
     switch(category) {
-        case "others": categoryList = othersList; break;
+        case "hats": categoryList = hatsList; break;
         case "tops": categoryList = topsList; break;
         case "bottoms": categoryList = bottomsList; break;
         case "shoes": categoryList = shoesList; break;
@@ -502,7 +438,7 @@ function createItem(category) {
     }
 
     switch(category) {
-        case "others": itemCategory = Category.OTHERS; break;
+        case "hats": itemCategory = Category.HEADS; break;
         case "tops": itemCategory = Category.TOPS; break;
         case "bottoms": itemCategory = Category.BOTTOMS; break;
         case "shoes": itemCategory = Category.SHOES; break;
@@ -511,14 +447,14 @@ function createItem(category) {
     var newItem = new Item(selectedImages[imageIndex], itemName.value, itemBrand.value, itemWeather, itemCategory);
 
     switch(category) {
-        case "others":
-            othersList.push(newItem);
-            pagedothers = chunkArray(othersList, 9);
-            pagedData = pagedothers;
-            if((othersList.length % 9) === 1) {
+        case "hats":
+            hatsList.push(newItem);
+            pagedHats = chunkArray(hatsList, 9);
+            pagedData = pagedHats;
+            if((hatsList.length % 9) === 1) {
                 nextPage(1);
             }
-            addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false);
+            addDataToTable(hatsTable, pagedHats, calculatePageNum(category) - 1, false);
             break;
         case "tops":
             topsList.push(newItem);
@@ -564,11 +500,11 @@ function editItem(item) {
     let newItem = new Item(selectedImages[imageIndex], itemName.value, itemBrand.value, itemWeather.value, item.category);
 
     switch(item.category) {
-        case Category.OTHERS:
-            var index = othersList.indexOf(item);
-            othersList[index] = newItem;
-            pagedothers = chunkArray(othersList, 9);
-            addDataToTable(othersTable, pagedothers, calculatePageNum('others') - 1, false);
+        case Category.HEADS:
+            var index = hatsList.indexOf(item);
+            hatsList[index] = newItem;
+            pagedHats = chunkArray(hatsList, 9);
+            addDataToTable(hatsTable, pagedHats, calculatePageNum('hats') - 1, false);
             break;
         case Category.TOPS:
             var index = topsList.indexOf(item);
@@ -597,16 +533,16 @@ function editItem(item) {
 function deleteItem(item) {
 
     switch(item.category) {
-        case Category.OTHERS:
-            var index = othersList.indexOf(item);
-            othersList.splice(index, 1);
-            pagedothers = chunkArray(othersList, 9);
-            pagedData = pagedothers;
-            if(currentPage > 0 && (othersList.length % 9) === 0) {
+        case Category.HEADS:
+            var index = hatsList.indexOf(item);
+            hatsList.splice(index, 1);
+            pagedHats = chunkArray(hatsList, 9);
+            pagedData = pagedHats;
+            if(currentPage > 0 && (hatsList.length % 9) === 0) {
                 prevPage(1);
             } else {
-                clearTable(othersTable);
-                addDataToTable(othersTable, pagedothers, currentPage, false);
+                clearTable(hatsTable);
+                addDataToTable(hatsTable, pagedHats, currentPage, false);
             }
             break;
         case Category.TOPS:
