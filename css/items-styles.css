@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.category {
+.category, .category-modal {
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -27,11 +27,11 @@
     margin-left: 0px;
 }
 
-.category:hover {
+.category:hover, .category-modal:hover {
     background: #ccc;
 }
 
-.category.selected {
+.category.selected, .category-modal.selected {
     background: #bbb;
     font-size: 18px;
     font-weight: bold;

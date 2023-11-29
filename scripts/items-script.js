@@ -1,5 +1,4 @@
 let categories = document.querySelectorAll('.category');
-let categories1 = document.querySelectorAll('.category1');
 let tables = document.querySelectorAll('.table');
 let selectedCategory = "tops";
 let selectedItem;
@@ -63,7 +62,6 @@ let imageIndex = 0;
 
 // Default selected category is tops([1])
 categories[0].classList.add('selected');
-categories[1].classList.add('selected');
 
 categories.forEach(function(category) {
     category.addEventListener('click', function() {
@@ -80,30 +78,7 @@ categories.forEach(function(category) {
         // Show the table corresponding to the selected category
         selectedCategory = this.getAttribute('data-category');
         let selectedTable = document.querySelector('.' + selectedCategory);
-        selectedTable.style.display = 'block';
-        currentPage = 0;
-
-        loadButtons();
-        togglePaginationBtnsDisabled();
-    });
-});
-
-
-categories1.forEach(function(category) {
-    category.addEventListener('click', function() {
-        categories.forEach(function(c) {
-            c.classList.remove('selected');
-        });
-        this.classList.add('selected');
-
-        // Hide all tables
-        tables.forEach(function(table) {
-            table.style.display = 'none';
-        });
-
-        // Show the table corresponding to the selected category
-        selectedCategory = this.getAttribute('data-category');
-        let selectedTable = document.querySelector('.' + selectedCategory);
+        console.log('.' + selectedCategory);
         selectedTable.style.display = 'block';
         currentPage = 0;
 
@@ -178,10 +153,13 @@ shoes9 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY
 
 let othersList = [];
 var othersTable = document.querySelector('#others-table tbody');
+
 let topsList = [];
 var topsTable = document.querySelector('#tops-table tbody');
+
 let bottomsList = [];
 var bottomsTable = document.querySelector('#bottoms-table tbody');
+
 let shoesList = [];
 var shoesTable = document.querySelector('#shoes-table tbody');
 
@@ -205,6 +183,7 @@ shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5,
 let pagedShoes = chunkArray(shoesList, 9);
 addDataToTable(shoesTable, pagedShoes, 0, false, 3);
 
+pagedData = pagedTops;
 togglePaginationBtnsDisabled();
 
 function chunkArray(array, chunkSize) {

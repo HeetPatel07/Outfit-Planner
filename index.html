@@ -410,8 +410,6 @@
     </div>
 </div>
 
-
-
 <div class="clothing-modal" id="clothingModal">
     <div class="modal-content">
         <center>
@@ -425,10 +423,10 @@
         </table>
 
         <div class="sidebar">
-            <div class="category selected" data-category="tops">Tops</div>
-            <div class="category" data-category="bottoms">Bottoms</div>
-            <div class="category" data-category="shoes">Shoes</div>
-            <div class="category" data-category="hats">Others</div>
+            <div class="category-modal selected" data-category="tops">Tops</div>
+            <div class="category-modal" data-category="bottoms">Bottoms</div>
+            <div class="category-modal" data-category="shoes">Shoes</div>
+            <div class="category-modal" data-category="others">Others</div>
         </div>
 
         <div class="items-section">
@@ -441,59 +439,158 @@
            </th>
         </div>
 
+        <!---mini clothes designs and sections---->
+        <div class="table-modal tops-modal" style="display: block;">
+            <table id="modal-tops-table">
+                <tr>
+                    <th></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="modal-tops-prev" class="item-arrow left" title="Previous page">
+                            <i class="fa-solid fa-angle-left fa"></i>
+                        </button>
+                    </td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td>
+                        <button id="modal-tops-next" class="item-arrow right" title="Next page">
+                            <i class="fa-solid fa-angle-right fa"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-modal bottoms-modal" style="display: none;">
+            <table id="modal-bottoms-table">
+                <tr>
+                    <th></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="modal-bottoms-prev" class="item-arrow left" title="Previous page">
+                            <i class="fa-solid fa-angle-left fa"></i>
+                        </button>
+                    </td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td>
+                        <button id="modal-bottoms-next" class="item-arrow right" title="Next page">
+                            <i class="fa-solid fa-angle-right fa"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-modal shoes-modal" style="display: none;">
+            <table id="modal-shoes-table">
+                <tr>
+                    <th></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="modal-shoes-prev" class="item-arrow left" title="Previous page">
+                            <i class="fa-solid fa-angle-left fa"></i>
+                        </button>
+                    </td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td>
+                        <button id="modal-shoes-next" class="item-arrow right" title="Next page">
+                            <i class="fa-solid fa-angle-right fa"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-modal others-modal" style="display: none;">
+            <table id="modal-others-table">
+                <tr>
+                    <th></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th class="items-cells"></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="modal-hats-prev" class="item-arrow left" title="Previous page">
+                            <i class="fa-solid fa-angle-left fa"></i>
+                        </button>
+                    </td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td>
+                        <button id="modal-hats-next" class="item-arrow right" title="Next page">
+                            <i class="fa-solid fa-angle-right fa"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td class="items-cells"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
         <!---THe active box for the selected items---->
         <div class="active-items">
             <table id="active-box">
-
-            <tr id="active-items">
-                <td > item1</td>
-                <td>item2</td>
-                <td>item3</td>
-                <td>item4</td>
-                <td>item5</td>
-                <td>item6</td>
-            </tr>
-
-                <!---mini clothes designs and sections---->
-
-                <div class="modal-table hats" style="display: none;">
-                    <table id="modal-hats-table">
-                        <tr>
-                            <th></th>
-                            <th class="items-cells"></th>
-                            <th class="items-cells"></th>
-                            <th class="items-cells"></th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button id="modal-hats-prev" class="item-arrow left" title="Previous page">
-                                    <i class="fa-solid fa-angle-left fa"></i>
-                                </button>
-                            </td>
-                            <td class="items-cells"></td>
-                            <td class="items-cells"></td>
-                            <td class="items-cells"></td>
-                            <td>
-                                <button id="modal-hats-next" class="item-arrow right" title="Next page">
-                                    <i class="fa-solid fa-angle-right fa"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="items-cells"></td>
-                            <td class="items-cells"></td>
-                            <td class="items-cells"></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-
+                <tr id="active-items">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </table>
 
                 <td>
-                    <button id="save-changes" onclick="closeModal()"> <i class="fa-solid fa-check"></i></button>
+                    <button id="save-changes" onclick="createNewOutfit()"> <i class="fa-solid fa-check"></i></button>
                 </td>
 
             </table>

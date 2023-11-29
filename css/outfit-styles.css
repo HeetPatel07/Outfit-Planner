@@ -212,8 +212,8 @@
     border: 1px solid #000;
     margin: 10px;
     width:90%;
-    height:18%;
-    top:80%;
+    height:50px;
+    top:85%;
     left:2%;
     position: fixed;
 
@@ -262,7 +262,7 @@
 }
 
 
-#modal-hats-table, #modal-tops-table, #modal-bottoms-table, #modal-shoes-table {
+#modal-others-table, #modal-tops-table, #modal-bottoms-table, #modal-shoes-table {
     margin-right: auto;
     margin-left: auto;
     position:fixed;
@@ -270,13 +270,13 @@
     left: 10%;
 }
 
-#modal-hats-table td, #tops-table td, #bottoms-table td, #shoes-table td {
+#modal-others-table td, #modal-tops-table td, #modal-bottoms-table td, #modal-shoes-table td {
     width: 200px;
     height: 120px;
     text-align: center;
     vertical-align: middle;
 }
-#modal-hats-table th, #tops-table th, #bottoms-table th, #shoes-table th {
+#modal-others-table th, #modal-tops-table th, #modal-bottoms-table th, #modal-shoes-table th {
     width: 150px;
     height: 120px;
     text-align: center;
