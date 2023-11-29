@@ -63,6 +63,7 @@ let imageIndex = 0;
 
 // Default selected category is tops([1])
 categories[0].classList.add('selected');
+categories[1].classList.add('selected');
 
 categories.forEach(function(category) {
     category.addEventListener('click', function() {
@@ -187,22 +188,22 @@ var shoesTable = document.querySelector('#shoes-table tbody');
 othersList.push(other1, other2, other3, other4, other5,
     other6, other7, other8, other9);
 let pagedothers = chunkArray(othersList, 9);
-addDataToTable(othersTable, pagedothers, 0, false);
+addDataToTable(othersTable, pagedothers, 0, false, 3);
 
 topsList.push(top1, top2, top3, top4, top5,
     top6, top7, top8, top9);
 let pagedTops = chunkArray(topsList, 9);
-addDataToTable(topsTable, pagedTops, 0, false);
+addDataToTable(topsTable, pagedTops, 0, false, 3);
 
 bottomsList.push(bottom1, bottom2, bottom3, bottom4, bottom5,
     bottom6, bottom7, bottom8, bottom9);
 let pagedBottoms = chunkArray(bottomsList, 9);
-addDataToTable(bottomsTable, pagedBottoms, 0, false);
+addDataToTable(bottomsTable, pagedBottoms, 0, false, 3);
 
 shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5,
     shoes6, shoes7, shoes8, shoes9);
 let pagedShoes = chunkArray(shoesList, 9);
-addDataToTable(shoesTable, pagedShoes, 0, false);
+addDataToTable(shoesTable, pagedShoes, 0, false, 3);
 
 togglePaginationBtnsDisabled();
 
@@ -228,7 +229,7 @@ function nextPage(pageNum) {
     if (currentPage < pagedData.length - 1) {
         currentPage += pageNum;
         clearTable(selectedTable);
-        addDataToTable(selectedTable, pagedData, currentPage, false);
+        addDataToTable(selectedTable, pagedData, currentPage, false, 3);
         togglePaginationBtnsDisabled();
     }
 }
@@ -237,7 +238,7 @@ function prevPage(pageNum) {
     if (currentPage > 0) {
         currentPage -= pageNum;
         clearTable(selectedTable);
-        addDataToTable(selectedTable, pagedData, currentPage, false);
+        addDataToTable(selectedTable, pagedData, currentPage, false, 3);
         togglePaginationBtnsDisabled();
     }
 }
@@ -292,7 +293,7 @@ function performSearch() {
     // now the "filteredObjects" array contains only those objects that match the search;
     // you should now update your table using this array.
     clearTable(selectedTable);
-    addDataToTable(selectedTable, filteredObjects, 0, true);
+    addDataToTable(selectedTable, filteredObjects, 0, true, 3);
 }
 
 function togglePaginationBtnsDisabled() {
@@ -409,8 +410,7 @@ function openItemEditModal(item) {
 * ADD DATA TO CORRESPONDING TABLE
 * Adds data in form of an array with arrays into a table element.
 */
-function addDataToTable(table, data, pageNumber, filtered) {
-    const columns = 3; // number of columns to fill
+function addDataToTable(table, data, pageNumber, filtered, columns) {
 
     let pageItems;
     if(!filtered) {
@@ -418,6 +418,7 @@ function addDataToTable(table, data, pageNumber, filtered) {
     } else {
         pageItems = data;
     }
+    console.log(pageItems);
     pageItems.forEach((item, i) => {
         // Calculate row and column indices
         const rowIndex = Math.floor(i / columns);
@@ -490,26 +491,6 @@ function clearTable(table) {
     }
 }
 
-function refreshTableData(table, data) {
-
-    // create a Map for quick lookup
-    let dataMap = new Map(data.map(item => [item.name, item]));
-
-    // Loop to iterate over table cells
-    for (let i = 0, row; row = table.rows[i]; i++) {
-        for(let j = 0, cell; cell = row.cells[j]; j++) {
-
-            // Get the object name displayed in the cell without the buttons
-            let cellText = cell.childNodes[0]?.nodeValue?.trim();
-
-            if(cellText && !dataMap.has(cellText)) {
-                // Object is no longer present in data array, clear cell content
-                cell.innerHTML = "";
-            }
-        }
-    }
-}
-
 //-------------------------------------------
 //Items functions
 
@@ -543,7 +524,7 @@ function createItem(category) {
             if((othersList.length % 9) === 1) {
                 nextPage(1);
             }
-            addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false);
+            addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false, 3);
             break;
         case "tops":
             topsList.push(newItem);
@@ -553,21 +534,21 @@ function createItem(category) {
             console.log("Current Page: ", currentPage);
             console.log("Tops List Length % 9: ", topsList.length % 9);
             if((topsList.length % 9) === 1) nextPage(1);
-            addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false);
+            addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false, 3);
             break;
         case "bottoms":
             bottomsList.push(newItem);
             pagedBottoms = chunkArray(bottomsList, 9);
             pagedData = pagedBottoms;
             if((bottomsList.length % 9) === 1) nextPage(1);
-            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false);
+            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false, 3);
             break;
         case "shoes":
             shoesList.push(newItem);
             pagedShoes = chunkArray(shoesList, 9);
             pagedData = pagedShoes;
             if((shoesList.length % 9) === 1) nextPage(1);
-            addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false);
+            addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false, 3);
             break;
     }
 
@@ -593,25 +574,25 @@ function editItem(item) {
             var index = othersList.indexOf(item);
             othersList[index] = newItem;
             pagedothers = chunkArray(othersList, 9);
-            addDataToTable(othersTable, pagedothers, calculatePageNum('others') - 1, false);
+            addDataToTable(othersTable, pagedothers, calculatePageNum('others') - 1, false, 3);
             break;
         case Category.TOPS:
             var index = topsList.indexOf(item);
             topsList[index] = newItem;
             pagedTops = chunkArray(topsList, 9);
-            addDataToTable(topsTable, pagedTops, calculatePageNum('tops') - 1, false);
+            addDataToTable(topsTable, pagedTops, calculatePageNum('tops') - 1, false, 3);
             break;
         case Category.BOTTOMS:
             var index = bottomsList.indexOf(item);
             bottomsList[index] = newItem;
             pagedBottoms = chunkArray(bottomsList, 9);
-            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum('bottoms') - 1, false);
+            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum('bottoms') - 1, false, 3);
             break;
         case Category.SHOES:
             var index = shoesList.indexOf(item);
             shoesList[index] = newItem;
             pagedShoes = chunkArray(shoesList, 9);
-            addDataToTable(shoesTable, pagedShoes, calculatePageNum('shoes') - 1, false);
+            addDataToTable(shoesTable, pagedShoes, calculatePageNum('shoes') - 1, false, 3);
             break;
     }
 
@@ -631,7 +612,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(othersTable);
-                addDataToTable(othersTable, pagedothers, currentPage, false);
+                addDataToTable(othersTable, pagedothers, currentPage, false, 3);
             }
             break;
         case Category.TOPS:
@@ -643,7 +624,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(topsTable);
-                addDataToTable(topsTable, pagedTops, currentPage, false);
+                addDataToTable(topsTable, pagedTops, currentPage, false, 3);
             }
             break;
         case Category.BOTTOMS:
@@ -655,7 +636,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(bottomsTable);
-                addDataToTable(bottomsTable, pagedBottoms, currentPage, false);
+                addDataToTable(bottomsTable, pagedBottoms, currentPage, false, 3);
             }
             break;
         case Category.SHOES:
@@ -667,7 +648,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(shoesTable);
-                addDataToTable(shoesTable, pagedShoes, currentPage, false);
+                addDataToTable(shoesTable, pagedShoes, currentPage, false, 3);
             }
             break;
     }

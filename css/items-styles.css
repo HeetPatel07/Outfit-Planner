@@ -1,6 +1,6 @@
 .sidebar {
     margin-top: 100px;
-    width: 200px;
+    width: 150px;
     height: 400px;
     position: fixed;
     left: 0;
@@ -36,7 +36,7 @@
     font-size: 18px;
     font-weight: bold;
     margin-left: 30px;
-    width: 160px;
+    width: 100px;
 }
 
 .items-section {
@@ -113,7 +113,7 @@ form {
 
 #item-search-btn {
     height: 30px;
-    padding: 8px 12px;
+    padding: 8px ;
     background-color: #3897f0;
     color: #fff;
     cursor: pointer;

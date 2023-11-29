@@ -7,6 +7,7 @@
         <title>Clothing App</title>
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="./css/items-styles.css">
+        <link rel="stylesheet" href="./css/outfit-styles.css">
 
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -256,15 +257,29 @@
             </section>
 
             <section id="content-box">
-            </section>
 
+            <table class="outfit-display">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            </section>
 
             <!--The arrow buttons to enable scrolling-->
 
             <!--left button-->
-            <button class="arrow left" onclick="removeFocus(this)"><i class="fa-solid fa-angle-left fa"></i></i></button>
+            <button id="outfit-arrow-left" class="arrow left"><i class="fa-solid fa-angle-left fa"></i></button>
             <!--right button-->
-            <button class="arrow right" onclick="removeFocus(this)"><i class="fa-solid fa-angle-right fa"></i></button>
+            <button id="outfit-arrow-right" class="arrow right"><i class="fa-solid fa-angle-right fa"></i></button>
 
 
             <!--The bottom buttons-->
@@ -272,7 +287,7 @@
             <!--the add button-->
             <button class="OFB outfit-button1"onclick="openModal('clothingModal') "><i class="fa-solid fa-plus"></i></button>
             <!--the edit button-->
-            <button Class="OFB outfit-button2"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button Class="OFB outfit-button2" onclick="openModal('editOutfitModal')"><i class="fa-solid fa-pen-to-square"></i></button>
             <!--the delete button-->
             <button Class="OFB outfit-button3" onclick="openCBox('deleteOutfitCBox')"><i class="fa-solid fa-trash-can"></i></button>
             <!--the share button-->
@@ -410,10 +425,10 @@
         </table>
 
         <div class="sidebar">
-            <div class="category" data-category="hats">Hats</div>
             <div class="category selected" data-category="tops">Tops</div>
             <div class="category" data-category="bottoms">Bottoms</div>
             <div class="category" data-category="shoes">Shoes</div>
+            <div class="category" data-category="hats">Others</div>
         </div>
 
         <div class="items-section">
@@ -426,21 +441,64 @@
            </th>
         </div>
 
+        <!---THe active box for the selected items---->
         <div class="active-items">
-            <tr>
-                <td id="active-box">
-this is the actively changing display
-                </td>
-                <td>
-                    this is the check button
-                </td>
+            <table id="active-box">
 
+            <tr id="active-items">
+                <td > item1</td>
+                <td>item2</td>
+                <td>item3</td>
+                <td>item4</td>
+                <td>item5</td>
+                <td>item6</td>
             </tr>
 
+                <!---mini clothes designs and sections---->
+
+                <div class="modal-table hats" style="display: none;">
+                    <table id="modal-hats-table">
+                        <tr>
+                            <th></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="modal-hats-prev" class="item-arrow left" title="Previous page">
+                                    <i class="fa-solid fa-angle-left fa"></i>
+                                </button>
+                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td>
+                                <button id="modal-hats-next" class="item-arrow right" title="Next page">
+                                    <i class="fa-solid fa-angle-right fa"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </table>
+
+                <td>
+                    <button id="save-changes" onclick="closeModal()"> <i class="fa-solid fa-check"></i></button>
+                </td>
+
+            </table>
 
         </div>
-
-
     </div>
 
 </div>
@@ -631,5 +689,6 @@ this is the actively changing display
     }
 </script>
 <script src="scripts/items-script.js"></script>
+<script src="scripts/outfits-script.js"></script>
 </body>
 </html>
