@@ -135,15 +135,15 @@ class Item {
     }
 }
 
-head1 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
-head2 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
-head3 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
-head4 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
-head5 = new Item(othersImages[3], "Trucker Cap", "Asos", Weather.SUNNY, Category.OTHERS);
-head6 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
-head7 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
-head8 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
-head9 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
+other1 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
+other2 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
+other3 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
+other4 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
+other5 = new Item(othersImages[3], "Trucker Cap", "Asos", Weather.SUNNY, Category.OTHERS);
+other6 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
+other7 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
+other8 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
+other9 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
 
 top1 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
 top2 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
@@ -184,8 +184,8 @@ var bottomsTable = document.querySelector('#bottoms-table tbody');
 let shoesList = [];
 var shoesTable = document.querySelector('#shoes-table tbody');
 
-othersList.push(head1, head2, head3, head4, head5,
-    head6, head7, head8, head9);
+othersList.push(other1, other2, other3, other4, other5,
+    other6, other7, other8, other9);
 let pagedothers = chunkArray(othersList, 9);
 addDataToTable(othersTable, pagedothers, 0, false);
 

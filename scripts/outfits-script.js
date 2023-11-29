@@ -119,7 +119,13 @@ class Outfit {
     }
 }
 
-outfit1 = new Outfit("Outfit 1", "This is outfit 1", [])
+outfit1 = new Outfit("Outfit 1", "This is outfit 1", [top1, bottom2, shoes3, other4]);
+outfit2 = new Outfit("Outfit 2", "This is outfit 2", [top2, bottom3, shoes4, other5]);
+outfit3 = new Outfit("Outfit 3", "This is outfit 3", [top3, bottom4, shoes1, other1]);
+
+outfits = [outfit1, outfit2, outfit3];
+var outfitsTable = document.querySelector('#outfits-table tbody');
+addDataToTable(outfitsTable, outfits[0].items, 0, false);
 
 togglePaginationBtnsDisabled();
 
@@ -320,106 +326,7 @@ function openItemEditModal(item) {
 * ADD DATA TO CORRESPONDING TABLE
 * Adds data in form of an array with arrays into a table element.
 */
-function addDataToTable(table, data, pageNumber, filtered) {
-    const columns = 3; // number of columns to fill
 
-    let pageItems;
-    if(!filtered) {
-        pageItems = data[pageNumber];
-    } else {
-        pageItems = data;
-    }
-    pageItems.forEach((item, i) => {
-        // Calculate row and column indices
-        const rowIndex = Math.floor(i / columns);
-        const colIndex = (i % columns) + 1;
-
-        if (table.rows[rowIndex]) {
-            let cell = table.rows[rowIndex].cells[colIndex];
-
-            if (!cell) {
-                cell = table.rows[rowIndex].insertCell(colIndex);
-            }
-
-            // Check if item.name exists before creating the buttonDiv and attaching the click event
-            if (item.name) {
-                // Create a new div containing edit and delete buttons
-                const buttonDiv = document.createElement('div');
-                buttonDiv.className = 'edit-delete-item-btns';
-                buttonDiv.style.display = 'none';
-
-                // Create Edit and Delete Buttons
-                const editButton = document.createElement('button');
-                //editButton.innerText = 'Edit';
-                editButton.className = 'item-edit-btn';
-                editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
-                editButton.onclick = function(e) {
-                    e.stopPropagation();  // prevent triggering cell's onclick event
-                    openItemEditModal(item);  // call your edit function
-                    selectedItem = item;
-                };
-
-                const deleteButton = document.createElement('button');
-                //deleteButton.innerText = 'Delete';
-                deleteButton.className = 'item-delete-btn';
-                deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
-                deleteButton.onclick = function(e) {
-                    e.stopPropagation();
-                    openCBox('deleteItemCBox');
-                    selectedItem = item;
-                }
-
-                buttonDiv.appendChild(editButton);
-                buttonDiv.appendChild(deleteButton);
-
-                // Add item name and buttons div to cell
-                if (typeof item.name === 'symbol') {
-                    cell.innerHTML = String(item.name);
-                } else {
-                    cell.innerHTML = item.name;
-                }
-                cell.innerHTML = `<img src="${item.image}" width='150px' height='150px'>`
-
-                cell.appendChild(buttonDiv);
-
-                // Attach click handler to the cell
-                cell.onclick = function() {
-                    selectItem(this);
-                };
-            }
-        }
-    });
-}
-
-function clearTable(table) {
-    for (let i = 0, row; row = table.rows[i]; i++) {
-        for(let j = 1, cell; cell = row.cells[j]; j++) {
-            if(j <= 3) {
-                cell.innerHTML = "";
-            }
-        }
-    }
-}
-
-function refreshTableData(table, data) {
-
-    // create a Map for quick lookup
-    let dataMap = new Map(data.map(item => [item.name, item]));
-
-    // Loop to iterate over table cells
-    for (let i = 0, row; row = table.rows[i]; i++) {
-        for(let j = 0, cell; cell = row.cells[j]; j++) {
-
-            // Get the object name displayed in the cell without the buttons
-            let cellText = cell.childNodes[0]?.nodeValue?.trim();
-
-            if(cellText && !dataMap.has(cellText)) {
-                // Object is no longer present in data array, clear cell content
-                cell.innerHTML = "";
-            }
-        }
-    }
-}
 
 //-------------------------------------------
 //Items functions
