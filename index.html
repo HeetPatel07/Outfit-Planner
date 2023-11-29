@@ -7,6 +7,7 @@
         <title>Clothing App</title>
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="./css/items-styles.css">
+        <link rel="stylesheet" href="./css/outfit-styles.css">
 
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -260,7 +261,7 @@
             <table class="outfit-display">
                 <tr>
                     <td>
-                       item1
+                        <img src=  "https://www.pngall.com/wp-content/uploads/12/Beanie-PNG-HD-Image.png" alt="item1">
                     </td>
                     <td>
                         item2
@@ -436,10 +437,10 @@
         </table>
 
         <div class="sidebar">
+            <div class="category" data-category="hats">Hats</div>
             <div class="category selected" data-category="tops">Tops</div>
             <div class="category" data-category="bottoms">Bottoms</div>
             <div class="category" data-category="shoes">Shoes</div>
-            <div class="category" data-category="others">Others</div>
         </div>
 
         <div class="items-section">
@@ -452,12 +453,12 @@
            </th>
         </div>
 
+        <!---THe active box for the selected items---->
         <div class="active-items">
-
             <table id="active-box">
 
             <tr id="active-items">
-                <td >item1</td>
+                <td > item1</td>
                 <td>item2</td>
                 <td>item3</td>
                 <td>item4</td>
@@ -465,7 +466,41 @@
                 <td>item6</td>
             </tr>
 
+                <!---mini clothes designs and sections---->
 
+                <div class="modal-table hats" style="display: none;">
+                    <table id="modal-hats-table">
+                        <tr>
+                            <th></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th class="items-cells"></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="modal-hats-prev" class="item-arrow left" title="Previous page">
+                                    <i class="fa-solid fa-angle-left fa"></i>
+                                </button>
+                            </td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td>
+                                <button id="modal-hats-next" class="item-arrow right" title="Next page">
+                                    <i class="fa-solid fa-angle-right fa"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td class="items-cells"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
 
             </table>
 
@@ -473,73 +508,9 @@
                     <button id="save-changes" onclick="closeModal()"> <i class="fa-solid fa-check"></i></button>
                 </td>
 
-            </tr>
-
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-<div class="clothing-modal" id="editOutfitModal">
-    <div class="modal-content">
-        <center>
-            <h2>Edit outfit</h2>
-        </center>
-
-        <table>
-            <tr>
-                <button class="close-button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-            </tr>
-        </table>
-
-        <div class="sidebar">
-            <div class="category selected" data-category="tops">Tops</div>
-            <div class="category" data-category="bottoms">Bottoms</div>
-            <div class="category" data-category="shoes">Shoes</div>
-            <div class="category" data-category="others">Others</div>
-        </div>
-
-        <div class="items-section">
-            <th>
-                <form id="search-form1">
-                    <input type="text" id="item-search" name="search" placeholder="Search">
-                    <input id="item-search-btn" type="submit" value="Search">
-                </form>
-                <div class="search-string"></div>
-            </th>
-        </div>
-
-        <div class="active-items">
-
-            <table id="active-box">
-
-                <tr id="active-items">
-                    <td >item1</td>
-                    <td>item2</td>
-                    <td>item3</td>
-                    <td>item4</td>
-                    <td>item5</td>
-                    <td>item6</td>
-                </tr>
-
-
-
             </table>
 
-            <td>
-                <button id="save-changes" onclick="closeModal()"> <i class="fa-solid fa-check"></i></button>
-            </td>
-
-            </tr>
-
-
         </div>
-
-
     </div>
 
 </div>
