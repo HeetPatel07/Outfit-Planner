@@ -419,8 +419,8 @@
         <div class="profile-text">Description of the user.</div>
         
         <div class="profile-footer">
-            <div><button class="profile-button">Edit Profile</button></div>
-            <div><button class="profile-button">Settings</button></div>
+            <div><button class="profile-button" onclick="notImplemented('Profile editing page is beyond the scope of this prototype.')">Edit Profile</button></div>
+            <div><button class="profile-button" onclick="notImplemented('Application settings page is beyond the scope of this prototype.')">Settings</button></div>
         </div>
     </div>
 </div>
@@ -557,6 +557,11 @@
         setTimeout(() => {
             button.blur(); // Blur the button to remove focus
         }, 10); // Adjust the time (in milliseconds) as needed
+    }
+
+    // Alert function for non-implemented portions
+    function notImplemented(message) {
+        alert(message);
     }
 
     function toggleFollow(button) {
