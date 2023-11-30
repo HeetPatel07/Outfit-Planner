@@ -130,6 +130,7 @@ top6 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Cat
 top7 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
 top8 = new Item(topsImages[3], "Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
 top9 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
+top10 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
 
 bottom1 = new Item(bottomsImages[2], "Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
 bottom2 = new Item(bottomsImages[1], "Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
@@ -169,7 +170,7 @@ let pagedothers = chunkArray(othersList, 9);
 addDataToTable(othersTable, pagedothers, 0, false, 3);
 
 topsList.push(top1, top2, top3, top4, top5,
-    top6, top7, top8, top9);
+    top6, top7, top8, top9, top10);
 let pagedTops = chunkArray(topsList, 9);
 addDataToTable(topsTable, pagedTops, 0, false, 3);
 
@@ -505,18 +506,15 @@ function createItem(category) {
                 nextPage(1);
             }
             addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false, 3);
-            addDataToTable(othersTableModal, pagedothers, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(othersTableModal, pagedothers, calculatePageNum(category) - 1, false, 3, 'create');
             break;
         case "tops":
             topsList.push(newItem);
             pagedTops = chunkArray(topsList, 9);
             pagedData = pagedTops;
-            console.log("Paged Data Length: ", pagedData.length);
-            console.log("Current Page: ", currentPage);
-            console.log("Tops List Length % 9: ", topsList.length % 9);
             if((topsList.length % 9) === 1) nextPage(1);
             addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false, 3);
-            addDataToTable(topsTableModal, pagedTops, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(topsTableModal, pagedTops, calculatePageNum(category) - 1, false, 3, 'create');
             break;
         case "bottoms":
             bottomsList.push(newItem);
