@@ -51,19 +51,33 @@ outfits.push(outfit1, outfit2, outfit3);
 var outfitsTable = document.querySelector('.outfit-display tbody');
 addOutfitDataToTable(outfitsTable, outfits[currentOutfit].items, 0, 3, 150, 150);
 
-var othersTableModal = document.querySelector('#modal-others-table tbody');
-addOutfitDataToModalTable(othersTableModal, pagedothers, 0, false, 3);
+var othersTableModal = document.querySelector('#modal-others-create-table tbody');
+addOutfitDataToModalTable(othersTableModal, pagedothers, 0, false, 3, 'create');
 
-var topsTableModal = document.querySelector('#modal-tops-table tbody');
-addOutfitDataToModalTable(topsTableModal, pagedTops, 0, false, 3);
+var topsTableModal = document.querySelector('#modal-tops-create-table tbody');
+addOutfitDataToModalTable(topsTableModal, pagedTops, 0, false, 3, 'create');
 
-var bottomsTableModal = document.querySelector('#modal-bottoms-table tbody');
-addOutfitDataToModalTable(bottomsTableModal, pagedBottoms, 0, false,  3);
+var bottomsTableModal = document.querySelector('#modal-bottoms-create-table tbody');
+addOutfitDataToModalTable(bottomsTableModal, pagedBottoms, 0, false,  3, 'create');
 
-var shoesTableModal = document.querySelector('#modal-shoes-table tbody');
-addOutfitDataToModalTable(shoesTableModal, pagedShoes, 0, false,  3);
+var shoesTableModal = document.querySelector('#modal-shoes-create-table tbody');
+addOutfitDataToModalTable(shoesTableModal, pagedShoes, 0, false,  3, 'create');
 
-var modalSelectionTable = document.querySelector('#active-box tbody');
+var othersEditTableModal = document.querySelector('#modal-others-edit-table tbody');
+addOutfitDataToModalTable(othersEditTableModal, pagedothers, 0, false, 3, 'edit');
+
+var topsEditTableModal = document.querySelector('#modal-tops-edit-table tbody');
+addOutfitDataToModalTable(topsEditTableModal, pagedTops, 0, false, 3, 'edit');
+
+var bottomsEditTableModal = document.querySelector('#modal-bottoms-edit-table tbody');
+addOutfitDataToModalTable(bottomsEditTableModal, pagedBottoms, 0, false,  3, 'edit');
+
+var shoesEditTableModal = document.querySelector('#modal-shoes-edit-table tbody');
+addOutfitDataToModalTable(shoesEditTableModal, pagedShoes, 0, false,  3, 'edit');
+
+var modalSelectionTable = document.querySelector('#active-create-box tbody');
+var modalEditSelectionTable = document.querySelector('#active-edit-box tbody');
+let selectedOutfit = outfits[currentOutfitPage];
 
 function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
     data.forEach((item, i) => {
@@ -85,7 +99,7 @@ function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
     });
 }
 
-function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns) {
+function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns, mode) {
 
     let pageItems;
     if(!filtered) {
@@ -111,14 +125,14 @@ function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns) {
 
                 // Attach click handler to the cell
                 cell.onclick = function() {
-                    selectItemModal(this);
+                    selectItemModal(this, mode);
                 };
             }
         }
     });
 }
 
-function addOutfitDataToModalSelectionTable(table, data, pageNumber, columns, width, height) {
+function addOutfitDataToModalSelectionTable(table, data, pageNumber, columns, width, height, mode) {
 
     data.forEach((item, i) => {
         // Calculate row and column indices
@@ -142,7 +156,7 @@ function addOutfitDataToModalSelectionTable(table, data, pageNumber, columns, wi
 
                 const removeBtn = document.createElement('button');
                 removeBtn.onclick = function () {
-                    removeSelectedItem(cell);
+                    removeSelectedItem(cell, mode);
                 }
 
                 deleteItemDiv.appendChild(removeBtn);
@@ -173,6 +187,7 @@ function clearOutfitTable(table) {
 function nextOutfitPage(pageNum) {
     if (currentOutfitPage < outfits.length - 1) {
         currentOutfitPage += pageNum;
+        selectedOutfit = outfits[currentOutfitPage];
         clearOutfitTable(outfitsTable);
         addOutfitDataToTable(outfitsTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
     }
@@ -181,19 +196,25 @@ function nextOutfitPage(pageNum) {
 function prevOutfitPage(pageNum) {
     if (currentOutfitPage > 0) {
         currentOutfitPage -= pageNum;
+        selectedOutfit = outfits[currentOutfitPage];
         clearOutfitTable(outfitsTable);
         addOutfitDataToTable(outfitsTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
     }
 }
 
-function selectItemModal(cell) {
+function selectItemModal(cell, mode) {
 
     if(modalItems.length < 6) {
         modalItems.push(pagedData[currentModalPage][getItemIndex(cell)]);
     } else {
         openCBox('tooManyItemsWarningCBox');
     }
-    addOutfitDataToModalSelectionTable(modalSelectionTable, modalItems, 0, 6, 75, 75);
+
+    if(mode === 'create') {
+        addOutfitDataToModalSelectionTable(modalSelectionTable, modalItems, 0, 6, 75, 75, mode);
+    } else {
+        addOutfitDataToModalSelectionTable(modalEditSelectionTable, modalItems, 0, 6, 75, 75, mode);
+    }
 
     // If there's a selected cell, hide its buttons
     if (currentModalCell) {
@@ -205,17 +226,29 @@ function selectItemModal(cell) {
     currentModalCell = cell;
 }
 
-function removeSelectedItem(cell) {
+function removeSelectedItem(cell, mode) {
     console.log("REMOVE SELECTED CALLED");
-    modalItems.splice(cell.cellIndex, 1);
-    clearOutfitTable(modalSelectionTable);
-    addOutfitDataToModalSelectionTable(modalSelectionTable, modalItems, 0, 6, 75, 75);
+    if(mode === 'create') {
+        modalItems.splice(cell.cellIndex, 1);
+        clearOutfitTable(modalSelectionTable);
+        addOutfitDataToModalSelectionTable(modalSelectionTable, modalItems, 0, 6, 75, 75, mode);
+    } else {
+        selectedOutfit.items.splice(cell.cellIndex, 1);
+        clearOutfitTable(modalEditSelectionTable);
+        addOutfitDataToModalSelectionTable(modalEditSelectionTable, selectedOutfit.items, 0, 6, 75, 75, mode);
+    }
 }
 
 function openCreateOutfitModal() {
     modalItems.splice(0, modalItems.length);
     clearOutfitTable(modalSelectionTable);
-    openModal('clothingModal');
+    openModal('outfitCreateModal');
+}
+
+function openEditOutfitModal() {
+    console.log(selectedOutfit.items);
+    addOutfitDataToModalSelectionTable(modalEditSelectionTable, selectedOutfit.items, 0, 6, 75, 75, 'edit');
+    openModal('outfitEditModal');
 }
 
 function createNewOutfit() {

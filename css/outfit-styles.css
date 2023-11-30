@@ -168,13 +168,14 @@
     position:fixed;
 }
 
-#search{
+#search {
     width: 200px;
     height: 30px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
 }
+
 #search-btn{
     height: 30px;
     padding: 8px ;
@@ -185,8 +186,7 @@
     border-radius: 0 4px 4px 0;
 }
 
-
-#search-form1{
+#search-form-create, #search-form-edit{
     top:15%;
     position:fixed;
     left:35%;
@@ -197,7 +197,8 @@
     left: 5%;
     position: fixed;
 }
-#save-changes{
+
+#save-create-changes, #save-edit-changes{
     background-color: #8ade0a;
     color:white;
     top:80%;
@@ -208,7 +209,7 @@
     border-radius:10px;
 }
 
-#active-box {
+#active-create-box, #active-edit-box {
     border: 1px solid #000;
     margin: 10px;
     width:90%;
@@ -218,7 +219,7 @@
     position: fixed;
 
 }
-#active-items td{
+#active-create-items td, #active-edit-items td{
     border: 1px solid #000;
     margin:10px;
     left:5%;
@@ -262,7 +263,8 @@ items-cells-modal.selected {
 }
 
 
-#modal-others-table, #modal-tops-table, #modal-bottoms-table, #modal-shoes-table {
+#modal-others-create-table, #modal-tops-create-table, #modal-bottoms-create-table, #modal-shoes-create-table,
+#modal-others-edit-table, #modal-tops-edit-table, #modal-bottoms-edit-table, #modal-shoes-edit-table {
     margin-right: auto;
     margin-left: auto;
     position:fixed;
@@ -270,13 +272,15 @@ items-cells-modal.selected {
     left: 10%;
 }
 
-#modal-others-table td, #modal-tops-table td, #modal-bottoms-table td, #modal-shoes-table td {
+#modal-others-create-table td, #modal-tops-create-table td, #modal-bottoms-create-table td, #modal-shoes-create-table td,
+#modal-others-edit-table td, #modal-tops-edit-table td, #modal-bottoms-edit-table td, #modal-shoes-edit-table td {
     width: 200px;
     height: 120px;
     text-align: center;
     vertical-align: middle;
 }
-#modal-others-table th, #modal-tops-table th, #modal-bottoms-table th, #modal-shoes-table th {
+#modal-others-create-table th, #modal-tops-create-table th, #modal-bottoms-create-table th, #modal-shoes-create-table th,
+#modal-others-edit-table th, #modal-tops-edit-table th, #modal-bottoms-edit-table th, #modal-shoes-edit-table th{
     width: 150px;
     height: 120px;
     text-align: center;
