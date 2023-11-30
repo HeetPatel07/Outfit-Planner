@@ -55,18 +55,59 @@
     --- Home Page ---------------
     ---------------------------->
 
-    <div id="homePage">
-        <h1>Home Page</h1>
-
-        <section>
-            <h2>Section 1</h2>
-            <p>This is the content of section 1.</p>
-        </section>
-
-        <section>
-            <h2>Section 2</h2>
-            <p>This is the content of section 2.</p>
-        </section>
+    <div id="homePage" class="homepage">
+        <div clas="no-padding"><img class="hanger-rod" src="images/hanger-rod-v2.png"></div>
+        <div class="homepage-content">
+            <!-- Left button -->
+            <div class="padded-button">
+                <button id="home-prev" class="item-arrow left" title="Previous week">
+                    <i class="fa-solid fa-angle-left fa"></i>
+                </button>
+            </div>
+        
+            <div class="rectangle-section">
+                <div id="date-header" class="date-header">Nov. 26, 2023 - Dec. 2, 2023</div>
+                <div class="major-row top-row">
+                    <!-- Labels for top row -->
+                    <div class="row-labels">
+                        <div class="label">Sun</div>
+                        <div class="label">Mon</div>
+                        <div class="label">Tues</div>
+                        <div class="label">Wed</div>
+                    </div>
+        
+                    <!-- Top row of squares -->
+                    <div class="row">
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                    </div>
+                </div>
+                <div class="major-row bottom-row">
+                    <!-- Labels for bottom row -->
+                    <div class="row-labels">
+                        <div class="label">Thurs</div>
+                        <div class="label">Fri</div>
+                        <div class="label">Sat</div>
+                    </div>
+            
+                    <!-- Bottom row of squares -->
+                    <div class="row">
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Right button -->
+            <div class="padded-button">
+                <button id="home-next" class="item-arrow right" title="Next week">
+                    <i class="fa-solid fa-angle-right fa"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <!---------------------------
