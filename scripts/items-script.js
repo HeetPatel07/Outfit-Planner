@@ -505,6 +505,7 @@ function createItem(category) {
                 nextPage(1);
             }
             addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false, 3);
+            addDataToTable(othersTableModal, pagedothers, calculatePageNum(category) - 1, false, 3);
             break;
         case "tops":
             topsList.push(newItem);
@@ -515,6 +516,7 @@ function createItem(category) {
             console.log("Tops List Length % 9: ", topsList.length % 9);
             if((topsList.length % 9) === 1) nextPage(1);
             addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false, 3);
+            addDataToTable(topsTableModal, pagedTops, calculatePageNum(category) - 1, false, 3);
             break;
         case "bottoms":
             bottomsList.push(newItem);
@@ -522,6 +524,7 @@ function createItem(category) {
             pagedData = pagedBottoms;
             if((bottomsList.length % 9) === 1) nextPage(1);
             addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false, 3);
+            addDataToTable(bottomsTableModal, pagedBottoms, calculatePageNum(category) - 1, false, 3);
             break;
         case "shoes":
             shoesList.push(newItem);
@@ -529,6 +532,8 @@ function createItem(category) {
             pagedData = pagedShoes;
             if((shoesList.length % 9) === 1) nextPage(1);
             addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false, 3);
+            addDataToTable(shoesTableModal, pagedShoes, calculatePageNum(category) - 1, false, 3);
+
             break;
     }
 

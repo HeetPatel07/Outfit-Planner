@@ -2,7 +2,9 @@ let currentOutfit = 0;
 let currentOutfitPage = 0;
 let currentModalPage = 0;
 let categoriesModal = document.querySelectorAll('.category-modal');
+let categoriesEditModal = document.querySelectorAll('.category-edit-modal');
 let tablesModal = document.querySelectorAll('.table-modal');
+let tablesEditModal = document.querySelectorAll('.table-edit-modal');
 let modalItems = [];
 let currentModalCell;
 
@@ -24,6 +26,31 @@ categoriesModal.forEach(function(category) {
         // Show the table corresponding to the selected category
         selectedCategory = this.getAttribute('data-category');
         let selectedTable = document.querySelector('.' + selectedCategory + '-modal');
+        console.log(selectedTable);
+        selectedTable.style.display = 'block';
+        currentPage = 0;
+
+        loadButtons();
+        togglePaginationBtnsDisabled();
+    });
+});
+
+categoriesEditModal.forEach(function(category) {
+    category.addEventListener('click', function() {
+        categoriesEditModal.forEach(function(c) {
+            c.classList.remove('selected');
+        });
+        this.classList.add('selected');
+
+        console.log(tablesEditModal);
+        // Hide all tables
+        tablesEditModal.forEach(function(table) {
+            table.style.display = 'none';
+        });
+
+        // Show the table corresponding to the selected category
+        selectedCategory = this.getAttribute('data-category');
+        let selectedTable = document.querySelector('.' + selectedCategory + '-edit-modal');
         console.log(selectedTable);
         selectedTable.style.display = 'block';
         currentPage = 0;
@@ -247,7 +274,9 @@ function openCreateOutfitModal() {
 
 function openEditOutfitModal() {
     console.log(selectedOutfit.items);
-    addOutfitDataToModalSelectionTable(modalEditSelectionTable, selectedOutfit.items, 0, 6, 75, 75, 'edit');
+    modalItems.splice(0, modalItems.length);
+    modalItems = selectedOutfit.items;
+    addOutfitDataToModalSelectionTable(modalEditSelectionTable, modalItems, 0, 6, 75, 75, 'edit');
     openModal('outfitEditModal');
 }
 
@@ -258,6 +287,18 @@ function createNewOutfit() {
 
     outfits.push(newOutfit);
 
+    addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+    closeModal();
+}
+
+function editOutfit() {
+
+    var index = outfits.indexOf(selectedOutfit);
+    var newModalItems = Array.from(modalItems);
+    selectedOutfit.items = newModalItems;
+    outfits[index] = selectedOutfit;
+
+    clearOutfitTable(outfitsTable);
     addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
     closeModal();
 }
