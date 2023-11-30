@@ -252,12 +252,12 @@
 /*******The cells within
 ********/
 
-.items-cells {
+items-cells-modal {
     border: 1px solid lightgray;
     transition: transform 0.3s ease;
 }
 
-.items-cells.selected {
+items-cells-modal.selected {
     transform: scale(1.1);
 }
 

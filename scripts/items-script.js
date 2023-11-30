@@ -290,6 +290,7 @@ function togglePaginationBtnsDisabled() {
 }
 
 function setPaginationVariables() {
+    console.log(selectedCategory);
     imageIndex = 0;
     switch (selectedCategory) {
         case 'others':

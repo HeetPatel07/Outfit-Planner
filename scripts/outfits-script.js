@@ -1,8 +1,10 @@
 let currentOutfit = 0;
 let currentOutfitPage = 0;
+let currentModalPage = 0;
 let categoriesModal = document.querySelectorAll('.category-modal');
 let tablesModal = document.querySelectorAll('.table-modal');
 let modalItems = [];
+let currentModalCell;
 
 loadOutfitButtons();
 
@@ -44,7 +46,8 @@ outfit1 = new Outfit("Outfit 1", "This is outfit 1", [top1, bottom2, shoes3, oth
 outfit2 = new Outfit("Outfit 2", "This is outfit 2", [top2, bottom3, shoes4, other5]);
 outfit3 = new Outfit("Outfit 3", "This is outfit 3", [top3, bottom4, shoes1, other1]);
 
-outfits = [outfit1, outfit2, outfit3];
+let outfits = [];
+outfits.push(outfit1, outfit2, outfit3);
 var outfitsTable = document.querySelector('.outfit-display tbody');
 addOutfitDataToTable(outfitsTable, outfits[currentOutfit].items, 0, 3, 150, 150);
 
@@ -63,7 +66,6 @@ addOutfitDataToModalTable(shoesTableModal, pagedShoes, 0, false,  3);
 var modalSelectionTable = document.querySelector('#active-box tbody');
 
 function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
-    console.log(data);
     data.forEach((item, i) => {
         // Calculate row and column indices
         const rowIndex = Math.floor(i / columns);
@@ -91,7 +93,6 @@ function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns) {
     } else {
         pageItems = data;
     }
-    console.log(pageItems);
     pageItems.forEach((item, i) => {
         // Calculate row and column indices
         const rowIndex = Math.floor(i / columns);
@@ -112,6 +113,40 @@ function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns) {
                 cell.onclick = function() {
                     selectItemModal(this);
                 };
+            }
+        }
+    });
+}
+
+function addOutfitDataToModalSelectionTable(table, data, pageNumber, columns, width, height) {
+
+    data.forEach((item, i) => {
+        // Calculate row and column indices
+        const rowIndex = Math.floor(i / columns);
+        const colIndex = (i % columns);
+
+        if (table.rows[rowIndex]) {
+            let cell = table.rows[rowIndex].cells[colIndex];
+
+            if (!cell) {
+                cell = table.rows[rowIndex].insertCell(colIndex);
+            }
+
+            // Check if item.name exists before creating the buttonDiv and attaching the click event
+            if (item.name) {
+                cell.innerHTML = `<img src="${item.image}" width='${width}' height='${height}'>`
+
+
+                const deleteItemDiv = document.createElement('div');
+                deleteItemDiv.className = 'remove-selected-item';
+
+                const removeBtn = document.createElement('button');
+                removeBtn.onclick = function () {
+                    removeSelectedItem(cell);
+                }
+
+                deleteItemDiv.appendChild(removeBtn);
+                cell.appendChild(deleteItemDiv);
             }
         }
     });
@@ -152,35 +187,46 @@ function prevOutfitPage(pageNum) {
 }
 
 function selectItemModal(cell) {
-    // If the clicked cell is already the selected cell, deselect it
-    if (cell === currentCell) {
-        cell.classList.remove('selected');
-        currentCell = null;
-        return;
+
+    if(modalItems.length < 6) {
+        modalItems.push(pagedData[currentModalPage][getItemIndex(cell)]);
+    } else {
+        openCBox('tooManyItemsWarningCBox');
     }
-
-    console.log("Cell's index in array: ", getItemIndex(cell));
-    console.log(pagedData[currentOutfitPage]);
-    console.log(pagedData[currentOutfitPage][getItemIndex(cell)]);
-
-    modalItems.push(pagedData[currentOutfitPage][getItemIndex(cell)]);
-    addOutfitDataToTable(modalSelectionTable, modalItems, 0, 6, 75, 75);
+    addOutfitDataToModalSelectionTable(modalSelectionTable, modalItems, 0, 6, 75, 75);
 
     // If there's a selected cell, hide its buttons
-    if (currentCell) {
-        currentCell.classList.remove('selected');
+    if (currentModalCell) {
+        currentModalCell.classList.remove('selected');
     }
 
     // Select the clicked cell and show its buttons
     cell.classList.add('selected');
-    currentCell = cell;
+    currentModalCell = cell;
+}
+
+function removeSelectedItem(cell) {
+    console.log("REMOVE SELECTED CALLED");
+    modalItems.splice(cell.cellIndex, 1);
+    clearOutfitTable(modalSelectionTable);
+    addOutfitDataToModalSelectionTable(modalSelectionTable, modalItems, 0, 6, 75, 75);
+}
+
+function openCreateOutfitModal() {
+    modalItems.splice(0, modalItems.length);
+    clearOutfitTable(modalSelectionTable);
+    openModal('clothingModal');
 }
 
 function createNewOutfit() {
-    newOutfit = new Outfit("Outfit " + outfits.length, "Description", modalItems);
+
+    var newModalItems = Array.from(modalItems);
+    var newOutfit = new Outfit("Outfit " + (outfits.length + 1), "Description", newModalItems);
 
     outfits.push(newOutfit);
+
     addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+    closeModal();
 }
 
 function getItemIndex(cell) {
