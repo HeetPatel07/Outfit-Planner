@@ -448,15 +448,13 @@
         <div class="instagram-feed">
             <div class="post">
                 <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
-                <div><img class="post-img" src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1"></div>
+                <img class="post-img" src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg" alt="Outfit 1">
                 <div class="post-caption">Outfit 1</div>
                 <div class="post-buttons">
                     <div class="like-btn" onclick="toggleLike(this)">
                         <span class="icon">&#x2764;</span> Like
                     </div>
-                    <div class="comment-btn">
-                        <span class="icon">&#x1F4AC;</span> Comment
-                    </div>
+                        <button id="comment-btn" onclick="openModal('commentModal1')">&#x1F4AC Comment</button>
                     <div class="save-btn">
                         <span class="icon">&#128190;</span> Save
                     </div>
@@ -471,9 +469,7 @@
                     <div class="like-btn" onclick="toggleLike(this)">
                         <span class="icon">&#x2764;</span> Like
                     </div>
-                    <div class="comment-btn">
-                        <span class="icon">&#x1F4AC;</span> Comment
-                    </div>
+                    <button id="comment-btn" onclick="openModal('commentModal2')">&#x1F4AC Comment</button>
                     <div class="save-btn">
                         <span class="icon">&#128190;</span> Save
                     </div>
@@ -487,6 +483,7 @@
                 <li><button class="nameButton">Gary</button></li>
                 <li><button class="nameButton">Dylan</button></li>
                 <li><button class="nameButton">Max</button></li>
+                <li><button class="nameButton">Heet</button></li>
             </ul>
         </div>
         <button id="searchButton"><i class="fas fa-search"></i></button>
@@ -538,6 +535,34 @@
         <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
         <img class="post-modal-img" src="https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SX679_.jpg" alt="Outfit 3">
         <div><button id="postButtonInPopup" onclick="postOutfit()">Post</button></div>
+    </div>
+</div>
+
+<!-- Comment Modal1 -->
+<div class="post-modal" id="commentModal1">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <div class="commentSection">
+            <img class="post-img" src="https://www.shutterstock.com/shutterstock/photos/1286110465/display_1500/stock-photo-blue-midi-pleated-skirt-beige-knitted-sweater-small-black-cross-body-bag-belt-loafers-flat-1286110465.jpg">
+            <div id="commentBox"></div>
+        </div>
+        <label for="commentInput1"></label>
+        <input type="text" id="commentInput1" />
+        <div><button id="commentButtonInPopup" onclick="commentOutfit1()">Comment</button></div>
+    </div>
+</div>
+
+<!-- Comment Modal2 -->
+<div class="post-modal" id="commentModal2">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <div class="commentSection2">
+        <img class="post-img" src="https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-button-down-shirt-outfit1.jpg?8369042167668645907">
+            <div id="commentBox2"></div>
+        </div>
+        <label for="commentInput2"></label>
+        <input type="text" id="commentInput2" />
+        <div><button id="commentButtonInPopup" onclick="commentOutfit2()">Comment</button></div>
     </div>
 </div>
 
@@ -661,6 +686,43 @@
     function postOutfit() {
         alert('Performing action: Posting Outfit');
         closeModal();
+    }
+
+    // Comment outfit
+    function commentOutfit1() {
+        const commentInput1 = document.getElementById('commentInput1');
+        const commentBox = document.getElementById('commentBox');
+
+        // Get the message text
+        const messageText = 'Me: ' + commentInput1.value;
+
+        // Clear the input field
+        commentInput1.value = '';
+
+        // Create a new paragraph element for the message
+        const messageElement = document.createElement('p');
+        messageElement.textContent = messageText;
+
+        // Append the message to the message container
+        commentBox.appendChild(messageElement);
+    }
+
+    function commentOutfit2() {
+        const commentInput2 = document.getElementById('commentInput2');
+        const commentBox2 = document.getElementById('commentBox2');
+
+        // Get the message text
+        const messageText = 'Me: ' + commentInput2.value;
+
+        // Clear the input field
+        commentInput2.value = '';
+
+        // Create a new paragraph element for the message
+        const messageElement = document.createElement('p');
+        messageElement.textContent = messageText;
+
+        // Append the message to the message container
+        commentBox2.appendChild(messageElement);
     }
 </script>
 </body>
