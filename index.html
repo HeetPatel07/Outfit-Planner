@@ -445,13 +445,6 @@
     <div id="socialsPage">
         <h1>Socials Page</h1>
 
-        <div class="search-bar" align="right">
-            <div class="searchButton">
-                <input type="text" id="search-bar" placeholder="Search...">
-                <button id="searchButton">Search</button>
-            </div>
-        </div>
-
         <div class="instagram-feed">
             <div class="post">
                 <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
@@ -487,8 +480,17 @@
                 </div>
             </div>
         </div>
-
-        <button id="postButton" onclick="openModal('postModal')">Post</button>
+        <div id="column">
+            <h1>Chat</h1>
+            <p>________________________________________________</p>
+            <ul id="names">
+                <li><button class="nameButton">Gary</button></li>
+                <li><button class="nameButton">Dylan</button></li>
+                <li><button class="nameButton">Max</button></li>
+            </ul>
+        </div>
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+        <button id="postButton" onclick="openModal('postModal')">+</button>
     </div>
 
 </main>
