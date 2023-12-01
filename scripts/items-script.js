@@ -366,6 +366,7 @@ function selectItem(cell) {
 }
 
 function cancelOperation() {
+    modalItems.splice(0, modalItems.length);
     closeCBox();
     closeModal();
 }

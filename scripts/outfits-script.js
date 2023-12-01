@@ -412,9 +412,6 @@ function openCreateOutfitModal() {
     setModalPaginationVariables();
     selectedModalTable = document.getElementById('modal-tops-create-table');
 
-    let outfitTitle = document.querySelector('#outfit-create-title');
-    outfitTitle.textContent = "Outfit " + (outfits.length + 1);
-
     if(currentModalPage > 0) {
         prevModalPage(currentModalPage);
         currentModalPage -= currentModalPage;
@@ -430,7 +427,7 @@ function openEditOutfitModal() {
     selectedEditModalTable = document.getElementById('modal-tops-edit-table');
 
     let outfitTitle = document.querySelector('#outfit-edit-title');
-    outfitTitle.textContent = selectedOutfit.name;
+    outfitTitle.value = selectedOutfit.name;
 
     let outfitDescription = document.querySelector('#outfit-edit-description');
     outfitDescription.value = selectedOutfit.description;
@@ -450,10 +447,12 @@ function createNewOutfit() {
 
     if(modalItems.length > 0) {
         let outfitDescription = document.querySelector('#outfit-create-description');
+        let outfitTitle = document.querySelector('#outfit-create-title');
         var newModalItems = Array.from(modalItems);
-        var newOutfit = new Outfit("Outfit " + (outfits.length + 1), outfitDescription.value, newModalItems);
+        var newOutfit = new Outfit(outfitTitle.value, outfitDescription.value, newModalItems);
 
         outfits.push(newOutfit);
+        modalItems.splice(0, modalItems.length);
 
         addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
         closeModal();
@@ -466,12 +465,16 @@ function editOutfit() {
 
     if(selectedOutfit.items.length > 0) {
         let outfitDescription = document.querySelector('#outfit-edit-description');
+        let outfitTitle = document.querySelector('#outfit-edit-title');
 
         var index = outfits.indexOf(selectedOutfit);
         var newModalItems = Array.from(modalItems);
+        selectedOutfit.name = outfitTitle.value;
         selectedOutfit.description = outfitDescription.value;
         selectedOutfit.items = newModalItems;
         outfits[index] = selectedOutfit;
+
+        modalItems.splice(0, modalItems.length);
 
         clearOutfitTable(outfitsTable);
         addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
