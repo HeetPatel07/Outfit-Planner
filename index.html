@@ -80,17 +80,17 @@
                     <!-- Top row of squares -->
                     <div class="row">
                         <div class="square" onclick="dayClicked(0,0,0)"></div>
-                        <div class="square" onclick="dayClicked(0,0,0)"></div>
-                        <div class="square" onclick="dayClicked(0,0,0)"></div>
-                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(1,0,0)"></div>
+                        <div class="square" onclick="dayClicked(2,0,0)"></div>
+                        <div class="square" onclick="dayClicked(3,0,0)"></div>
                     </div>
                 </div>
                 <div class="major-row bottom-row">
                     <!-- Labels for bottom row -->
                     <div class="row-labels">
-                        <div class="label" onclick="dayClicked(0,0,0)">Thurs</div>
-                        <div class="label" onclick="dayClicked(0,0,0)">Fri</div>
-                        <div class="label" onclick="dayClicked(0,0,0)">Sat</div>
+                        <div class="label" onclick="dayClicked(4,0,0)">Thurs</div>
+                        <div class="label" onclick="dayClicked(5,0,0)">Fri</div>
+                        <div class="label" onclick="dayClicked(6,0,0)">Sat</div>
                     </div>
             
                     <!-- Bottom row of squares -->
@@ -430,8 +430,10 @@
         <div>
             <div class="home-modal-outfit-header">
                 <div class="buffer"></div>
-                <div id="outfitName" class="outfit-name">Outfit1</div>
-                <button class="OFB outfit-button2">
+                <div id="outfitName" class="outfit-name">
+                    <p id="home-outfit-header"></p>
+                </div>
+                <button id="home-edit-outfit" class="OFB outfit-button2" onclick="toggleEditing()">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
             </div>
@@ -439,16 +441,29 @@
             <div class="home-modal-outfit-content">
                 <!-- Left button -->
                 <div class="padded-button-modal">
-                    <button id="home-prev" class="item-arrow left" title="Previous week">
+                    <button id="home-outfit-prev" class="item-arrow left" title="Previous outfit">
                         <i class="fa-solid fa-angle-left fa"></i>
                     </button>
                 </div>
 
-                <div id="homeDayOutfit" class="outfit-div"></div>
+                <section id="content-box">
+                    <table class="outfit-display-homepage">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </section>
 
                 <!-- Right button -->
                 <div class="padded-button-modal">
-                    <button id="home-next" class="item-arrow right" title="Next week">
+                    <button id="home-outfit-next" class="item-arrow right" title="Next outfit">
                         <i class="fa-solid fa-angle-right fa"></i>
                     </button>
                 </div>
@@ -475,7 +490,7 @@
                 <option value="Windy">Windy</option>
                 <option value="Snowy">Snowy</option>
             </select></p>
-            <button class="confirm-create-item"onclick="createItem(selectedCategory)"
+            <button class="confirm-create-item" onclick="createItem(selectedCategory)"
                     style="display: block;
                     margin-left: auto;
                     margin-right: auto;">
