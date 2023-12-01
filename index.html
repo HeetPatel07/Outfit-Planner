@@ -476,20 +476,42 @@
                 </div>
             </div>
         </div>
+
         <div id="column">
-            <h1>Chat</h1>
-            <p>________________________________________________</p>
+
             <ul id="names">
-                <li><button class="nameButton">Gary</button></li>
-                <li><button class="nameButton">Dylan</button></li>
-                <li><button class="nameButton">Max</button></li>
-                <li><button class="nameButton">Heet</button></li>
+                <h1>Chat</h1>
+                <br></br>
+                <li><button class="nameButton" onclick="startChat()">Gary</button></li>
+                <li><button class="nameButton" onclick="startChat2()">Max</button></li>
             </ul>
+
+            <div id="chat-container">
+                <h1>Gary</h1>
+                <br></br>
+                <div id="chat" >
+                </div>
+            </div>
+            <div id="chat-container2">
+                <h1>Max</h1>
+                <br></br>
+                <div id="chat2" >
+                </div>
+            </div>
         </div>
+
+        <button id= "sendButton" onclick="sendMessage()">Send
+        </button>
+        <input type="text" id="messageInput" placeholder="Type your message">
+
+        <button id= "sendButton2" onclick="sendMessage2()">Send
+        </button>
+        <input type="text" id="messageInput2" placeholder="Type your message">
+
+        <button id="back-button" onclick="goBack()">←</button>
         <button id="searchButton"><i class="fas fa-search"></i></button>
         <button id="postButton" onclick="openModal('postModal')">+</button>
     </div>
-
 </main>
 
 <!---------------------------
@@ -693,17 +715,13 @@
         const commentInput1 = document.getElementById('commentInput1');
         const commentBox = document.getElementById('commentBox');
 
-        // Get the message text
         const messageText = 'Me: ' + commentInput1.value;
 
-        // Clear the input field
         commentInput1.value = '';
 
-        // Create a new paragraph element for the message
         const messageElement = document.createElement('p');
         messageElement.textContent = messageText;
 
-        // Append the message to the message container
         commentBox.appendChild(messageElement);
     }
 
@@ -711,19 +729,66 @@
         const commentInput2 = document.getElementById('commentInput2');
         const commentBox2 = document.getElementById('commentBox2');
 
-        // Get the message text
         const messageText = 'Me: ' + commentInput2.value;
 
-        // Clear the input field
         commentInput2.value = '';
 
-        // Create a new paragraph element for the message
         const messageElement = document.createElement('p');
         messageElement.textContent = messageText;
 
-        // Append the message to the message container
         commentBox2.appendChild(messageElement);
     }
+    function startChat() {
+        document.getElementById("names").style.display = "none";
+        document.getElementById("chat-container").style.display = "block";
+        document.getElementById("back-button").style.display = "block";
+        document.getElementById("messageInput").style.display = "block";
+        document.getElementById("sendButton").style.display = "block";
+
+    }
+
+    function startChat2() {
+        document.getElementById("names").style.display = "none";
+        document.getElementById("chat-container2").style.display = "block";
+        document.getElementById("back-button").style.display = "block";
+        document.getElementById("messageInput2").style.display = "block";
+        document.getElementById("sendButton2").style.display = "block";
+
+    }
+
+    function goBack() {
+        document.getElementById("names").style.display = "block";
+        document.getElementById("chat-container").style.display = "none";
+        document.getElementById("chat-container2").style.display = "none";
+        document.getElementById("back-button").style.display = "none";
+        document.getElementById("messageInput").style.display = "none";
+        document.getElementById("sendButton").style.display = "none";
+        document.getElementById("messageInput2").style.display = "none";
+        document.getElementById("sendButton2").style.display = "none";
+    }
+
+    function sendMessage() {
+        var message = document.getElementById("messageInput").value;
+        var chatDiv = document.getElementById("chat");
+
+        chatDiv.innerHTML += `<p>You: ${message}</p>`;
+
+        document.getElementById("messageInput").value = '';
+
+        document.getElementById("back-container").style.display = "block";
+    }
+
+    function sendMessage2() {
+        var message2 = document.getElementById("messageInput2").value;
+        var chatDiv2 = document.getElementById("chat2");
+
+        chatDiv2.innerHTML += `<p>You: ${message2}</p>`;
+
+        document.getElementById("messageInput2").value = '';
+
+        document.getElementById("back-container2").style.display = "block";
+    }
+
 </script>
 </body>
 </html>

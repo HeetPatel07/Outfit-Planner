@@ -503,7 +503,7 @@ footer {
 
 #column {
     position: fixed;
-    height: 75%;
+    height: 60%;
     width: 17.5%;
     bottom: 0;
     right: 0;
@@ -532,6 +532,98 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+#back-button {
+    position: fixed;
+    right: 15%;
+    top: 42.5%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    color: #f0f0f0;
+    background: #3498db;
+
+}
+
+#sendButton {
+    position: fixed;
+    right: 2%;
+    bottom: 1%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 50px;
+    width: 50px;
+    background-color: #3498db;
+    color: #f0f0f0;
+    border-radius: 5px;
+    display: none;
+
+}
+
+#messageInput {
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 4%;
+    width: 10%;
+    background-color: #F0F8FF;
+    display: none;
+}
+
+
+#sendButton2 {
+    position: fixed;
+    right: 2%;
+    bottom: 1%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 50px;
+    width: 50px;
+    background-color: #3498db;
+    color: #f0f0f0;
+    border-radius: 5px;
+    display: none;
+
+}
+
+#messageInput2 {
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 4%;
+    width: 10%;
+    background-color: #F0F8FF;
+    display: none;
+}
+
+#chat-container {
+    display: none;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+#chat-container2 {
+    display: none;
+    text-align: center;
+    overflow-y: scroll;
 }
 
 .nameButton:hover {
