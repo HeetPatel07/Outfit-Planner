@@ -448,30 +448,39 @@ function openEditOutfitModal() {
 
 function createNewOutfit() {
 
-    let outfitDescription = document.querySelector('#outfit-create-description');
-    var newModalItems = Array.from(modalItems);
-    var newOutfit = new Outfit("Outfit " + (outfits.length + 1), outfitDescription.value, newModalItems);
+    if(modalItems.length > 0) {
+        let outfitDescription = document.querySelector('#outfit-create-description');
+        var newModalItems = Array.from(modalItems);
+        var newOutfit = new Outfit("Outfit " + (outfits.length + 1), outfitDescription.value, newModalItems);
 
-    outfits.push(newOutfit);
+        outfits.push(newOutfit);
 
-    addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
-    closeModal();
+        addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+        closeModal();
+    } else {
+        openCBox('NoItemsCBox');
+    }
 }
 
 function editOutfit() {
 
-    let outfitDescription = document.querySelector('#outfit-edit-description');
+    if(selectedOutfit.items.length > 0) {
+        let outfitDescription = document.querySelector('#outfit-edit-description');
 
-    var index = outfits.indexOf(selectedOutfit);
-    var newModalItems = Array.from(modalItems);
-    selectedOutfit.description = outfitDescription.value;
-    selectedOutfit.items = newModalItems;
-    outfits[index] = selectedOutfit;
+        var index = outfits.indexOf(selectedOutfit);
+        var newModalItems = Array.from(modalItems);
+        selectedOutfit.description = outfitDescription.value;
+        selectedOutfit.items = newModalItems;
+        outfits[index] = selectedOutfit;
 
-    clearOutfitTable(outfitsTable);
-    addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
-    closeModal();
-    closeCBox();
+        clearOutfitTable(outfitsTable);
+        addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+        closeModal();
+        closeCBox();
+    } else {
+        closeCBox();
+        openCBox('NoItemsCBox');
+    }
 }
 
 function deleteOutfit() {
