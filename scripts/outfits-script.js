@@ -127,6 +127,24 @@ outfitTitle.textContent = selectedOutfit.name;
 let outfitDescription = document.querySelector('#outfit-description');
 outfitDescription.textContent = selectedOutfit.description;
 
+var searchFieldCreate = document.getElementById("item-search-create");
+var formCreate = document.getElementById('search-form-create');
+
+// Prevent form from submitting
+formCreate.onsubmit = function(e) {
+    e.preventDefault();
+    performSearch(searchFieldCreate, selectedModalTable);
+}
+
+var searchFieldEdit = document.getElementById("item-search-edit");
+var formEdit = document.getElementById('search-form-edit');
+
+// Prevent form from submitting
+formEdit.onsubmit = function(e) {
+    e.preventDefault();
+    performSearch(searchFieldEdit, selectedEditModalTable);
+}
+
 function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
     data.forEach((item, i) => {
         // Calculate row and column indices
@@ -227,18 +245,22 @@ function setModalPaginationVariables() {
     switch (selectedModalCategory) {
         case 'others':
             pagedData = pagedothers;
+            selectedList = othersList;
             selectedModalTable = othersTableModal;
             break;
         case 'tops':
             pagedData = pagedTops;
+            selectedList = topsList;
             selectedModalTable = topsTableModal;
             break;
         case 'bottoms':
             pagedData = pagedBottoms;
+            selectedList = bottomsList;
             selectedModalTable = bottomsTableModal;
             break;
         case 'shoes':
             pagedData = pagedShoes;
+            selectedList = shoesList;
             selectedModalTable = shoesTableModal;
             break;
     }
@@ -249,18 +271,22 @@ function setEditModalPaginationVariables() {
     switch (selectedEditModalCategory) {
         case 'others':
             pagedData = pagedothers;
+            selectedList = othersList;
             selectedEditModalTable = othersEditTableModal;
             break;
         case 'tops':
             pagedData = pagedTops;
+            selectedList = topsList;
             selectedEditModalTable = topsEditTableModal;
             break;
         case 'bottoms':
             pagedData = pagedBottoms;
+            selectedList = bottomsList;
             selectedEditModalTable = bottomsEditTableModal;
             break;
         case 'shoes':
             pagedData = pagedShoes;
+            selectedList = shoesList;
             selectedEditModalTable = shoesEditTableModal;
             break;
     }
@@ -412,9 +438,6 @@ function openCreateOutfitModal() {
     setModalPaginationVariables();
     selectedModalTable = document.getElementById('modal-tops-create-table');
 
-    let outfitTitle = document.querySelector('#outfit-create-title');
-    outfitTitle.textContent = "Outfit " + (outfits.length + 1);
-
     if(currentModalPage > 0) {
         prevModalPage(currentModalPage);
         currentModalPage -= currentModalPage;
@@ -430,7 +453,7 @@ function openEditOutfitModal() {
     selectedEditModalTable = document.getElementById('modal-tops-edit-table');
 
     let outfitTitle = document.querySelector('#outfit-edit-title');
-    outfitTitle.textContent = selectedOutfit.name;
+    outfitTitle.value = selectedOutfit.name;
 
     let outfitDescription = document.querySelector('#outfit-edit-description');
     outfitDescription.value = selectedOutfit.description;
@@ -448,36 +471,59 @@ function openEditOutfitModal() {
 
 function createNewOutfit() {
 
-    let outfitDescription = document.querySelector('#outfit-create-description');
-    var newModalItems = Array.from(modalItems);
-    var newOutfit = new Outfit("Outfit " + (outfits.length + 1), outfitDescription.value, newModalItems);
+    if(modalItems.length > 0) {
+        let outfitDescription = document.querySelector('#outfit-create-description');
+        let outfitTitle = document.querySelector('#outfit-create-title');
+        var newModalItems = Array.from(modalItems);
+        var newOutfit = new Outfit(outfitTitle.value, outfitDescription.value, newModalItems);
 
-    outfits.push(newOutfit);
+        outfits.push(newOutfit);
+        modalItems.splice(0, modalItems.length);
 
-    addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
-    closeModal();
+        addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+        closeModal();
+    } else {
+        openCBox('NoItemsCBox');
+    }
 }
 
 function editOutfit() {
 
-    let outfitDescription = document.querySelector('#outfit-edit-description');
+    if(selectedOutfit.items.length > 0) {
+        let outfitDescription = document.querySelector('#outfit-edit-description');
+        let outfitTitle = document.querySelector('#outfit-edit-title');
 
-    var index = outfits.indexOf(selectedOutfit);
-    var newModalItems = Array.from(modalItems);
-    selectedOutfit.description = outfitDescription.value;
-    selectedOutfit.items = newModalItems;
-    outfits[index] = selectedOutfit;
+        var index = outfits.indexOf(selectedOutfit);
+        var newModalItems = Array.from(modalItems);
+        selectedOutfit.name = outfitTitle.value;
+        selectedOutfit.description = outfitDescription.value;
+        selectedOutfit.items = newModalItems;
+        outfits[index] = selectedOutfit;
 
-    clearOutfitTable(outfitsTable);
-    addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
-    closeModal();
-    closeCBox();
+        modalItems.splice(0, modalItems.length);
+
+        clearOutfitTable(outfitsTable);
+        addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+        closeModal();
+        closeCBox();
+    } else {
+        closeCBox();
+        openCBox('NoItemsCBox');
+    }
 }
 
 function deleteOutfit() {
 
-    outfits.splice(currentOutfit, 1);
+    outfits.splice(currentOutfitPage, 1);
     clearOutfitTable(outfitsTable);
+    currentOutfitPage === 0 ? ++currentOutfitPage : --currentOutfitPage;
+
+    let outfitTitle = document.querySelector('#outfit-title');
+    outfitTitle.textContent = outfits[currentOutfitPage].name;
+
+    let outfitDescription = document.querySelector('#outfit-description');
+    outfitDescription.textContent = outfits[currentOutfitPage].description;
+
     addOutfitDataToTable(outfitsTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
     closeCBox();
 }

@@ -317,7 +317,7 @@ items-cells-modal.selected {
 .modal-item-arrow.left:disabled, .modal-item-arrow.right:disabled {
     background-color: lightgray;
 }
-.outfit-modal-tittle{
+.outfit-modal-title{
     position: fixed;
     top:auto;
     left:auto;

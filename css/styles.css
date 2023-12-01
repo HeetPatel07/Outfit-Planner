@@ -104,7 +104,7 @@ nav li {
 * -----------------------------
 */
 main {
-    padding: 20px;
+    padding: 0px;
     margin-top: 100px;
 }
 
@@ -151,25 +151,250 @@ footer {
     position: relative;
 }
 
+/* 
+* -----------------------------
+* Styles for the Home Section
+* -----------------------------
+*/
+
+.hanger-rod {
+    width: 100%;
+    height:auto;
+}
+
+.homepage-content {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.homepage {
+    font-size: 0;
+}
+  
+.rectangle-section {
+    width: 1100px;
+    height: auto;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.date-header {
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.row,
+.row-labels {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.major-row {
+    justify-content: space-between;
+}
+
+    .top-row {
+        width: 100%;
+    }
+
+    .bottom-row {
+        width: 80%;
+    }
+
+.square {
+    width: 175px;
+    height: 175px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.label {
+    width: 187px;
+    height: auto;
+    text-align: center;
+    font-size: 30px;
+}
+  
+.padded-button {
+    padding: 40px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+/* 
+* -----------------------------
+* Styles for the Outfit Section
+* -----------------------------
+*/
+
+/*bottom buttons*/
+#headedO{
+    font-size:20px;
+    padding: 0px 0px;
+    margin:0;
+
+}
+
+#description-box{
+    width: 30%;
+    height: 40%;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    padding: 10px 2px;
+}
+#Description{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: large;
+    padding: 0px 0px;
+}
+#content-box{
+    width: 40%;
+    height: 300px;
+    border: 3px solid #000;
+    box-sizing: border-box;
+    position: relative; /* Add relative positioning */
+}
+
+
+/*the arrow buttons on the side*/
+.arrow {
+    flex-direction: row;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+
+}
+
+    .arrow.left {
+        position: absolute;
+        left: 24%;
+        top:52% ;/*centrally vertical*/
+        transform: translateY(-50%);
+    }
+        .arrow.left:hover {
+            font-size: 45px;
+        }
+
+
+    .arrow.right {
+        position: absolute;
+        left: 73%;
+        top:52%; /*centrally vertical*/
+        transform: translateY(-50%);
+    }
+        .arrow.right:hover {
+            font-size: 45px;
+        }
+
+
+
+/*the buttons on the bottom of the page*/
+.OFB{
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    color:white;
+    border: none;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+}
+
+
+    .outfit-button1{
+            order: 1;
+            background-color: rgb(34, 217, 34);
+    }
+        .outfit-button1:hover{
+            background-color: #1da21d;
+        }
+
+
+    .outfit-button2{
+        order:2;
+        background-color: #4169E1;
+    }
+        .outfit-button2:hover{
+            background-color: #2a2a91;
+            border:black;
+        }
+
+    .outfit-button3{
+        order:3;
+        background-color: #fa4303;
+    }
+        .outfit-button3:hover{
+            background-color: #b20000;
+        }
+
+
+    .outfit-button4{
+        order:4;
+        background-color:#87CEFA;
+    }
+        .outfit-button4:hover{
+            background-color: #4b9393;
+        }
+
+.modal-button:hover{
+    box-shadow: 0 0 5px 2px #363535;
+    text-decoration: underline;
+}
+
+.clothing-modal-buttons:hover{
+    background: linear-gradient(to right,#fff, #b1e3f8);
+    width:140px;
+    text-decoration:underline;
+    color: #5555f5;
+}
+
+.display.choices{
+    align-items: center;
+    top:30%;
+    left:100px;
+    width:50%;
+    height:50%;
+}
+
 
 /*
 * -----------------------------
 * Styles for the Social Section
 * -----------------------------
 */
-#search-bar {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-}
 
 #searchButton{
-    padding: 8px 12px;
-    background-color: #3897f0;
+    position: fixed;
+    right: 25%;
+    top: 25%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #3498db;
     color: #fff;
+    font-size: 30px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 0 4px 4px 0;
 }
 
 .instagram-feed {
@@ -220,13 +445,13 @@ footer {
 
 #postButton {
     position: fixed;
-    left: 50px;
+    left: 25%;
     top: 25%;
     transform: translateY(-50%);
     padding: 10px 20px;
     background-color: #3498db;
     color: #fff;
-    font-size: 16px;
+    font-size: 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -257,11 +482,99 @@ footer {
 }
 
 .like-btn,
-.comment-btn,
-.save-btn {
+.save-btn{
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.commentSection{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 40%;
+    max-height: 70%;
+    width: 100%;
+}
+
+
+.commentSection2{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 40%;
+    max-height: 70%;
+    width: 100%;
+}
+
+#comment-btn{
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#commentBox {
+    border: 1px solid #ccc;
+    padding: 3% 8%;
+    height: 100px;
+    overflow-y: scroll;
+    text-align: left;
+}
+#commentBox2 {
+     border: 1px solid #ccc;
+     padding: 3% 8%;
+     height: 100px;
+     overflow-y: scroll;
+     text-align: left;
+ }
+
+#commentInput1 {
+    width: 40%;
+    height: 50px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#commentInput2 {
+    width: 40%;
+    height: 50px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#commentButtonInPopup {
+    margin-top: 50px;
+    padding: 10px 10px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .icon {
@@ -271,6 +584,151 @@ footer {
 .liked {
     color: red;
 }
+
+#column {
+    position: fixed;
+    height: 60%;
+    width: 17.5%;
+    bottom: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#names {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: #4d4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#names li {
+    margin-bottom: 10px;
+}
+
+.nameButton {
+    font-size: 25px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#back-button {
+    position: fixed;
+    right: 14.25%;
+    top: 42.5%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 16px;
+    height: 5%;
+    width: 3.25%;
+    color: #f0f0f0;
+    background: #3498db;
+
+}
+
+#sendButton {
+    position: fixed;
+    right: 2%;
+    bottom: 1%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 5%;
+    width: 3%;
+    background-color: #3498db;
+    color: #f0f0f0;
+    border-radius: 5px;
+    display: none;
+
+}
+
+#messageInput {
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 4%;
+    width: 10%;
+    background-color: #F0F8FF;
+    display: none;
+}
+
+
+#sendButton2 {
+    position: fixed;
+    right: 2%;
+    bottom: 1%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 5%;
+    width: 3%;
+    background-color: #3498db;
+    color: #f0f0f0;
+    border-radius: 5px;
+    display: none;
+
+}
+
+#messageInput2 {
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 4%;
+    width: 10%;
+    background-color: #F0F8FF;
+    display: none;
+}
+
+#chat-container {
+    display: none;
+    text-align: center;
+    height: 80%;
+    overflow-y: scroll;
+}
+
+#chat-container2 {
+    display: none;
+    height: 80%;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.nameButton:hover {
+    background-color: #2980b9;
+}
+
 
 /* 
 * -----------------------------
@@ -313,6 +771,72 @@ footer {
     font-size: 20px;
     color: #000;
     cursor: pointer;
+}
+
+/* Home Day Modal */
+
+.home-day-modal {
+    display: none;
+    position: fixed;
+    left: 31%;
+    top: 50%;
+    transform: translate(-74%, -50%);
+    width: 40%;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 11;
+
+    min-width: 400px;
+    min-height: 700px;
+    border-radius: 10px;
+    border: solid #000000;
+    border-width: medium;
+}
+
+.home-day-text {
+    padding-left: 15px;
+    color: #000;
+    font-size: 36px;
+}
+
+.home-modal-outfit-content {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.padded-button-modal {
+    padding: 5px;
+    height: auto;
+    width: auto;
+}
+.outfit-div {
+    width: 300px;
+    height: 400px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.outfit-name {
+    font-size: 30px;
+    width: 304px;
+    max-height: 40px;
+    margin: 10px;
+}
+
+.home-modal-outfit-header {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buffer {
+    width: 64px;
 }
 
 
