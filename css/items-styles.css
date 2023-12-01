@@ -1,6 +1,6 @@
 .sidebar {
     margin-top: 100px;
-    width: 200px;
+    width: 150px;
     height: 400px;
     position: fixed;
     left: 0;
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.category {
+.category, .category-modal, .category-edit-modal {
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -27,16 +27,16 @@
     margin-left: 0px;
 }
 
-.category:hover {
+.category:hover, .category-modal:hover, .category-edit-modal:hover {
     background: #ccc;
 }
 
-.category.selected {
+.category.selected, .category-modal.selected, .category-edit-modal.selected {
     background: #bbb;
     font-size: 18px;
     font-weight: bold;
     margin-left: 30px;
-    width: 160px;
+    width: 100px;
 }
 
 .items-section {
@@ -56,19 +56,19 @@
     height: 50px;
 }
 
-#hats-table, #tops-table, #bottoms-table, #shoes-table {
+#others-table, #tops-table, #bottoms-table, #shoes-table {
     margin-right: auto;
     margin-left: auto;
 }
 
-#hats-table td, #tops-table td, #bottoms-table td, #shoes-table td {
+#others-table td, #tops-table td, #bottoms-table td, #shoes-table td {
     width: 150px;
     height: 150px;
     text-align: center;
     vertical-align: middle;
 }
 
-#hats-table th, #tops-table th, #bottoms-table th, #shoes-table th {
+#others-table th, #tops-table th, #bottoms-table th, #shoes-table th {
     width: 75px;
     height: 150px;
     text-align: center;
@@ -113,7 +113,7 @@ form {
 
 #item-search-btn {
     height: 30px;
-    padding: 8px 12px;
+    padding: 8px ;
     background-color: #3897f0;
     color: #fff;
     cursor: pointer;
@@ -140,7 +140,6 @@ input[type="submit"] {
     flex-direction: row;
     font-size: 40px;
     border-radius: 10px;
-    color: #333333;
     box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
     transition: all ease-in-out 0.2s;
 

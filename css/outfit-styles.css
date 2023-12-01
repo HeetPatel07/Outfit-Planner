@@ -1,0 +1,317 @@
+/* Clothing Modal */
+
+.clothing-modal {
+    display: none;
+    position: fixed;
+    left: 31%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    width: 60vw;
+    height: 80%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 11;
+
+    border-radius: 10px;
+    border: solid #000000;
+    border-width: medium;
+}
+
+.clothing-modal.show {
+    animation: 1s ease-out 0s 1 slideInLeft forwards;
+}
+
+.clothing-modal.hide {
+    animation: 1s ease-out 0s 1 slideOutLeft forwards;
+}
+
+.clothing-modal-buttons{
+    flex-direction:row;
+    position: absolute;
+    align-items:end;
+    font-size:25px;
+    margin:10px;
+    padding: 1.5%;
+    width: 120px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+
+/*
+* -----------------------------
+* Styles for the Outfit Section
+* -----------------------------
+*/
+
+/*bottom buttons*/
+#headedO{
+    font-size:20px;
+    padding: 0px 0px;
+    margin:0;
+
+}
+
+#description-box{
+    width: 30%;
+    height: 40%;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    padding: 10px 2px;
+}
+#outfit-title{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: large;
+    padding: 0px 0px;
+}
+#content-box{
+    width: 40%;
+    height: 450px;
+    border: 3px solid #000;
+    box-sizing: border-box;
+    position: relative; /* Add relative positioning */
+}
+
+
+/*the arrow buttons on the side*/
+.arrow {
+    flex-direction: row;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+
+}
+
+.arrow.left {
+    position: absolute;
+    left: 24%;
+    top:52% ;/*centrally vertical*/
+    transform: translateY(-50%);
+}
+.arrow.left:hover {
+    font-size: 45px;
+}
+
+
+.arrow.right {
+    position: absolute;
+    left: 73%;
+    top:52%; /*centrally vertical*/
+    transform: translateY(-50%);
+}
+.arrow.right:hover {
+    font-size: 45px;
+}
+
+
+
+/*the buttons on the bottom of the page*/
+.OFB{
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    color:white;
+    border: none;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+}
+
+
+.outfit-button1{
+    order: 1;
+    background-color: rgb(34, 217, 34);
+}
+.outfit-button1:hover{
+    background-color: #1da21d;
+}
+
+
+.outfit-button2{
+    order:2;
+    background-color: #4169E1;
+}
+.outfit-button2:hover{
+    background-color: #2a2a91;
+    border:black;
+}
+
+.outfit-button3{
+    order:3;
+    background-color: #fa4303;
+}
+.outfit-button3:hover{
+    background-color: #b20000;
+}
+
+
+.outfit-button4{
+    order:4;
+    background-color:#87CEFA;
+}
+.outfit-button4:hover{
+    background-color: #4b9393;
+}
+
+.close-button{
+    color:white;
+    background-color: red;
+    border-radius: 10px;
+    top:5%;
+    left:95%;
+    font-size:20px;
+    position:fixed;
+}
+
+#search {
+    width: 200px;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+#search-btn{
+    height: 30px;
+    padding: 8px ;
+    background-color: #3897f0;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+}
+
+#search-form-create, #search-form-edit{
+    top:10%;
+    position:fixed;
+    left:70%;
+}
+
+.active-items{
+    top:80%;
+    left: 5%;
+    position: fixed;
+}
+
+#save-create-changes, #save-edit-changes{
+    background-color: #8ade0a;
+    color:white;
+    top:80%;
+    left:95%;
+    font-size:20px;
+    position:fixed;
+    border-width:1px;
+    border-radius:10px;
+}
+
+#active-create-box, #active-edit-box {
+    border: 1px solid #000;
+    margin: 10px;
+    width:90%;
+    height:50px;
+    top:85%;
+    left:2%;
+    position: fixed;
+
+}
+#active-create-items td, #active-edit-items td{
+    border: 1px solid #000;
+    margin:10px;
+    left:5%;
+    text-align: center;
+}
+
+.outfit-display{
+    border: 1px solid #000;
+    margin:10px;
+    width: 100%;
+    height: 100%;
+    top:0%;
+    left:0%;
+
+}
+.outfit-display td{
+    border: 1px solid #000;
+    margin:10px;
+    width:75px;
+    height:65px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.outfit-display td img{
+    display: block;
+    margin: 0 auto; /* This centers the image and removes margins */
+    max-width: 75px;
+    max-height: 75px;
+}
+
+/*******The cells within
+********/
+
+items-cells-modal {
+    border: 1px solid lightgray;
+    transition: transform 0.3s ease;
+}
+
+items-cells-modal.selected {
+    transform: scale(1.1);
+}
+
+
+#modal-others-create-table, #modal-tops-create-table, #modal-bottoms-create-table, #modal-shoes-create-table,
+#modal-others-edit-table, #modal-tops-edit-table, #modal-bottoms-edit-table, #modal-shoes-edit-table {
+    margin-right: auto;
+    margin-left: auto;
+    position:fixed;
+    top:25%;
+    left: 10%;
+}
+
+#modal-others-create-table td, #modal-tops-create-table td, #modal-bottoms-create-table td, #modal-shoes-create-table td,
+#modal-others-edit-table td, #modal-tops-edit-table td, #modal-bottoms-edit-table td, #modal-shoes-edit-table td {
+    width: 200px;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+}
+#modal-others-create-table th, #modal-tops-create-table th, #modal-bottoms-create-table th, #modal-shoes-create-table th,
+#modal-others-edit-table th, #modal-tops-edit-table th, #modal-bottoms-edit-table th, #modal-shoes-edit-table th{
+    width: 150px;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.modal-item-arrow {
+    flex-direction: row;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #333333;
+    box-shadow: 6px 6px 12px #c5c5c5, 6px 6px 12px #ffffff;
+    transition: all ease-in-out 0.2s;
+
+}
+
+.modal-item-arrow.left, .item-arrow.right {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto ;/*centrally vertical*/
+    transform: translateY(-50%);
+}
+
+
+.modal-item-arrow.left:hover:enabled, .modal-item-arrow.right:hover:enabled {
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.modal-item-arrow.left:disabled, .modal-item-arrow.right:disabled {
+    background-color: lightgray;
+}

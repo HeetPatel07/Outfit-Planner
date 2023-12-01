@@ -11,7 +11,7 @@ let selectedList;
 let currentCell = null;
 loadButtons();
 
-let hatsImages = [
+let othersImages = [
     // Beanie
     "https://www.pngall.com/wp-content/uploads/12/Beanie-PNG-HD-Image.png",
     // Cap Brown
@@ -61,7 +61,7 @@ let selectedImages = topsImages;
 let imageIndex = 0;
 
 // Default selected category is tops([1])
-categories[1].classList.add('selected');
+categories[0].classList.add('selected');
 
 categories.forEach(function(category) {
     category.addEventListener('click', function() {
@@ -78,6 +78,7 @@ categories.forEach(function(category) {
         // Show the table corresponding to the selected category
         selectedCategory = this.getAttribute('data-category');
         let selectedTable = document.querySelector('.' + selectedCategory);
+        console.log('.' + selectedCategory);
         selectedTable.style.display = 'block';
         currentPage = 0;
 
@@ -94,7 +95,7 @@ const Weather = {
 }
 
 const Category = {
-    HEADS: Symbol('HEADS'),
+    OTHERS: Symbol('OTHERS'),
     TOPS: Symbol('TOPS'),
     BOTTOMS: Symbol('BOTTOMS'),
     SHOES: Symbol('SHOES')
@@ -110,15 +111,15 @@ class Item {
     }
 }
 
-head1 = new Item(hatsImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
-head2 = new Item(hatsImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
-head3 = new Item(hatsImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
-head4 = new Item(hatsImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
-head5 = new Item(hatsImages[3], "Trucker Cap", "Asos", Weather.SUNNY, Category.HEADS);
-head6 = new Item(hatsImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.HEADS);
-head7 = new Item(hatsImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.HEADS);
-head8 = new Item(hatsImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.HEADS);
-head9 = new Item(hatsImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.HEADS);
+other1 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
+other2 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
+other3 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
+other4 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
+other5 = new Item(othersImages[3], "Trucker Cap", "Asos", Weather.SUNNY, Category.OTHERS);
+other6 = new Item(othersImages[0], "Winter Beanie", "Adidas", Weather.SNOWY, Category.OTHERS);
+other7 = new Item(othersImages[0], "Winter Beanie", "North Face", Weather.SNOWY, Category.OTHERS);
+other8 = new Item(othersImages[2], "Summer Cap", "Nike", Weather.SUNNY, Category.OTHERS);
+other9 = new Item(othersImages[1], "Hiking Cap", "North Face", Weather.WINDY, Category.OTHERS);
 
 top1 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Category.TOPS);
 top2 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
@@ -129,6 +130,7 @@ top6 = new Item(topsImages[0], "Winter Jacket", "North Face", Weather.SNOWY, Cat
 top7 = new Item(topsImages[2], "Long Sleeve", "Stüssy", Weather.SUNNY, Category.TOPS);
 top8 = new Item(topsImages[3], "Summer T-Shirt", "Nike", Weather.SUNNY, Category.TOPS);
 top9 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
+top10 = new Item(topsImages[1], "Hiking Jacket", "Adidas", Weather.WINDY, Category.TOPS);
 
 bottom1 = new Item(bottomsImages[2], "Ski Pants", "North Face", Weather.SNOWY, Category.BOTTOMS);
 bottom2 = new Item(bottomsImages[1], "Loose Jeans", "Levi's", Weather.SUNNY, Category.BOTTOMS);
@@ -149,36 +151,41 @@ shoes6 = new Item(shoesImages[0], "Air Force 1", "Nike", Weather.SUNNY, Category
 shoes7 = new Item(shoesImages[1], "Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
 shoes8 = new Item(shoesImages[2], "Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
 shoes9 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
+shoes10 = new Item(shoesImages[2], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
 
-let hatsList = [];
-var hatsTable = document.querySelector('#hats-table tbody');
+let othersList = [];
+var othersTable = document.querySelector('#others-table tbody');
+
 let topsList = [];
 var topsTable = document.querySelector('#tops-table tbody');
+
 let bottomsList = [];
 var bottomsTable = document.querySelector('#bottoms-table tbody');
+
 let shoesList = [];
 var shoesTable = document.querySelector('#shoes-table tbody');
 
-hatsList.push(head1, head2, head3, head4, head5,
-    head6, head7, head8, head9);
-let pagedHats = chunkArray(hatsList, 9);
-addDataToTable(hatsTable, pagedHats, 0, false);
+othersList.push(other1, other2, other3, other4, other5,
+    other6, other7, other8, other9);
+let pagedothers = chunkArray(othersList, 9);
+addDataToTable(othersTable, pagedothers, 0, false, 3);
 
 topsList.push(top1, top2, top3, top4, top5,
-    top6, top7, top8, top9);
+    top6, top7, top8, top9, top10);
 let pagedTops = chunkArray(topsList, 9);
-addDataToTable(topsTable, pagedTops, 0, false);
+addDataToTable(topsTable, pagedTops, 0, false, 3);
 
 bottomsList.push(bottom1, bottom2, bottom3, bottom4, bottom5,
     bottom6, bottom7, bottom8, bottom9);
 let pagedBottoms = chunkArray(bottomsList, 9);
-addDataToTable(bottomsTable, pagedBottoms, 0, false);
+addDataToTable(bottomsTable, pagedBottoms, 0, false, 3);
 
 shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5,
-    shoes6, shoes7, shoes8, shoes9);
+    shoes6, shoes7, shoes8, shoes9, shoes10);
 let pagedShoes = chunkArray(shoesList, 9);
-addDataToTable(shoesTable, pagedShoes, 0, false);
+addDataToTable(shoesTable, pagedShoes, 0, false, 3);
 
+pagedData = pagedTops;
 togglePaginationBtnsDisabled();
 
 function chunkArray(array, chunkSize) {
@@ -201,18 +208,26 @@ function loadButtons() {
 
 function nextPage(pageNum) {
     if (currentPage < pagedData.length - 1) {
+        if (currentCell) {
+            currentCell.querySelector('.edit-delete-item-btns').style.display = 'none';
+            currentCell.classList.remove('selected');
+        }
         currentPage += pageNum;
         clearTable(selectedTable);
-        addDataToTable(selectedTable, pagedData, currentPage, false);
+        addDataToTable(selectedTable, pagedData, currentPage, false, 3);
         togglePaginationBtnsDisabled();
     }
 }
 
 function prevPage(pageNum) {
     if (currentPage > 0) {
+        if (currentCell) {
+            currentCell.querySelector('.edit-delete-item-btns').style.display = 'none';
+            currentCell.classList.remove('selected');
+        }
         currentPage -= pageNum;
         clearTable(selectedTable);
-        addDataToTable(selectedTable, pagedData, currentPage, false);
+        addDataToTable(selectedTable, pagedData, currentPage, false, 3);
         togglePaginationBtnsDisabled();
     }
 }
@@ -223,10 +238,10 @@ var form = document.getElementById('search-form');
 // Prevent form from submitting
 form.onsubmit = function(e) {
     e.preventDefault();
-    performSearch();
+    performSearch(searchField, selectedTable);
 }
 
-function performSearch() {
+function performSearch(searchField, table) {
 
     // get the input field value (lowercased for case-insensitive search)
     var searchValue = searchField.value;
@@ -248,7 +263,13 @@ function performSearch() {
         return name.includes(searchValue) || brand.includes(searchValue);
     });
     let resultStringClass = document.querySelector('.search-string');
-    let resultString = document.createElement('p');
+    let resultString;
+    if(document.querySelector('.search-output') == null) {
+        resultString = document.createElement('p');
+    } else {
+        resultString = document.querySelector('.search-output');
+    }
+    resultString.className = "search-output";
     if(searchValue !== "") {
         resultString.innerText = "Showing " + filteredObjects.length + " results for " + searchValue + ":";
     } else {
@@ -260,8 +281,8 @@ function performSearch() {
 
     // now the "filteredObjects" array contains only those objects that match the search;
     // you should now update your table using this array.
-    clearTable(selectedTable);
-    addDataToTable(selectedTable, filteredObjects, 0, true);
+    clearTable(table);
+    addDataToTable(table, filteredObjects, 0, true, 3);
 }
 
 function togglePaginationBtnsDisabled() {
@@ -279,13 +300,14 @@ function togglePaginationBtnsDisabled() {
 }
 
 function setPaginationVariables() {
+    console.log(selectedCategory);
     imageIndex = 0;
     switch (selectedCategory) {
-        case 'hats':
-            pagedData = pagedHats;
-            selectedTable = hatsTable;
-            selectedList = hatsList;
-            selectedImages = hatsImages;
+        case 'others':
+            pagedData = pagedothers;
+            selectedTable = othersTable;
+            selectedList = othersList;
+            selectedImages = othersImages;
             break;
         case 'tops':
             pagedData = pagedTops;
@@ -313,7 +335,7 @@ function calculatePageNum(category) {
     let categoryList;
 
     switch(category) {
-        case "hats": categoryList = hatsList; break;
+        case "others": categoryList = othersList; break;
         case "tops": categoryList = topsList; break;
         case "bottoms": categoryList = bottomsList; break;
         case "shoes": categoryList = shoesList; break;
@@ -344,6 +366,7 @@ function selectItem(cell) {
 }
 
 function cancelOperation() {
+    modalItems.splice(0, modalItems.length);
     closeCBox();
     closeModal();
 }
@@ -378,8 +401,7 @@ function openItemEditModal(item) {
 * ADD DATA TO CORRESPONDING TABLE
 * Adds data in form of an array with arrays into a table element.
 */
-function addDataToTable(table, data, pageNumber, filtered) {
-    const columns = 3; // number of columns to fill
+function addDataToTable(table, data, pageNumber, filtered, columns) {
 
     let pageItems;
     if(!filtered) {
@@ -387,6 +409,7 @@ function addDataToTable(table, data, pageNumber, filtered) {
     } else {
         pageItems = data;
     }
+    console.log(pageItems);
     pageItems.forEach((item, i) => {
         // Calculate row and column indices
         const rowIndex = Math.floor(i / columns);
@@ -408,7 +431,6 @@ function addDataToTable(table, data, pageNumber, filtered) {
 
                 // Create Edit and Delete Buttons
                 const editButton = document.createElement('button');
-                //editButton.innerText = 'Edit';
                 editButton.className = 'item-edit-btn';
                 editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
                 editButton.onclick = function(e) {
@@ -418,7 +440,6 @@ function addDataToTable(table, data, pageNumber, filtered) {
                 };
 
                 const deleteButton = document.createElement('button');
-                //deleteButton.innerText = 'Delete';
                 deleteButton.className = 'item-delete-btn';
                 deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
                 deleteButton.onclick = function(e) {
@@ -459,26 +480,6 @@ function clearTable(table) {
     }
 }
 
-function refreshTableData(table, data) {
-
-    // create a Map for quick lookup
-    let dataMap = new Map(data.map(item => [item.name, item]));
-
-    // Loop to iterate over table cells
-    for (let i = 0, row; row = table.rows[i]; i++) {
-        for(let j = 0, cell; cell = row.cells[j]; j++) {
-
-            // Get the object name displayed in the cell without the buttons
-            let cellText = cell.childNodes[0]?.nodeValue?.trim();
-
-            if(cellText && !dataMap.has(cellText)) {
-                // Object is no longer present in data array, clear cell content
-                cell.innerHTML = "";
-            }
-        }
-    }
-}
-
 //-------------------------------------------
 //Items functions
 
@@ -496,7 +497,7 @@ function createItem(category) {
     }
 
     switch(category) {
-        case "hats": itemCategory = Category.HEADS; break;
+        case "others": itemCategory = Category.OTHERS; break;
         case "tops": itemCategory = Category.TOPS; break;
         case "bottoms": itemCategory = Category.BOTTOMS; break;
         case "shoes": itemCategory = Category.SHOES; break;
@@ -505,38 +506,49 @@ function createItem(category) {
     var newItem = new Item(selectedImages[imageIndex], itemName.value, itemBrand.value, itemWeather, itemCategory);
 
     switch(category) {
-        case "hats":
-            hatsList.push(newItem);
-            pagedHats = chunkArray(hatsList, 9);
-            pagedData = pagedHats;
-            if((hatsList.length % 9) === 1) {
+        case "others":
+            othersList.push(newItem);
+            pagedothers = chunkArray(othersList, 9);
+            pagedData = pagedothers;
+            if(((othersList.length % 9) === 1) || (((othersList.length % 9) > 0) && currentPage == 0)) {
                 nextPage(1);
             }
-            addDataToTable(hatsTable, pagedHats, calculatePageNum(category) - 1, false);
+            addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(othersTableModal, pagedothers, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(othersEditTableModal, pagedothers, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
         case "tops":
             topsList.push(newItem);
             pagedTops = chunkArray(topsList, 9);
             pagedData = pagedTops;
-            console.log("Paged Data Length: ", pagedData.length);
-            console.log("Current Page: ", currentPage);
-            console.log("Tops List Length % 9: ", topsList.length % 9);
-            if((topsList.length % 9) === 1) nextPage(1);
-            addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false);
+            if(((topsList.length % 9) === 1) || (((topsList.length % 9) > 0) && currentPage == 0)) {
+                nextPage(1);
+            }
+            addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(topsTableModal, pagedTops, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(topsEditTableModal, pagedTops, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
         case "bottoms":
             bottomsList.push(newItem);
             pagedBottoms = chunkArray(bottomsList, 9);
             pagedData = pagedBottoms;
-            if((bottomsList.length % 9) === 1) nextPage(1);
-            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false);
+            if(((topsList.length % 9) === 1) || (((topsList.length % 9) > 0) && currentPage == 0)) {
+                nextPage(1);
+            }
+            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(bottomsTableModal, pagedBottoms, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(bottomsEditTableModal, pagedBottoms, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
         case "shoes":
             shoesList.push(newItem);
             pagedShoes = chunkArray(shoesList, 9);
             pagedData = pagedShoes;
-            if((shoesList.length % 9) === 1) nextPage(1);
-            addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false);
+            if(((topsList.length % 9) === 1) || (((topsList.length % 9) > 0) && currentPage == 0)) {
+                nextPage(1);
+            }
+            addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(shoesTableModal, pagedShoes, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(shoesEditTableModal, pagedShoes, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
     }
 
@@ -558,29 +570,29 @@ function editItem(item) {
     let newItem = new Item(selectedImages[imageIndex], itemName.value, itemBrand.value, itemWeather.value, item.category);
 
     switch(item.category) {
-        case Category.HEADS:
-            var index = hatsList.indexOf(item);
-            hatsList[index] = newItem;
-            pagedHats = chunkArray(hatsList, 9);
-            addDataToTable(hatsTable, pagedHats, calculatePageNum('hats') - 1, false);
+        case Category.OTHERS:
+            var index = othersList.indexOf(item);
+            othersList[index] = newItem;
+            pagedothers = chunkArray(othersList, 9);
+            addDataToTable(othersTable, pagedothers, calculatePageNum('others') - 1, false, 3);
             break;
         case Category.TOPS:
             var index = topsList.indexOf(item);
             topsList[index] = newItem;
             pagedTops = chunkArray(topsList, 9);
-            addDataToTable(topsTable, pagedTops, calculatePageNum('tops') - 1, false);
+            addDataToTable(topsTable, pagedTops, calculatePageNum('tops') - 1, false, 3);
             break;
         case Category.BOTTOMS:
             var index = bottomsList.indexOf(item);
             bottomsList[index] = newItem;
             pagedBottoms = chunkArray(bottomsList, 9);
-            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum('bottoms') - 1, false);
+            addDataToTable(bottomsTable, pagedBottoms, calculatePageNum('bottoms') - 1, false, 3);
             break;
         case Category.SHOES:
             var index = shoesList.indexOf(item);
             shoesList[index] = newItem;
             pagedShoes = chunkArray(shoesList, 9);
-            addDataToTable(shoesTable, pagedShoes, calculatePageNum('shoes') - 1, false);
+            addDataToTable(shoesTable, pagedShoes, calculatePageNum('shoes') - 1, false, 3);
             break;
     }
 
@@ -591,16 +603,16 @@ function editItem(item) {
 function deleteItem(item) {
 
     switch(item.category) {
-        case Category.HEADS:
-            var index = hatsList.indexOf(item);
-            hatsList.splice(index, 1);
-            pagedHats = chunkArray(hatsList, 9);
-            pagedData = pagedHats;
-            if(currentPage > 0 && (hatsList.length % 9) === 0) {
+        case Category.OTHERS:
+            var index = othersList.indexOf(item);
+            othersList.splice(index, 1);
+            pagedothers = chunkArray(othersList, 9);
+            pagedData = pagedothers;
+            if(currentPage > 0 && (othersList.length % 9) === 0) {
                 prevPage(1);
             } else {
-                clearTable(hatsTable);
-                addDataToTable(hatsTable, pagedHats, currentPage, false);
+                clearTable(othersTable);
+                addDataToTable(othersTable, pagedothers, currentPage, false, 3);
             }
             break;
         case Category.TOPS:
@@ -612,7 +624,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(topsTable);
-                addDataToTable(topsTable, pagedTops, currentPage, false);
+                addDataToTable(topsTable, pagedTops, currentPage, false, 3);
             }
             break;
         case Category.BOTTOMS:
@@ -624,7 +636,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(bottomsTable);
-                addDataToTable(bottomsTable, pagedBottoms, currentPage, false);
+                addDataToTable(bottomsTable, pagedBottoms, currentPage, false, 3);
             }
             break;
         case Category.SHOES:
@@ -636,7 +648,7 @@ function deleteItem(item) {
                 prevPage(1);
             } else {
                 clearTable(shoesTable);
-                addDataToTable(shoesTable, pagedShoes, currentPage, false);
+                addDataToTable(shoesTable, pagedShoes, currentPage, false, 3);
             }
             break;
     }
