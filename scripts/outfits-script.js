@@ -12,6 +12,7 @@ let selectedModalTable;
 let selectedModalCategory = "tops";
 let selectedEditModalTable;
 let selectedEditModalCategory = "tops";
+let outfitItemsCopy;
 let outfitIndex = 0;
 
 loadOutfitButtons();
@@ -464,7 +465,8 @@ function openEditOutfitModal() {
     }
     loadModalButtons();
     console.log(selectedOutfit.items);
-    modalItems = selectedOutfit.items;
+    outfitItemsCopy = Array.from(selectedOutfit.items);
+    modalItems = outfitItemsCopy;
     addOutfitDataToModalSelectionTable(modalEditSelectionTable, modalItems, 6, 75, 75, 'edit');
     openModal('outfitEditModal');
 }
@@ -497,7 +499,7 @@ function editOutfit() {
         var newModalItems = Array.from(modalItems);
         selectedOutfit.name = outfitTitle.value;
         selectedOutfit.description = outfitDescription.value;
-        selectedOutfit.items = newModalItems;
+        outfitItemsCopy = newModalItems;
         outfits[index] = selectedOutfit;
 
         modalItems.splice(0, modalItems.length);
@@ -538,7 +540,7 @@ function openPostOutfitModal() {
 
     let postOutfitTable = document.querySelector('.post-outfit-display');
     clearTable(postOutfitTable);
-    addOutfitDataToTable(postOutfitTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
+    addOutfitDataToTable(postOutfitTable, selectedOutfit.items, currentOutfitPage, 3, 150, 150);
     openModal('postOutfitModal');
 }
 
@@ -564,4 +566,11 @@ function iterateThroughOutfits() {
     postSocialOutfitDescription.textContent = outfits[outfitIndex].description;
     clearTable(postOutfitTable);
     addOutfitDataToTable(postOutfitTable, outfits[outfitIndex].items, currentOutfitPage, 3, 150, 150);
+}
+
+function cancelEditOperation() {
+
+    modalItems.splice(0, modalItems.length);
+    closeCBox();
+    closeModal();
 }
