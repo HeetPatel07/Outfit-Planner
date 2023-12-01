@@ -362,7 +362,7 @@ footer {
 }
 
 /* Post Modal */
-.post-modal {
+.post-modal, .post-outfit-modal {
     display: none;
     position: fixed;
     left: 50%;

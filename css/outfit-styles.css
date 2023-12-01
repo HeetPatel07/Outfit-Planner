@@ -59,7 +59,7 @@
     box-sizing: border-box;
     padding: 10px 2px;
 }
-#Description{
+#outfit-title{
     text-decoration: underline;
     font-weight: bold;
     font-size: large;
@@ -187,9 +187,9 @@
 }
 
 #search-form-create, #search-form-edit{
-    top:15%;
+    top:10%;
     position:fixed;
-    left:35%;
+    left:70%;
 }
 
 .active-items{
