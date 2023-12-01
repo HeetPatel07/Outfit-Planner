@@ -238,10 +238,10 @@ var form = document.getElementById('search-form');
 // Prevent form from submitting
 form.onsubmit = function(e) {
     e.preventDefault();
-    performSearch();
+    performSearch(searchField, selectedTable);
 }
 
-function performSearch() {
+function performSearch(searchField, table) {
 
     // get the input field value (lowercased for case-insensitive search)
     var searchValue = searchField.value;
@@ -281,8 +281,8 @@ function performSearch() {
 
     // now the "filteredObjects" array contains only those objects that match the search;
     // you should now update your table using this array.
-    clearTable(selectedTable);
-    addDataToTable(selectedTable, filteredObjects, 0, true, 3);
+    clearTable(table);
+    addDataToTable(table, filteredObjects, 0, true, 3);
 }
 
 function togglePaginationBtnsDisabled() {

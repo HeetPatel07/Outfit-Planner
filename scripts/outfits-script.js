@@ -127,6 +127,24 @@ outfitTitle.textContent = selectedOutfit.name;
 let outfitDescription = document.querySelector('#outfit-description');
 outfitDescription.textContent = selectedOutfit.description;
 
+var searchFieldCreate = document.getElementById("item-search-create");
+var formCreate = document.getElementById('search-form-create');
+
+// Prevent form from submitting
+formCreate.onsubmit = function(e) {
+    e.preventDefault();
+    performSearch(searchFieldCreate, selectedModalTable);
+}
+
+var searchFieldEdit = document.getElementById("item-search-edit");
+var formEdit = document.getElementById('search-form-edit');
+
+// Prevent form from submitting
+formEdit.onsubmit = function(e) {
+    e.preventDefault();
+    performSearch(searchFieldEdit, selectedEditModalTable);
+}
+
 function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
     data.forEach((item, i) => {
         // Calculate row and column indices
@@ -227,18 +245,22 @@ function setModalPaginationVariables() {
     switch (selectedModalCategory) {
         case 'others':
             pagedData = pagedothers;
+            selectedList = othersList;
             selectedModalTable = othersTableModal;
             break;
         case 'tops':
             pagedData = pagedTops;
+            selectedList = topsList;
             selectedModalTable = topsTableModal;
             break;
         case 'bottoms':
             pagedData = pagedBottoms;
+            selectedList = bottomsList;
             selectedModalTable = bottomsTableModal;
             break;
         case 'shoes':
             pagedData = pagedShoes;
+            selectedList = shoesList;
             selectedModalTable = shoesTableModal;
             break;
     }
@@ -249,18 +271,22 @@ function setEditModalPaginationVariables() {
     switch (selectedEditModalCategory) {
         case 'others':
             pagedData = pagedothers;
+            selectedList = othersList;
             selectedEditModalTable = othersEditTableModal;
             break;
         case 'tops':
             pagedData = pagedTops;
+            selectedList = topsList;
             selectedEditModalTable = topsEditTableModal;
             break;
         case 'bottoms':
             pagedData = pagedBottoms;
+            selectedList = bottomsList;
             selectedEditModalTable = bottomsEditTableModal;
             break;
         case 'shoes':
             pagedData = pagedShoes;
+            selectedList = shoesList;
             selectedEditModalTable = shoesEditTableModal;
             break;
     }
