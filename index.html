@@ -719,7 +719,7 @@
 
         <table>
             <tr>
-                <button class="close-button" onclick="openCBox('cancelCreateItemCBox')"><i class="fa-solid fa-xmark"></i></button>
+                <button class="close-button" onclick="openCBox('cancelEditOutfitCBox')"><i class="fa-solid fa-xmark"></i></button>
             </tr>
         </table>
 
@@ -1074,6 +1074,15 @@
         <h2>Cancel Confirmation</h2>
         <p>Are you sure you want to cancel the editing process?</p>
         <button class="cbox-button confirm" onclick="cancelOperation()">Yes</button>
+        <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
+    </div>
+</div>
+
+<div class="cbox-modal" id="cancelEditOutfitCBox">
+    <div class="cbox-content" id="modalContent">
+        <h2>Cancel Confirmation</h2>
+        <p>Are you sure you want to cancel the editing process?</p>
+        <button class="cbox-button confirm" onclick="cancelEditOperation()">Yes</button>
         <button class="cbox-button cancel" onclick="closeCBox()">Cancel</button>
     </div>
 </div>
