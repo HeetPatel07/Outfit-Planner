@@ -78,18 +78,18 @@
         
                     <!-- Top row of squares -->
                     <div class="row">
-                        <div class="square"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
                     </div>
                 </div>
                 <div class="major-row bottom-row">
                     <!-- Labels for bottom row -->
                     <div class="row-labels">
-                        <div class="label">Thurs</div>
-                        <div class="label">Fri</div>
-                        <div class="label">Sat</div>
+                        <div class="label" onclick="dayClicked(0,0,0)">Thurs</div>
+                        <div class="label" onclick="dayClicked(0,0,0)">Fri</div>
+                        <div class="label" onclick="dayClicked(0,0,0)">Sat</div>
                     </div>
             
                     <!-- Bottom row of squares -->
@@ -381,6 +381,44 @@
 <!-- This is the modal overlay that darkens the screen -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
+<!-- Home Day Modal -->
+<div class="home-day-modal" id="homeDayModal">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <div id="dayText" class="home-day-text">Sunday</div>
+        <div id="dateText" class="home-day-text">Nov. 26, 2023</div>
+        <div id="tempText" class="home-day-text">-12°C</div>
+
+        <div>
+            <div class="home-modal-outfit-header">
+                <div class="buffer"></div>
+                <div id="outfitName" class="outfit-name">Outfit1</div>
+                <button class="OFB outfit-button2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+            </div>
+
+            <div class="home-modal-outfit-content">
+                <!-- Left button -->
+                <div class="padded-button-modal">
+                    <button id="home-prev" class="item-arrow left" title="Previous week">
+                        <i class="fa-solid fa-angle-left fa"></i>
+                    </button>
+                </div>
+
+                <div id="homeDayOutfit" class="outfit-div"></div>
+
+                <!-- Right button -->
+                <div class="padded-button-modal">
+                    <button id="home-next" class="item-arrow right" title="Next week">
+                        <i class="fa-solid fa-angle-right fa"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Clothing Modal -->
 <div class="items-create-modal" id="itemsCreateModal">
     <div class="modal-content">
@@ -642,5 +680,6 @@
     }
 </script>
 <script src="scripts/items-script.js"></script>
+<script src="scripts/home.js"></script>
 </body>
 </html>
