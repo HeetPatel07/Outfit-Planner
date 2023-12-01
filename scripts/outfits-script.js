@@ -1,12 +1,17 @@
 let currentOutfit = 0;
 let currentOutfitPage = 0;
 let currentModalPage = 0;
+let currentEditModalPage = 0;
 let categoriesModal = document.querySelectorAll('.category-modal');
 let categoriesEditModal = document.querySelectorAll('.category-edit-modal');
 let tablesModal = document.querySelectorAll('.table-modal');
 let tablesEditModal = document.querySelectorAll('.table-edit-modal');
 let modalItems = [];
 let currentModalCell;
+let selectedModalTable;
+let selectedModalCategory = "tops";
+let selectedEditModalTable;
+let selectedEditModalCategory = "tops";
 
 loadOutfitButtons();
 
@@ -19,19 +24,19 @@ categoriesModal.forEach(function(category) {
 
         // Hide all tables
         tablesModal.forEach(function(table) {
-            console.log(table);
             table.style.display = 'none';
         });
 
         // Show the table corresponding to the selected category
-        selectedCategory = this.getAttribute('data-category');
-        let selectedTable = document.querySelector('.' + selectedCategory + '-modal');
-        console.log(selectedTable);
+        selectedModalCategory = this.getAttribute('data-category');
+        let selectedTable = document.querySelector('.' + selectedModalCategory + '-modal');
         selectedTable.style.display = 'block';
-        currentPage = 0;
+        currentModalPage = 0;
 
-        loadButtons();
-        togglePaginationBtnsDisabled();
+        setModalPaginationVariables();
+        loadModalButtons();
+        clearTable(selectedModalTable);
+        addOutfitDataToModalTable(selectedModalTable, pagedData, 0, false, 3, 'create');
     });
 });
 
@@ -42,21 +47,21 @@ categoriesEditModal.forEach(function(category) {
         });
         this.classList.add('selected');
 
-        console.log(tablesEditModal);
         // Hide all tables
         tablesEditModal.forEach(function(table) {
             table.style.display = 'none';
         });
 
         // Show the table corresponding to the selected category
-        selectedCategory = this.getAttribute('data-category');
-        let selectedTable = document.querySelector('.' + selectedCategory + '-edit-modal');
-        console.log(selectedTable);
+        selectedEditModalCategory = this.getAttribute('data-category');
+        let selectedTable = document.querySelector('.' + selectedEditModalCategory + '-edit-modal');
         selectedTable.style.display = 'block';
-        currentModalPage = 0;
+        currentEditModalPage = 0;
 
+        setEditModalPaginationVariables();
         loadModalButtons();
-        togglePaginationBtnsDisabled();
+        clearTable(selectedEditModalTable);
+        addOutfitDataToModalTable(selectedEditModalTable, pagedData, 0, false, 3, 'edit');
     });
 });
 
@@ -105,6 +110,8 @@ addOutfitDataToModalTable(shoesEditTableModal, pagedShoes, 0, false,  3, 'edit')
 var modalSelectionTable = document.querySelector('#active-create-box tbody');
 var modalEditSelectionTable = document.querySelector('#active-edit-box tbody');
 let selectedOutfit = outfits[currentOutfitPage];
+selectedModalTable = topsTableModal;
+selectedEditModalTable = topsEditTableModal;
 
 function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
     data.forEach((item, i) => {
@@ -128,6 +135,9 @@ function addOutfitDataToTable(table, data, pageNumber, columns, width, height) {
 
 function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns, mode) {
 
+    console.log("------------------ ADD OUTFIT DATA TO MODAL TABLE-----------------------------");
+    console.log("Table: ", data);
+    console.log("Data: ", data);
     let pageItems;
     if(!filtered) {
         pageItems = data[pageNumber];
@@ -161,6 +171,10 @@ function addOutfitDataToModalTable(table, data, pageNumber, filtered, columns, m
 
 function addOutfitDataToModalSelectionTable(table, data, columns, width, height, mode) {
 
+    console.log("------------------ ADD OUTFIT DATA TO MODAL SELECTION TABLE-----------------------------");
+    console.log("Table: ", table);
+    console.log("Data: ", data);
+
     data.forEach((item, i) => {
         // Calculate row and column indices
         const rowIndex = Math.floor(i / columns);
@@ -193,6 +207,50 @@ function addOutfitDataToModalSelectionTable(table, data, columns, width, height,
     });
 }
 
+function setModalPaginationVariables() {
+    console.log(selectedModalCategory);
+    switch (selectedModalCategory) {
+        case 'others':
+            pagedData = pagedothers;
+            selectedModalTable = othersTableModal;
+            break;
+        case 'tops':
+            pagedData = pagedTops;
+            selectedModalTable = topsTableModal;
+            break;
+        case 'bottoms':
+            pagedData = pagedBottoms;
+            selectedModalTable = bottomsTableModal;
+            break;
+        case 'shoes':
+            pagedData = pagedShoes;
+            selectedModalTable = shoesTableModal;
+            break;
+    }
+}
+
+function setEditModalPaginationVariables() {
+    console.log(selectedModalCategory);
+    switch (selectedEditModalCategory) {
+        case 'others':
+            pagedData = pagedothers;
+            selectedEditModalTable = othersEditTableModal;
+            break;
+        case 'tops':
+            pagedData = pagedTops;
+            selectedEditModalTable = topsEditTableModal;
+            break;
+        case 'bottoms':
+            pagedData = pagedBottoms;
+            selectedEditModalTable = bottomsEditTableModal;
+            break;
+        case 'shoes':
+            pagedData = pagedShoes;
+            selectedEditModalTable = shoesEditTableModal;
+            break;
+    }
+}
+
 function loadOutfitButtons() {
     document.getElementById('outfit-arrow-right').onclick = function() {
         nextOutfitPage(1);
@@ -205,21 +263,22 @@ function loadOutfitButtons() {
 
 function loadModalButtons() {
     console.log("Paged Data Length: ", pagedData.length);
+    console.log("Button: ", 'modal-' + selectedModalCategory + '-create-next');
 
-    document.getElementById('modal-' + selectedCategory + '-create-next').onclick = function() {
+    document.getElementById('modal-' + selectedModalCategory + '-create-next').onclick = function() {
         nextModalPage(1, 'create');
     };
 
-    document.getElementById('modal-' + selectedCategory + '-create-prev').onclick = function() {
+    document.getElementById('modal-' + selectedModalCategory + '-create-prev').onclick = function() {
         prevModalPage(1, 'create');
     };
 
-    document.getElementById('modal-' + selectedCategory + '-edit-next').onclick = function() {
-        nextModalPage(1, 'edit');
+    document.getElementById('modal-' + selectedEditModalCategory + '-edit-next').onclick = function() {
+        nextEditModalPage(1, 'edit');
     };
 
-    document.getElementById('modal-' + selectedCategory + '-edit-prev').onclick = function() {
-        prevModalPage(1, 'edit');
+    document.getElementById('modal-' + selectedEditModalCategory + '-edit-prev').onclick = function() {
+        prevEditModalPage(1, 'edit');
     };
 }
 
@@ -250,31 +309,54 @@ function prevOutfitPage(pageNum) {
 }
 
 function nextModalPage(pageNum, mode) {
+    console.log(mode);
     if (currentModalPage < pagedData.length - 1) {
-        console.log("Modal Page before next: ", currentModalPage);
         currentModalPage += pageNum;
-        console.log("Modal Page after next: ", currentModalPage);
-        clearTable(selectedTable);
-        addOutfitDataToModalTable(selectedTable, pagedData, currentModalPage, false, 3, mode);
+        clearTable(mode === 'create' ? selectedModalTable : selectedEditModalTable);
+        addOutfitDataToModalTable(selectedModalTable, pagedData, currentModalPage, false, 3, mode);
     }
 }
 
 function prevModalPage(pageNum, mode) {
+    console.log(mode);
     if (currentModalPage > 0) {
-        console.log("PREV PAGE INIT");
         currentModalPage -= pageNum;
-        clearTable(selectedTable);
-        addOutfitDataToModalTable(selectedTable, pagedData, currentModalPage, false, 3, mode);
+        clearTable(mode === 'create' ? selectedModalTable : selectedEditModalTable);
+        addOutfitDataToModalTable(selectedModalTable, pagedData, currentModalPage, false, 3, mode);
+    }
+}
+
+function nextEditModalPage(pageNum, mode) {
+    console.log(mode);
+    if (currentEditModalPage < pagedData.length - 1) {
+        currentEditModalPage += pageNum;
+        clearTable(selectedEditModalTable);
+        addOutfitDataToModalTable(selectedEditModalTable, pagedData, currentEditModalPage, false, 3, mode);
+    }
+}
+
+function prevEditModalPage(pageNum, mode) {
+    console.log(mode);
+    if (currentEditModalPage > 0) {
+        currentEditModalPage -= pageNum;
+        clearTable(selectedEditModalTable);
+        addOutfitDataToModalTable(selectedEditModalTable, pagedData, currentEditModalPage, false, 3, mode);
     }
 }
 
 function selectItemModal(cell, mode) {
+    console.log("------------SELECT ITEM MODAL--------------");
+    console.log("Modal Items before push: ", modalItems);
+    console.log("Item Index: ", getItemIndex(cell, mode));
 
     if(modalItems.length < 6) {
-        modalItems.push(pagedData[currentModalPage][getItemIndex(cell)]);
+        modalItems.push(pagedData[currentModalPage][getItemIndex(cell, mode)]);
     } else {
         openCBox('tooManyItemsWarningCBox');
     }
+
+    let newModalItems = Array.from(modalItems);
+    console.log("Modal Items after push: ", modalItems);
 
     if(mode === 'create') {
         console.log("Select Item Create");
@@ -308,26 +390,26 @@ function removeSelectedItem(cell, mode) {
 }
 
 function openCreateOutfitModal() {
-    selectedTable = document.getElementById('modal-tops-create-table');
+
+    selectedModalTable = document.getElementById('modal-tops-create-table');
     if(currentModalPage > 0) {
         prevModalPage(currentModalPage);
         currentModalPage -= currentModalPage;
     }
     loadModalButtons();
-    modalItems.splice(0, modalItems.length);
     clearOutfitTable(modalSelectionTable);
     openModal('outfitCreateModal');
 }
 
 function openEditOutfitModal() {
-    selectedTable = document.getElementById('modal-tops-edit-table');
-    if(currentModalPage > 0) {
-        prevModalPage(currentModalPage);
-        currentModalPage -= currentModalPage;
+
+    selectedEditModalTable = document.getElementById('modal-tops-edit-table');
+    if(currentEditModalPage > 0) {
+        prevModalPage(currentEditModalPage);
+        currentEditModalPage -= currentEditModalPage;
     }
     loadModalButtons();
     console.log(selectedOutfit.items);
-    modalItems.splice(0, modalItems.length);
     modalItems = selectedOutfit.items;
     addOutfitDataToModalSelectionTable(modalEditSelectionTable, modalItems, 6, 75, 75, 'edit');
     openModal('outfitEditModal');
@@ -356,12 +438,12 @@ function editOutfit() {
     closeModal();
 }
 
-function getItemIndex(cell) {
+function getItemIndex(cell, mode) {
     let rowIndex = cell.parentNode.rowIndex * 2;
     let cellIndex = cell.cellIndex;
 
     if(cell.parentNode.rowIndex == 0) cellIndex--;
     if(cell.parentNode.rowIndex == 2) cellIndex++;
 
-    return rowIndex + cellIndex + (currentPage * 9);
+    return rowIndex + cellIndex;
 }

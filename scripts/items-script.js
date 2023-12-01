@@ -151,6 +151,7 @@ shoes6 = new Item(shoesImages[0], "Air Force 1", "Nike", Weather.SUNNY, Category
 shoes7 = new Item(shoesImages[1], "Dunk Lows", "Nike", Weather.SUNNY, Category.SHOES);
 shoes8 = new Item(shoesImages[2], "Jordan 1 Low", "Jordan", Weather.SUNNY, Category.SHOES);
 shoes9 = new Item(shoesImages[3], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
+shoes10 = new Item(shoesImages[2], "Jordan 8 Winterized", "Jordan", Weather.SNOWY, Category.SHOES);
 
 let othersList = [];
 var othersTable = document.querySelector('#others-table tbody');
@@ -180,7 +181,7 @@ let pagedBottoms = chunkArray(bottomsList, 9);
 addDataToTable(bottomsTable, pagedBottoms, 0, false, 3);
 
 shoesList.push(shoes1, shoes2, shoes3, shoes4, shoes5,
-    shoes6, shoes7, shoes8, shoes9);
+    shoes6, shoes7, shoes8, shoes9, shoes10);
 let pagedShoes = chunkArray(shoesList, 9);
 addDataToTable(shoesTable, pagedShoes, 0, false, 3);
 
@@ -502,36 +503,45 @@ function createItem(category) {
             othersList.push(newItem);
             pagedothers = chunkArray(othersList, 9);
             pagedData = pagedothers;
-            if((othersList.length % 9) === 1) {
+            if(((othersList.length % 9) === 1) || (((othersList.length % 9) > 0) && currentPage == 0)) {
                 nextPage(1);
             }
             addDataToTable(othersTable, pagedothers, calculatePageNum(category) - 1, false, 3);
             addOutfitDataToModalTable(othersTableModal, pagedothers, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(othersEditTableModal, pagedothers, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
         case "tops":
             topsList.push(newItem);
             pagedTops = chunkArray(topsList, 9);
             pagedData = pagedTops;
-            if((topsList.length % 9) === 1) nextPage(1);
+            if(((topsList.length % 9) === 1) || (((topsList.length % 9) > 0) && currentPage == 0)) {
+                nextPage(1);
+            }
             addDataToTable(topsTable, pagedTops, calculatePageNum(category) - 1, false, 3);
             addOutfitDataToModalTable(topsTableModal, pagedTops, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(topsEditTableModal, pagedTops, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
         case "bottoms":
             bottomsList.push(newItem);
             pagedBottoms = chunkArray(bottomsList, 9);
             pagedData = pagedBottoms;
-            if((bottomsList.length % 9) === 1) nextPage(1);
+            if(((topsList.length % 9) === 1) || (((topsList.length % 9) > 0) && currentPage == 0)) {
+                nextPage(1);
+            }
             addDataToTable(bottomsTable, pagedBottoms, calculatePageNum(category) - 1, false, 3);
-            addDataToTable(bottomsTableModal, pagedBottoms, calculatePageNum(category) - 1, false, 3);
+            addOutfitDataToModalTable(bottomsTableModal, pagedBottoms, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(bottomsEditTableModal, pagedBottoms, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
         case "shoes":
             shoesList.push(newItem);
             pagedShoes = chunkArray(shoesList, 9);
             pagedData = pagedShoes;
-            if((shoesList.length % 9) === 1) nextPage(1);
+            if(((topsList.length % 9) === 1) || (((topsList.length % 9) > 0) && currentPage == 0)) {
+                nextPage(1);
+            }
             addDataToTable(shoesTable, pagedShoes, calculatePageNum(category) - 1, false, 3);
-            addDataToTable(shoesTableModal, pagedShoes, calculatePageNum(category) - 1, false, 3);
-
+            addOutfitDataToModalTable(shoesTableModal, pagedShoes, calculatePageNum(category) - 1, false, 3, 'create');
+            addOutfitDataToModalTable(shoesEditTableModal, pagedShoes, calculatePageNum(category) - 1, false, 3, 'edit');
             break;
     }
 
