@@ -327,7 +327,7 @@ items-cells-modal.selected {
 .modal-description-box{
     position: fixed;
     width: 30%;
-left:27.5%;
+    left:27.5%;
     top: 9%;
     height: 7%;
 }
