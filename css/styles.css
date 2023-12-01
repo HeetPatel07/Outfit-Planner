@@ -377,24 +377,24 @@ footer {
 }
 
 
-/* 
+/*
 * -----------------------------
 * Styles for the Social Section
 * -----------------------------
 */
-#search-bar {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-}
 
 #searchButton{
-    padding: 8px 12px;
-    background-color: #3897f0;
+    position: fixed;
+    right: 25%;
+    top: 25%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #3498db;
     color: #fff;
+    font-size: 30px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 0 4px 4px 0;
 }
 
 .instagram-feed {
@@ -445,13 +445,13 @@ footer {
 
 #postButton {
     position: fixed;
-    left: 50px;
+    left: 25%;
     top: 25%;
     transform: translateY(-50%);
     padding: 10px 20px;
     background-color: #3498db;
     color: #fff;
-    font-size: 16px;
+    font-size: 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -482,11 +482,99 @@ footer {
 }
 
 .like-btn,
-.comment-btn,
-.save-btn {
+.save-btn{
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.commentSection{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 40%;
+    max-height: 70%;
+    width: 100%;
+}
+
+
+.commentSection2{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 40%;
+    max-height: 70%;
+    width: 100%;
+}
+
+#comment-btn{
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#commentBox {
+    border: 1px solid #ccc;
+    padding: 3% 8%;
+    height: 100px;
+    overflow-y: scroll;
+    text-align: left;
+}
+#commentBox2 {
+     border: 1px solid #ccc;
+     padding: 3% 8%;
+     height: 100px;
+     overflow-y: scroll;
+     text-align: left;
+ }
+
+#commentInput1 {
+    width: 40%;
+    height: 50px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#commentInput2 {
+    width: 40%;
+    height: 50px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#commentButtonInPopup {
+    margin-top: 50px;
+    padding: 10px 10px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .icon {
@@ -496,6 +584,151 @@ footer {
 .liked {
     color: red;
 }
+
+#column {
+    position: fixed;
+    height: 60%;
+    width: 17.5%;
+    bottom: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#names {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: #4d4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#names li {
+    margin-bottom: 10px;
+}
+
+.nameButton {
+    font-size: 25px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#back-button {
+    position: fixed;
+    right: 14.25%;
+    top: 42.5%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 16px;
+    height: 5%;
+    width: 3.25%;
+    color: #f0f0f0;
+    background: #3498db;
+
+}
+
+#sendButton {
+    position: fixed;
+    right: 2%;
+    bottom: 1%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 5%;
+    width: 3%;
+    background-color: #3498db;
+    color: #f0f0f0;
+    border-radius: 5px;
+    display: none;
+
+}
+
+#messageInput {
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 4%;
+    width: 10%;
+    background-color: #F0F8FF;
+    display: none;
+}
+
+
+#sendButton2 {
+    position: fixed;
+    right: 2%;
+    bottom: 1%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 5%;
+    width: 3%;
+    background-color: #3498db;
+    color: #f0f0f0;
+    border-radius: 5px;
+    display: none;
+
+}
+
+#messageInput2 {
+    position: fixed;
+    right: 6%;
+    bottom: 2%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 4%;
+    width: 10%;
+    background-color: #F0F8FF;
+    display: none;
+}
+
+#chat-container {
+    display: none;
+    text-align: center;
+    height: 80%;
+    overflow-y: scroll;
+}
+
+#chat-container2 {
+    display: none;
+    height: 80%;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.nameButton:hover {
+    background-color: #2980b9;
+}
+
 
 /* 
 * -----------------------------
@@ -606,57 +839,8 @@ footer {
     width: 64px;
 }
 
-/* Clothing Modal */
 
-.clothing-modal {
-    display: none;
-    position: fixed;
-    left: 31%;
-    top: 50%;
-    transform: translate(-100%, -50%);
-    width: 60%;
-    height: 80%;
-    background-color: #fff;
-    padding: 20px;
-    z-index: 11;
 
-    border-radius: 10px;
-    border: solid #000000;
-    border-width: medium;
-}
-
-.clothing-modal.show {
-    animation: 1s ease-out 0s 1 slideInLeft forwards;
-}
-
-.clothing-modal.hide {
-    animation: 1s ease-out 0s 1 slideOutLeft forwards;
-}
-
-.clothing-modal-buttons{
-    flex-direction:row;
-    position: absolute;
-    align-items:end;
-    font-size:25px;
-    margin:10px;
-    padding: 1.5%;
-    width: 120px;
-    background-color: #ffffff;
-    cursor: pointer;
-}
-
-.Tops{
-   top:30%;
-}
-.Bottoms{
-    top: 40%;
-}
-.Shoes{
-    top:50%;
-}
-.Others{
-    top:60%;
-}
 
 /* Profile Modal */
 .profile-modal {
@@ -702,7 +886,7 @@ footer {
 }
 
 /* Post Modal */
-.post-modal {
+.post-modal, .post-outfit-modal {
     display: none;
     position: fixed;
     left: 50%;
