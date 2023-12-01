@@ -210,6 +210,7 @@ function addOutfitDataToModalSelectionTable(table, data, columns, width, height,
                 deleteItemDiv.className = 'remove-selected-item';
 
                 const removeBtn = document.createElement('button');
+                removeBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
                 removeBtn.onclick = function () {
                     removeSelectedItem(cell, mode);
                 }
@@ -490,6 +491,7 @@ function openPostOutfitModal() {
     outfitDescription.textContent = selectedOutfit.description;
 
     let postOutfitTable = document.querySelector('.post-outfit-display');
+    clearTable(postOutfitTable);
     addOutfitDataToTable(postOutfitTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
     openModal('postOutfitModal');
 }
@@ -514,5 +516,6 @@ function iterateThroughOutfits() {
 
     postSocialOutfitTitle.textContent = outfits[outfitIndex].name;
     postSocialOutfitDescription.textContent = outfits[outfitIndex].description;
+    clearTable(postOutfitTable);
     addOutfitDataToTable(postOutfitTable, outfits[outfitIndex].items, currentOutfitPage, 3, 150, 150);
 }

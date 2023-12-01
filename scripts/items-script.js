@@ -208,6 +208,10 @@ function loadButtons() {
 
 function nextPage(pageNum) {
     if (currentPage < pagedData.length - 1) {
+        if (currentCell) {
+            currentCell.querySelector('.edit-delete-item-btns').style.display = 'none';
+            currentCell.classList.remove('selected');
+        }
         currentPage += pageNum;
         clearTable(selectedTable);
         addDataToTable(selectedTable, pagedData, currentPage, false, 3);
@@ -217,6 +221,10 @@ function nextPage(pageNum) {
 
 function prevPage(pageNum) {
     if (currentPage > 0) {
+        if (currentCell) {
+            currentCell.querySelector('.edit-delete-item-btns').style.display = 'none';
+            currentCell.classList.remove('selected');
+        }
         currentPage -= pageNum;
         clearTable(selectedTable);
         addDataToTable(selectedTable, pagedData, currentPage, false, 3);
@@ -422,7 +430,6 @@ function addDataToTable(table, data, pageNumber, filtered, columns) {
 
                 // Create Edit and Delete Buttons
                 const editButton = document.createElement('button');
-                //editButton.innerText = 'Edit';
                 editButton.className = 'item-edit-btn';
                 editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
                 editButton.onclick = function(e) {
@@ -432,7 +439,6 @@ function addDataToTable(table, data, pageNumber, filtered, columns) {
                 };
 
                 const deleteButton = document.createElement('button');
-                //deleteButton.innerText = 'Delete';
                 deleteButton.className = 'item-delete-btn';
                 deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
                 deleteButton.onclick = function(e) {
