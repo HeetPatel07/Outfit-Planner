@@ -617,11 +617,13 @@ footer {
 #chat-container {
     display: none;
     text-align: center;
+    height: 80%;
     overflow-y: scroll;
 }
 
 #chat-container2 {
     display: none;
+    height: 80%;
     text-align: center;
     overflow-y: scroll;
 }
