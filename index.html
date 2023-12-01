@@ -56,18 +56,59 @@
     --- Home Page ---------------
     ---------------------------->
 
-    <div id="homePage">
-        <h1>Home Page</h1>
-
-        <section>
-            <h2>Section 1</h2>
-            <p>This is the content of section 1.</p>
-        </section>
-
-        <section>
-            <h2>Section 2</h2>
-            <p>This is the content of section 2.</p>
-        </section>
+    <div id="homePage" class="homepage">
+        <div clas="no-padding"><img class="hanger-rod" src="images/hanger-rod-v2.png"></div>
+        <div class="homepage-content">
+            <!-- Left button -->
+            <div class="padded-button">
+                <button id="home-prev" class="item-arrow left" title="Previous week">
+                    <i class="fa-solid fa-angle-left fa"></i>
+                </button>
+            </div>
+        
+            <div class="rectangle-section">
+                <div id="date-header" class="date-header">Nov. 26, 2023 - Dec. 2, 2023</div>
+                <div class="major-row top-row">
+                    <!-- Labels for top row -->
+                    <div class="row-labels">
+                        <div class="label">Sun</div>
+                        <div class="label">Mon</div>
+                        <div class="label">Tues</div>
+                        <div class="label">Wed</div>
+                    </div>
+        
+                    <!-- Top row of squares -->
+                    <div class="row">
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                        <div class="square" onclick="dayClicked(0,0,0)"></div>
+                    </div>
+                </div>
+                <div class="major-row bottom-row">
+                    <!-- Labels for bottom row -->
+                    <div class="row-labels">
+                        <div class="label" onclick="dayClicked(0,0,0)">Thurs</div>
+                        <div class="label" onclick="dayClicked(0,0,0)">Fri</div>
+                        <div class="label" onclick="dayClicked(0,0,0)">Sat</div>
+                    </div>
+            
+                    <!-- Bottom row of squares -->
+                    <div class="row">
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Right button -->
+            <div class="padded-button">
+                <button id="home-next" class="item-arrow right" title="Next week">
+                    <i class="fa-solid fa-angle-right fa"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <!---------------------------
@@ -377,6 +418,44 @@
 ---------------------------->
 <!-- This is the modal overlay that darkens the screen -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+<!-- Home Day Modal -->
+<div class="home-day-modal" id="homeDayModal">
+    <div class="modal-content">
+        <span class="right-close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+        <div id="dayText" class="home-day-text">Sunday</div>
+        <div id="dateText" class="home-day-text">Nov. 26, 2023</div>
+        <div id="tempText" class="home-day-text">-12°C</div>
+
+        <div>
+            <div class="home-modal-outfit-header">
+                <div class="buffer"></div>
+                <div id="outfitName" class="outfit-name">Outfit1</div>
+                <button class="OFB outfit-button2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+            </div>
+
+            <div class="home-modal-outfit-content">
+                <!-- Left button -->
+                <div class="padded-button-modal">
+                    <button id="home-prev" class="item-arrow left" title="Previous week">
+                        <i class="fa-solid fa-angle-left fa"></i>
+                    </button>
+                </div>
+
+                <div id="homeDayOutfit" class="outfit-div"></div>
+
+                <!-- Right button -->
+                <div class="padded-button-modal">
+                    <button id="home-next" class="item-arrow right" title="Next week">
+                        <i class="fa-solid fa-angle-right fa"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Clothing Modal -->
 <div class="items-create-modal" id="itemsCreateModal">
@@ -859,8 +938,8 @@
         <div class="profile-text">Description of the user.</div>
         
         <div class="profile-footer">
-            <div><button class="profile-button">Edit Profile</button></div>
-            <div><button class="profile-button">Settings</button></div>
+            <div><button class="profile-button" onclick="notImplemented('Profile editing page is beyond the scope of this prototype.')">Edit Profile</button></div>
+            <div><button class="profile-button" onclick="notImplemented('Application settings page is beyond the scope of this prototype.')">Settings</button></div>
         </div>
     </div>
 </div>
@@ -1080,6 +1159,11 @@
         }, 10); // Adjust the time (in milliseconds) as needed
     }
 
+    // Alert function for non-implemented portions
+    function notImplemented(message) {
+        alert(message);
+    }
+
     function toggleFollow(button) {
         if (button.textContent === 'Follow') {
             button.textContent = 'Following';
@@ -1181,7 +1265,7 @@
 
         document.getElementById("messageInput").value = '';
 
-        document.getElementById("back-container").style.display = "block";
+        //document.getElementById("back-container").style.display = "block";
     }
 
     function sendMessage2() {
@@ -1198,5 +1282,6 @@
 </script>
 <script src="scripts/items-script.js"></script>
 <script src="scripts/outfits-script.js"></script>
+<script src="scripts/home.js"></script>
 </body>
 </html>
