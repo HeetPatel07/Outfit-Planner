@@ -551,14 +551,14 @@ footer {
 #back-button {
     position: fixed;
     right: 14.25%;
-    top: 43%;
+    top: 42.5%;
     transform: translateY(-50%);
     border: none;
     cursor: pointer;
     display: none;
-    font-size: 30px;
-    height: 50px;
-    width: 50px;
+    font-size: 16px;
+    height: 5%;
+    width: 3.25%;
     color: #f0f0f0;
     background: #3498db;
 
@@ -572,8 +572,8 @@ footer {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    height: 50px;
-    width: 50px;
+    height: 5%;
+    width: 3%;
     background-color: #3498db;
     color: #f0f0f0;
     border-radius: 5px;
@@ -604,8 +604,8 @@ footer {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    height: 50px;
-    width: 50px;
+    height: 5%;
+    width: 3%;
     background-color: #3498db;
     color: #f0f0f0;
     border-radius: 5px;
