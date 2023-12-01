@@ -414,8 +414,8 @@ footer {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
-    max-width: 450px;
-    max-height: 600px;
+    max-width: 40%;
+    max-height: 70%;
     width: 100%;
 }
 
@@ -430,8 +430,8 @@ footer {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
-    max-width: 400px;
-    max-height: 600px;
+    max-width: 40%;
+    max-height: 70%;
     width: 100%;
 }
 
@@ -464,14 +464,14 @@ footer {
  }
 
 #commentInput1 {
-    width: 450px;
+    width: 40%;
     height: 50px;
     padding: 8px;
     box-sizing: border-box;
 }
 
 #commentInput2 {
-    width: 400px;
+    width: 40%;
     height: 50px;
     padding: 8px;
     box-sizing: border-box;
@@ -517,6 +517,19 @@ footer {
     margin: 0;
 }
 
+.user{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: #4d4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 #names li {
     margin-bottom: 10px;
 }
@@ -537,8 +550,8 @@ footer {
 
 #back-button {
     position: fixed;
-    right: 15%;
-    top: 42.5%;
+    right: 14.25%;
+    top: 43%;
     transform: translateY(-50%);
     border: none;
     cursor: pointer;
