@@ -213,8 +213,8 @@
     border: 1px solid #000;
     margin: 10px;
     width:90%;
-    height:50px;
-    top:85%;
+    height:120px;
+    top:80%;
     left:2%;
     position: fixed;
 
@@ -223,6 +223,8 @@
     border: 1px solid #000;
     margin:10px;
     left:5%;
+    width:16.66%;
+    height:100px;
     text-align: center;
 }
 
@@ -315,3 +317,18 @@ items-cells-modal.selected {
 .modal-item-arrow.left:disabled, .modal-item-arrow.right:disabled {
     background-color: lightgray;
 }
+.outfit-modal-tittle{
+    position: fixed;
+    top:auto;
+    left:auto;
+    color:darkgrey;
+    font-size:20px;
+}
+.modal-description-box{
+    position: fixed;
+    width: 30%;
+left:27.5%;
+    top: 9%;
+    height: 7%;
+}
+
