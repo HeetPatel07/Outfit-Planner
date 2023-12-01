@@ -476,8 +476,16 @@ function editOutfit() {
 
 function deleteOutfit() {
 
-    outfits.splice(currentOutfit, 1);
+    outfits.splice(currentOutfitPage, 1);
     clearOutfitTable(outfitsTable);
+    currentOutfitPage === 0 ? ++currentOutfitPage : --currentOutfitPage;
+
+    let outfitTitle = document.querySelector('#outfit-title');
+    outfitTitle.textContent = outfits[currentOutfitPage].name;
+
+    let outfitDescription = document.querySelector('#outfit-description');
+    outfitDescription.textContent = outfits[currentOutfitPage].description;
+
     addOutfitDataToTable(outfitsTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
     closeCBox();
 }
