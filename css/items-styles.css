@@ -175,11 +175,11 @@ input[type="submit"] {
 }
 
 .buttons.item-add-button {
-    background-color: #3897f0;
+    background-color: rgb(34, 217, 34);
 }
 
 .buttons.item-add-button:hover {
-    background-color: #3857f0;
+    background-color: #1da21d;
 }
 
 @keyframes slideInLeft {
