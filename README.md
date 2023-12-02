@@ -31,6 +31,8 @@ General comments about the abilities of this prototype are listed here. Please r
 2. This app was designed with uploading images in mind, but that functionality/interface is out of the scope of this website. To simulate this when creating/editing clothing items, you can click the image in the pop up to flip through pre-defined images.
 3. Managing clothing and outfit item capabilities were added, but functionality revolving deleting clothes that exist in outfits has not been implemented as that check and error correction is a back-end function.
 
-## Known Issues
+## Known Bugs
 
-1. There is an existing issue when specifically deleting a custom clothing item on the clothes page which may cause the page to crash. Refreshing the prototype will fix this by resetting the website.
+Known bugs are listed here as a warning and proof of acknowledgement. Most bugs deal with edge cases with data management. Since most of our focus revolved around creating a functional interface, these bugs were not able to be addressed in time. Hence this prototype is not recommended to be used to test data edge cases.
+
+1. There is an existing issue when specifically deleting a custom clothing item on the clothes page, or when deleting all items (either clothes or outfits). This will cause the clothing grid/outfit viewer to break. Refreshing the prototype will fix this by resetting the website.
