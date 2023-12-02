@@ -482,7 +482,7 @@ function createNewOutfit() {
         outfits.push(newOutfit);
         modalItems.splice(0, modalItems.length);
 
-        addOutfitDataToTable(outfitsTable, outfits, currentOutfitPage, 3, 150, 150);
+        addOutfitDataToTable(outfitsTable, outfits[currentOutfitPage].items, currentOutfitPage, 3, 150, 150);
         closeModal();
     } else {
         openCBox('NoItemsCBox');
