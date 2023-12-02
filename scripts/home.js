@@ -1,5 +1,6 @@
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const temps = ['-12°C', '-11°C', '-13°C', '-9°C', '-4°C', '-16°C', '-5°C', ];
+const dates = ['Nov. 26, 2023', 'Nov. 27, 2023', 'Nov. 28, 2023', 'Nov. 29, 2023', 'Nov. 30, 2023', 'Dec. 1, 2023', 'Dec. 2, 2023'];
+const temps = ['-12°C', '-11°C', '-13°C', '-9°C', '-4°C', '-16°C', '-5°C'];
 let outfitIndexHome = 0;
 let outfitDay = 0;
 let homePageOutfitTable = document.querySelector('.outfit-display-homepage');
@@ -10,6 +11,11 @@ let buttonsDisabled = true;
 
 
 function dayClicked(day, date, outfit){
+    document.getElementById('dayText').innerText = days[day];
+    document.getElementById('dateText').innerText = dates[date];
+    document.getElementById('tempText').innerText = temps[date];
+
+
     outfitDay = day;
     homePageOutfitTitle.textContent = outfitsPerDay[outfitDay].name;
     loadHomeOutfitButtons();

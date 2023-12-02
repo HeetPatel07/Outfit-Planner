@@ -829,7 +829,7 @@ footer {
 }
 
 .home-modal-outfit-header {
-    padding-top: 50px;
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -970,6 +970,26 @@ footer {
     .confirm{
         color:white;
         background-color: #f6531a;
+    }
+
+    .cboxButton-red {
+        color:white;
+        background-color: #f6531a;
+    }
+
+    .cboxButton-green {
+        color:white;
+        background-color: #29d440;
+    }
+
+    .cboxButton-white {
+        color:white;
+        background-color: #ffffff;
+    }
+
+    .cboxButton-gray {
+        color:white;
+        background-color: #a8a8a8;
     }
 
 

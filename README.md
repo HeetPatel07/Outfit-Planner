@@ -23,7 +23,14 @@ This file should be in the same directory as this readme.md file.
 3. Right-click on this file, click "open with", and click on your desired browser.
 4. The website should be opened now on the chosen browser.
 
-## Known Issues
+## Comments on Prototype
+
+General comments about the abilities of this prototype are listed here. Please read these before testing website.
 
 1. This website was made for desktop sizes only, and is expected to only be appropriately spaced and laid out on desktop-sized browsers.
-2. There is an existing issue when creating an outfit where the images don't load. This is a visual bug in the website and using the horizontal arrows to paginate away and back will fix its appearance.
+2. This app was designed with uploading images in mind, but that functionality/interface is out of the scope of this website. To simulate this when creating/editing clothing items, you can click the image in the pop up to flip through pre-defined images.
+
+## Known Issues
+
+1. There is an existing issue when creating an outfit where the images don't load. This is a visual bug in the website and using the horizontal arrows to paginate away and back will fix its appearance.
+2. On the home page, outfits can be set for each day of the week, but the visuals of the previews under each day of the week was not implemented.
