@@ -648,6 +648,19 @@ footer {
 
 }
 
+#report {
+    position: fixed;
+    left: 75%;
+    top: 5%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 #sendButton {
     position: fixed;
     right: 2%;
